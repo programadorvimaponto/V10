@@ -1,0 +1,555 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>vcSdkUi</name>
+    </assembly>
+    <members>
+        <member name="T:Vimaponto.Componentes.Sdk.Controlos.Recursos">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_adicionar_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_ajuste_automatico">
+            <summary>
+              Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_anterior_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_apply_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_apply_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_close_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_close_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_congelar">
+            <summary>
+              Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_congelar_direita">
+            <summary>
+              Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_congelar_esquerda">
+            <summary>
+              Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_congelar_nenhum">
+            <summary>
+              Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_desmarcar_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_desmarcar_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_editor">
+            <summary>
+              Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_export_xls_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_export_xls_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_exportar_xls">
+            <summary>
+              Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_imprimir_grelha">
+            <summary>
+              Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_indisponivel">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_mais_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_marcar_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_marcar_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_print_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_print_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_remover_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_restaurar">
+            <summary>
+              Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_seguinte_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_sem_imagem">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_tamanho_fixo">
+            <summary>
+              Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_undo_16x16">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.Recursos.img_undo_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="F:Vimaponto.Componentes.Sdk.Controlos.VmpFormListaBs.VmpFormListaBs.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpFormListaBs.VmpFormListaBs.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpFormListaBs.VmpFormListaBs.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpForm.VmpBaseForm.#ctor">
+            <summary>
+            Construtor default
+            </summary>
+        </member>
+        <member name="F:Vimaponto.Componentes.Sdk.Controlos.VmpForm.VmpBaseForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpForm.VmpBaseForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpForm.VmpBaseForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:Vimaponto.Componentes.Sdk.Controlos.VmpGrid.RepositoryItems.VmpRepositoryItemPopupRichTextEdit.EditorKeyDown">
+            <summary>
+            Occurs when a key is pressed while the editor form has focus.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridView.Personalizavel">
+            <summary>
+            Permite / Bloqueia as funcionalidades de esconder e mostrar colunas
+            </summary>
+            <remarks>
+            Deve ser chamado depois de formatar as colunas. Colunas que sejam formatadas com personalizáveis depois, ainda serão possíveis arrastar e esconder
+            </remarks>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridView.AdicionarTotalizador(System.String,System.String,DevExpress.Data.SummaryItemType,System.Boolean,System.Int16)">
+            <summary>
+            
+            </summary>
+            <param name="Coluna"></param>
+            <param name="Descricao"></param>
+            <param name="TipoTotalizador"></param>
+            <param name="TotalizadorRodapeGrupo">Totalizadores de grupo aparecem na linha de cabeçalho do grupo, ou no rodapé</param>
+            <param name="CasasDecimais"></param>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridView.FormatarColuna(System.String,System.Boolean,System.Boolean,System.Boolean,System.String,System.Int32,DevExpress.Utils.FormatType,System.String,System.Boolean)">
+            <summary>
+            Formatar uma coluna da grelha
+            </summary>
+            <param name="Coluna">Nome da coluna no DataSource</param>
+            <param name="Visivel">Começa visível</param>
+            <param name="Editavel">Permite edição</param>
+            <param name="Personalizavel">Possível esconder / mostrar esta coluna ( se começar vísivel não dá para esconder, se não começar visível não dá para colocar visível)</param>
+            <param name="Caption">Descrição da coluna</param>
+            <param name="LarguraFixa">Tamanho dá coluna fixo, não é alterado ao fazer o resize da grelha, mas o utilizador pode aumentar/diminuir</param>
+            <param name="TipoFormato">Se não for preenchido e <paramref name="FormatoTexto"/> estiver, é colocado por defeito a numérico</param>
+            <param name="FormatoTexto">Formato para display e edição</param>
+            <param name="ColunaInteracao">Coluna com ações associadas. Colunas de interação são destacadas. Colunas editáveis são automáticamente de interação, não adicionar</param>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridView.AdicionarColunaCalculada(System.String,System.String,DevExpress.Data.UnboundColumnType,System.String)">
+            <summary>
+            Adiciona uma coluna calculada automaticamente apenas à view.
+            </summary>
+            <param name="nomeColuna">Nome da coluna a adicionar</param>
+            <param name="nomeColunaSomar">Nome da coluna que vai utilizar para obter valores</param>
+            <param name="tipo">Tipo de dados</param>
+            <param name="formato">Formato com que os dados são mostrados</param>
+            <returns>Devolve a coluna adicionada.</returns>
+        </member>
+        <member name="E:Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridView.RichTextEditorKeyDown">
+            <summary>
+            Occurs when a key is pressed while the editor form has focus.
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridView.MostrarRichTextEditor(System.Int32,System.String)">
+            <summary>
+            Abre o editor HTML da coluna
+            </summary>
+            <param name="column">Field Name</param>
+            <returns>Se mostrou ou não o formulário</returns>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridView.DataView_Click(System.Object,System.EventArgs)">
+            <summary>
+            Abrir Formulário com toda a informação do dataSource
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Vimaponto.Componentes.Sdk.Controlos.VmpImage.Details.FormDetalheImagens.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.Details.FormDetalheImagens.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.Details.FormDetalheImagens.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Vimaponto.Componentes.Sdk.Controlos.VmpImage.Details.VmpDetailedSlider.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.Details.VmpDetailedSlider.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.Details.VmpDetailedSlider.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.PressionadoAdicionar">
+            <summary>
+            Botão adicionar pressionado
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.EventoPressionadoAdicionar(Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSliderEventArgs)">
+            <summary>
+            Evento para botão adicionar pressionado
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.PressionadoRemover">
+            <summary>
+            Botão remover pressionado
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.EventoPressionadoRemover(Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSliderEventArgs)">
+            <summary>
+            Evento para botão remover pressionado
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.PressionadoMaisInfo">
+            <summary>
+            Botão mais info pressionado
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.EventoPressionadoMaisInfo(Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSliderEventArgs)">
+            <summary>
+            Evento para botão mais info pressionado
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.PressionadoSeguinte">
+            <summary>
+            Botão seguinte pressionado
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.EventoPressionadoSeguinte(Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSliderEventArgs)">
+            <summary>
+            Evento para botão seguinte pressionado
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.PressionadoAnterior">
+            <summary>
+            Botão anterior pressionado
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.EventoPressionadoAnterior(Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSliderEventArgs)">
+            <summary>
+            Evento para botão anterior pressionado
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.DepoisDeAdicionar">
+            <summary>
+            Evento depois de adicionar
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.EventoDepoisDeAdicionar(Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSliderEventArgs)">
+            <summary>
+            Evento para botão depois de adicionar
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.Caminho">
+            <summary>
+            Pasta ou ficheiro a ser carregado
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.LimparImagens">
+            <summary>
+            Limpar imagens existentes
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.CarregarImagens(System.String)">
+            <summary>
+            Função para carregar as imagens existentes numa path
+            </summary>
+            <param name="caminhoImagens">Pasta de ficheiros ou ficheiro unitário</param>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.CarregarImagens(System.Collections.Generic.List{Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSliderItem}@)">
+            <summary>
+            Função para carregar as imagens passadas numa lista
+            </summary>
+            <param name="listaImagens">Lista de objetos ImageSlider</param>
+        </member>
+        <member name="F:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpImage.VmpImageSlider.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Vimaponto.Componentes.Sdk.Controlos.VmpRichEdit.frmEditorHtml.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpRichEdit.frmEditorHtml.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpRichEdit.frmEditorHtml.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.VmpRichEdit.VmpRichEditControl.EditorOpen">
+            <summary>
+            Returns if the editor form is open or not
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpRichEdit.VmpRichEditControl.#ctor">
+            <summary>
+            Construtor Default
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpRichEdit.VmpRichEditControl.AbrirEditorHTML">
+            <summary>
+            Shows the editor form
+            </summary>
+        </member>
+        <member name="E:Vimaponto.Componentes.Sdk.Controlos.VmpRichEdit.VmpRichEditControl.EditorKeyDown">
+            <summary>
+            Occurs when a key is pressed while the editor form has focus.
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpRichEdit.VmpRichEditControl.OnEditorClosed(System.String)">
+            <summary>
+            Occurs after the Editor Form is closed
+            </summary>
+            <param name="HtmlText">Editor form final value</param>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpRichEdit.VmpRichEditControl.Limpar">
+            <summary>
+            Limpa o controlo como se estivesse a criar um novo documento
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpRichEdit.VmpRichEditControl.CarregarTexto(System.String)">
+            <summary>
+            Carrega o <paramref name="Texto"/> e mostra o mesmo
+            </summary>
+            <param name="Texto">Texto a ser mostrado</param>
+            <returns>Se foi possível ou não carregar o texto</returns>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpRichEdit.VmpRichEditControl.Texto">
+            <returns>Texto formatad</returns>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpRichEdit.VmpRichEditControl.SetCell(System.Int32,System.String,DevExpress.XtraGrid.Views.Grid.GridView)">
+            <summary>
+            Uses to save the changes made in the <see cref="T:Vimaponto.Componentes.Sdk.Controlos.VmpRichEdit.VmpRichEditControl"/> editor form
+            </summary>
+            <param name="rowHandle">R</param>
+            <param name="fieldName">Property to set the value</param>
+            <param name="view">GridView owner of the editor</param>
+        </member>
+        <member name="P:Vimaponto.Componentes.Sdk.Controlos.VmpFiltro.VmpFiltro.Todos">
+            <summary>
+            Define CheckEdit Todos no User Control Filtros
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpFiltro.VmpFiltro.CarregaDados(System.Windows.Forms.BindingSource)">
+            <summary>
+            Permite preecher a grelha do UserControl de Filtros
+            </summary>
+            <param name="binding">bindig a colocar na grelha</param>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpFiltro.VmpFiltro.GetDataRows">
+            <summary>
+            Devolve todas as linhas selecionadas caso a check todos esteja desmarcada, caso marcada não devolve linhas.
+            ISto porque quando o valor todos está selecionado, não será aplicado nenhum filtro
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpFiltro.VmpFiltro.GetStringFiltroByCampoSql(System.String[],System.String,System.String)">
+            <summary>
+            Devolve uma string where para os valores selecionados da grelha filtros
+            </summary>
+            <param name="campos">Campos a ter em conta na string a devolver ex:Id</param>
+            <param name="aliasTab">Alias para a tabela que será a crescentado antes do campo ex:CD resultado: CD.Id</param>
+            <param name="sqlDataType">campo usado para fazer comparação do campo da base de dados e do valor a passar para o mesmo tipo,
+            ex: um datetime na base de dados, se for necessario comparar apenas a data, é necessario especificar neste farametro o valor DATE</param>
+            <returns>string pronta a ser colocada no where de uma query</returns>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpFiltro.VmpFiltro.GetStringFiltroByCampoCrystalReports(System.String[],System.String)">
+            <summary>
+            Devolve uma string where para os valores selecionados da grelha filtros, Função especifica para syntax Crystal Reports
+            </summary>
+            <param name="campos">Campos a ter em conta na string a devolver ex:Id</param>
+            <param name="nomeTabela">Alias para a tabela que será a crescentado antes do campo ex:CD resultado: CD.Id</param>
+            <returns>string pronta a ser colocada no Selection Formula do Crystal Report</returns>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpFiltro.VmpFiltro.GetStringFiltroByCampoIn(System.String,System.Char)">
+            <summary>
+            Devolve uma string com os registos selecionados separados por vírgula para filtro no SQL com a expressão 'IN'
+            </summary>
+            <param name="campo">Campo a devolver a lista</param>
+            <param name="separador"> Carácter que irá separar os valores</param>
+            <returns>EX: (3,4,5)</returns>
+        </member>
+        <member name="F:Vimaponto.Componentes.Sdk.Controlos.VmpFiltro.VmpFiltro.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpFiltro.VmpFiltro.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Vimaponto.Componentes.Sdk.Controlos.VmpFiltro.VmpFiltro.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

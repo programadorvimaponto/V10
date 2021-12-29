@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{96E85064-B923-4CBE-A8AC-5DF4617BD832}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vimaponto.PrimaveraV100.Clientes.GrupoMundifios</RootNamespace>
+    <AssemblyName>vpPriV100GrupoMundifios</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BasBE100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\BasBE100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="C1.Win.C1Input.4, Version=4.0.20131.33296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\ComponentOne\Studio for WinForms\bin\v4\C1.Win.C1Input.4.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1SplitContainer.4, Version=4.0.20131.41, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\ComponentOne\Studio for WinForms\bin\v4\C1.Win.C1SplitContainer.4.dll</HintPath>
+    </Reference>
+    <Reference Include="CctBE100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\CctBE100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CmpBE100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\CmpBE100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Docs.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPdfViewer.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="ErpBS100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\ErpBS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ErpDS100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\ErpDS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GprBE100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\GprBE100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IBasBS100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IBasBS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ICctBS100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\ICctBS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ICmpBS100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\ICmpBS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IGprBS100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IGprBS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IIntBS100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IIntBS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IInvBS100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IInvBS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IntBE100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IntBE100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="InvBE100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\InvBE100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="InvBS100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\InvBS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IVndBS100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IVndBS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IVndDS100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IVndDS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Primavera.Extensibility.Attributes">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\APL\Primavera.Extensibility.Attributes.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Extensibility.Base">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\APL\Primavera.Extensibility.Base.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Extensibility.BusinessEntities">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\APL\Primavera.Extensibility.BusinessEntities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Extensibility.Constants">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\Primavera.Extensibility.Constants.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Extensibility.CustomForm">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\Primavera.Extensibility.CustomForm.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Extensibility.Integration">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\APL\Primavera.Extensibility.Integration.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Extensibility.Internal">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\Primavera.Extensibility.Internal.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Extensibility.Inventory">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\Primavera.Extensibility.Inventory.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Extensibility.Patterns">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\Primavera.Extensibility.Patterns.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Extensibility.PayablesReceivables">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\Primavera.Extensibility.PayablesReceivables.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Extensibility.Platform">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\APL\Primavera.Extensibility.Platform.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Extensibility.Production">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\Primavera.Extensibility.Production.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Extensibility.Purchases">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\Primavera.Extensibility.Purchases.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Extensibility.Sales">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\APL\Primavera.Extensibility.Sales.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.Platform.Collections">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\Primavera.Platform.Collections.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PRISDK100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\PRISDK100.dll</HintPath>
+    </Reference>
+    <Reference Include="PriTextBoxF4100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\PriTextBoxF4100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="StdBE100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\StdBE100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="StdPlatBS100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\StdPlatBS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="vcSdkUi">
+      <HintPath>..\..\..\..\..\..\..\COMPONENTES\vcSdkUi\Trunk\vcSdkUi\bin\Debug\vcSdkUi.dll</HintPath>
+    </Reference>
+    <Reference Include="vcSistema">
+      <HintPath>..\..\..\..\..\..\..\COMPONENTES\vcSistema\Trunk\vcSistema\bin\Debug\netstandard2.0\vcSistema.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VndBE100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\APL\VndBE100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="vpPriV100">
+      <HintPath>..\..\..\..\VEX\Trunk\vpPriV100\bin\Debug\vpPriV100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlertaCriarCliente\Base\FichaCliente\BasIsFichaCliente.cs" />
+    <Compile Include="AlertaCriarFornecedor\Base\FichaFornecedor\BasIsFichaFornecedor.cs" />
+    <Compile Include="AlertaObsCliente\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="AlertaRupturaStkMin\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="ArmazemEntreposto\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="ArmazemEntreposto\Producao\EditorStocks\PrdIsEditorStocks.cs" />
+    <Compile Include="ArmazemEntreposto\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="ArmazemEntreposto\Vendas\WindowsForms\FrmAlteraGuiaAEPView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ArmazemEntreposto\Vendas\WindowsForms\FrmAlteraGuiaAEPView.Designer.cs">
+      <DependentUpon>FrmAlteraGuiaAEPView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArtigosNovos\Base\FichaArtigo\BasIsFichaArtigo.cs" />
+    <Compile Include="AssistenteArtigos\FormGestaoPropriedadeArtigoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AssistenteArtigos\FormGestaoPropriedadeArtigoView.Designer.cs">
+      <DependentUpon>FormGestaoPropriedadeArtigoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\FormGestaoPropriedadesMundifiosView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AssistenteArtigos\FormGestaoPropriedadesMundifiosView.Designer.cs">
+      <DependentUpon>FormGestaoPropriedadesMundifiosView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\FormHelpView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AssistenteArtigos\FormHelpView.Designer.cs">
+      <DependentUpon>FormHelpView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\FormListaMundifiosView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AssistenteArtigos\FormListaMundifiosView.Designer.cs">
+      <DependentUpon>FormListaMundifiosView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\FrmArtigoMundifiosView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AssistenteArtigos\FrmArtigoMundifiosView.Designer.cs">
+      <DependentUpon>FrmArtigoMundifiosView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\FrmListaPropriedadesMundifiosView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AssistenteArtigos\FrmListaPropriedadesMundifiosView.Designer.cs">
+      <DependentUpon>FrmListaPropriedadesMundifiosView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AvisoCompraTaras\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="CEC\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="CertificadosFaturaPDF\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="CertificadosOrg\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="CertificadosOrg\Compras\WindowsForms\FrmAlteraCertificadoTransacaoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CertificadosOrg\Compras\WindowsForms\FrmAlteraCertificadoTransacaoView.Designer.cs">
+      <DependentUpon>FrmAlteraCertificadoTransacaoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CertificadosOrg\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="CertificadosOrg\Vendas\WindowsForms\FrmAlteraCertificadoTransacao2View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CertificadosOrg\Vendas\WindowsForms\FrmAlteraCertificadoTransacao2View.Designer.cs">
+      <DependentUpon>FrmAlteraCertificadoTransacao2View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComparaLinhasComissoes\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="CompraFio\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="CompraFio\Inventario\EditorStocks\InvIsEditorStocks.cs" />
+    <Compile Include="CompraFio\PagamentosRecebimentos\EditorPendentes\CctIsEditorPendentes.cs" />
+    <Compile Include="CondPagRQ\Base\FichaCondsPag\BasIsFichaCondsPag.cs" />
+    <Compile Include="CondPagRQ\Plataforma\PltNsEmpresas.cs" />
+    <Compile Include="CondPagRQ\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="CondPagRQ\Vendas\FichaConverteVendas\VndIsFichaConverteVendas.cs" />
+    <Compile Include="CopiaEntreEmpresas\Base\FichaClientes\BasIsFichaClientes.cs" />
+    <Compile Include="CopiaEntreEmpresas\Base\FichaFornecedor\BasIsFichaFornecedor.cs" />
+    <Compile Include="CopiaEntreEmpresas\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="CopiaEntreEmpresas\Compras\FichaTabDocCompras\CmpIsFichaTabDocCompras.cs" />
+    <Compile Include="CopiaEntreEmpresas\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="CopiaEntreEmpresas\Vendas\FichaConverteVendas\VndIsFichaConverteVendas.cs" />
+    <Compile Include="CopiaEntreEmpresas\Vendas\FichaTabDocVendas\VndIsFichaTabDocVendas.cs" />
+    <Compile Include="CopiaEntreEmpresas\Vendas\WindowsForms\FrmClientesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CopiaEntreEmpresas\Vendas\WindowsForms\FrmClientesView.Designer.cs">
+      <DependentUpon>FrmClientesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CopiarCaractTec\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="CopiarLotes\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="CustoTransportes\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="CustoTransportes\Vendas\WindowsForms\FrmCustoTransportesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustoTransportes\Vendas\WindowsForms\FrmCustoTransportesView.Designer.cs">
+      <DependentUpon>FrmCustoTransportesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Default\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="Default\Internos\EditorInternos\IntIsEditorInternos.cs" />
+    <Compile Include="Default\Plataforma\PltNsEmpresas.cs" />
+    <Compile Include="Default\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="DsFacade.cs" />
+    <Compile Include="DyStar\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="EmDisputa\PagamentosRecebimentos\EditorCCPendentesGrelha\CctIsEditorCCPendentesGrelha.cs" />
+    <Compile Include="EmDisputa\PagamentosRecebimentos\EditorPendentes\CctIsEditorPendentes.cs" />
+    <Compile Include="EmDisputa\PagamentosRecebimentos\WindowsForms\FrmEmDisputaView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmDisputa\PagamentosRecebimentos\WindowsForms\FrmEmDisputaView.Designer.cs">
+      <DependentUpon>FrmEmDisputaView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Encargos\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="Facol\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="Facol\Vendas\WindowsForms\FrmFacolPagoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Facol\Vendas\WindowsForms\FrmFacolPagoView.Designer.cs">
+      <DependentUpon>FrmFacolPagoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FAC\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="FixCambioECL\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="FornecedoresCertificados\Base\FichaFornecedor\BasIsFichaFornecedor.cs" />
+    <Compile Include="FornecedoresCertificados\Base\WindowsForms\FrmFornecedoresCertsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FornecedoresCertificados\Base\WindowsForms\FrmFornecedoresCertsView.Designer.cs">
+      <DependentUpon>FrmFornecedoresCertsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generico\Mdi_CopiaCaracteristicasTecnicas.cs" />
+    <Compile Include="Generico\Mdi_GeraDocumentoCompra.cs" />
+    <Compile Include="Generico\Mdi_GeraDocumentoVenda.cs" />
+    <Compile Include="Generico\Module1.cs" />
+    <Compile Include="GuiaCargaEstado\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="HistoricoPlafond\Base\FichaCliente\BasIsFichaCliente.cs" />
+    <Compile Include="IdiomaArtigo\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="Inditex\Base\FichaFornecedor\BasIsFichaFornecedor.cs" />
+    <Compile Include="Inditex\Base\WindowsForms\FrmInditex.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inditex\Base\WindowsForms\FrmInditex.Designer.cs">
+      <DependentUpon>FrmInditex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoFioValidaLinha\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="InstrucaoAcabamento\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="IntegracaoCambio\Base\FichaMoedas\BasIsFichaMoedas.cs" />
+    <Compile Include="IntegracaoClientes\Base\FichaCliente\BasIsFichaCliente.cs" />
+    <Compile Include="IntegracaoCondPag\Base\FichaCondsPag\BasIsFichaCondsPag.cs" />
+    <Compile Include="IntegracaoFilopaDestino\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="IntegracaoFilopa\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="IntegracaoFilopa\Vendas\WindowsForms\FrmOutrosDadosView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IntegracaoFilopa\Vendas\WindowsForms\FrmOutrosDadosView.Designer.cs">
+      <DependentUpon>FrmOutrosDadosView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IntegracaoIntrastat\Base\FichaIntMercadoria\BasIsFichaIntMercadoria.cs" />
+    <Compile Include="Intrastat\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="LoteEncomendaIgualGuia\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="MyTools\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="NsPlataforma.cs" />
+    <Compile Include="PCustoPrTab\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="PrecoBase0\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="PreencherPercentagemOrg\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="PrintPackingList\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QtdMinCliente\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="SerieC\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="SerieC\Compras\FichaConverteCompras\CmpIsFichaConverteCompras.cs" />
+    <Compile Include="SerieC\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="SerieC\Vendas\FichaConverteVendas\VndIsFichaConverteVendas.cs" />
+    <Compile Include="SugereLotes\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="TarasDevolver\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="TarasDevolver\Vendas\WindowsForms\FrmTarasDevolverView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TarasDevolver\Vendas\WindowsForms\FrmTarasDevolverView.Designer.cs">
+      <DependentUpon>FrmTarasDevolverView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestaPlafond\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="ValidacoesLLT\PagamentosRecebimentos\EditorCCorrentes\RhpIsEditorCCorrentes.cs" />
+    <Compile Include="ValidaGrupoFG\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="ValidaPrBase\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="ValidaStockGc\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="VerificaCliente4FLevouArtLote\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="VerificaTesteQuimico\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ArmazemEntreposto\Vendas\WindowsForms\FrmAlteraGuiaAEPView.resx">
+      <DependentUpon>FrmAlteraGuiaAEPView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssistenteArtigos\FormGestaoPropriedadeArtigoView.resx">
+      <DependentUpon>FormGestaoPropriedadeArtigoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssistenteArtigos\FormGestaoPropriedadesMundifiosView.resx">
+      <DependentUpon>FormGestaoPropriedadesMundifiosView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssistenteArtigos\FormHelpView.resx">
+      <DependentUpon>FormHelpView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssistenteArtigos\FormListaMundifiosView.resx">
+      <DependentUpon>FormListaMundifiosView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssistenteArtigos\FrmArtigoMundifiosView.resx">
+      <DependentUpon>FrmArtigoMundifiosView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CertificadosOrg\Compras\WindowsForms\FrmAlteraCertificadoTransacaoView.resx">
+      <DependentUpon>FrmAlteraCertificadoTransacaoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CertificadosOrg\Vendas\WindowsForms\FrmAlteraCertificadoTransacao2View.resx">
+      <DependentUpon>FrmAlteraCertificadoTransacao2View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CopiaEntreEmpresas\Vendas\WindowsForms\FrmClientesView.resx">
+      <DependentUpon>FrmClientesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustoTransportes\Vendas\WindowsForms\FrmCustoTransportesView.resx">
+      <DependentUpon>FrmCustoTransportesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmDisputa\PagamentosRecebimentos\WindowsForms\FrmEmDisputaView.resx">
+      <DependentUpon>FrmEmDisputaView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facol\Vendas\WindowsForms\FrmFacolPagoView.resx">
+      <DependentUpon>FrmFacolPagoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FornecedoresCertificados\Base\WindowsForms\FrmFornecedoresCertsView.resx">
+      <DependentUpon>FrmFornecedoresCertsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inditex\Base\WindowsForms\FrmInditex.resx">
+      <DependentUpon>FrmInditex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegracaoFilopa\Vendas\WindowsForms\FrmOutrosDadosView.resx">
+      <DependentUpon>FrmOutrosDadosView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TarasDevolver\Vendas\WindowsForms\FrmTarasDevolverView.resx">
+      <DependentUpon>FrmTarasDevolverView.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DevolucaoRemonta\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\GrupoMundifios.000.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\GrupoMundifios.001.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if EXIST "C:\Program Files (x86)\PRIMAVERA\SG100\Apl" (
+xcopy "$(TargetPath)" "C:\Program Files (x86)\PRIMAVERA\SG100\Config\LE\Extensions\$(TargetName)\$(TargetFileName)*" /y
+)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

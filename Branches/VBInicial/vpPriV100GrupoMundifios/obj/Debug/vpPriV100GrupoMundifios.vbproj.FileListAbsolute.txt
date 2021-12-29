@@ -1,0 +1,14 @@
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\vpPriV100GrupoMundifios.vbproj.AssemblyReference.cache
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\Vimaponto.PrimaveraV100.Clientes.GrupoMundifios.FrmAlteraGuiaEPView.resources
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\Vimaponto.PrimaveraV100.Clientes.GrupoMundifios.FrmAlteraCertificadoTransacao.resources
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\Vimaponto.PrimaveraV100.Clientes.GrupoMundifios.FrmAlteraCertificadoTransacao2View.resources
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\Vimaponto.PrimaveraV100.Clientes.GrupoMundifios.FrmClientesView.resources
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\Vimaponto.PrimaveraV100.Clientes.GrupoMundifios.FrmCustoTransportesView.resources
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\Vimaponto.PrimaveraV100.Clientes.GrupoMundifios.EmDisputa.FrmEmDisputaView.resources
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\Vimaponto.PrimaveraV100.Clientes.GrupoMundifios.FrmFacolPagoView.resources
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\Vimaponto.PrimaveraV100.Clientes.GrupoMundifios.FrmAlteraCertificadoTransacaoFilopaView.resources
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\Vimaponto.PrimaveraV100.Clientes.GrupoMundifios.FrmFornecedoresCertsFilopaView.resources
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\Vimaponto.PrimaveraV100.Clientes.GrupoMundifios.FrmFornecedoresCertsView.resources
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\vpPriV100GrupoMundifios.vbproj.GenerateResource.cache
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\vpPriV100GrupoMundifios.dll.licenses
+C:\TFSDEV\EXTENSIBILIDADE\Primavera\V100\Clientes\Mundifios\Branches\VBInicial\vpPriV100GrupoMundifios\obj\Debug\vpPriV100GrupoMundifios.vbproj.CoreCompileInputs.cache
