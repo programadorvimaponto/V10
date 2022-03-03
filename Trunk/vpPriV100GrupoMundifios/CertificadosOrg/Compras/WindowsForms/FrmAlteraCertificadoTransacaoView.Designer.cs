@@ -40,6 +40,7 @@ namespace CertificadosOrg
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.GroupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.dateEditDataCert = new DevExpress.XtraEditors.DateEdit();
             this.LookUpEditProgramLabel = new DevExpress.XtraEditors.LookUpEdit();
             this.TextEditNumCert = new DevExpress.XtraEditors.TextEdit();
             this.Label3 = new System.Windows.Forms.Label();
@@ -52,10 +53,11 @@ namespace CertificadosOrg
             this.TextEditlote = new DevExpress.XtraEditors.TextEdit();
             this.TextEditArtigo = new DevExpress.XtraEditors.TextEdit();
             this.TextEditDocumento = new DevExpress.XtraEditors.TextEdit();
-            this.dateEditDataCert = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.BarManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroupControl3)).BeginInit();
             this.GroupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditDataCert.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditDataCert.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditProgramLabel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextEditNumCert.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroupControl2)).BeginInit();
@@ -67,8 +69,6 @@ namespace CertificadosOrg
             ((System.ComponentModel.ISupportInitialize)(this.TextEditlote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextEditArtigo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextEditDocumento.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditDataCert.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditDataCert.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // BarManager1
@@ -163,6 +163,19 @@ namespace CertificadosOrg
             this.GroupControl3.Size = new System.Drawing.Size(348, 124);
             this.GroupControl3.TabIndex = 9;
             this.GroupControl3.Text = "Dados Certificado";
+            // 
+            // dateEditDataCert
+            // 
+            this.dateEditDataCert.EditValue = null;
+            this.dateEditDataCert.Location = new System.Drawing.Point(120, 61);
+            this.dateEditDataCert.MenuManager = this.BarManager1;
+            this.dateEditDataCert.Name = "dateEditDataCert";
+            this.dateEditDataCert.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditDataCert.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditDataCert.Size = new System.Drawing.Size(223, 20);
+            this.dateEditDataCert.TabIndex = 8;
             // 
             // LookUpEditProgramLabel
             // 
@@ -289,19 +302,6 @@ namespace CertificadosOrg
             this.TextEditDocumento.Size = new System.Drawing.Size(216, 22);
             this.TextEditDocumento.TabIndex = 0;
             // 
-            // dateEditDataCert
-            // 
-            this.dateEditDataCert.EditValue = null;
-            this.dateEditDataCert.Location = new System.Drawing.Point(120, 61);
-            this.dateEditDataCert.MenuManager = this.BarManager1;
-            this.dateEditDataCert.Name = "dateEditDataCert";
-            this.dateEditDataCert.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditDataCert.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditDataCert.Size = new System.Drawing.Size(223, 20);
-            this.dateEditDataCert.TabIndex = 8;
-            // 
             // FrmAlteraCertificadoTransacaoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,14 +313,18 @@ namespace CertificadosOrg
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmAlteraCertificadoTransacaoView";
             this.Size = new System.Drawing.Size(359, 297);
-            this.Text = "FrmAlteraCertificadoTransacaoView";
+            this.Text = "Altera Certificado Transação Compras";
             this.Load += new System.EventHandler(this.FrmAlteraCertificadoTransacaoView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BarManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroupControl3)).EndInit();
             this.GroupControl3.ResumeLayout(false);
             this.GroupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditDataCert.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditDataCert.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LookUpEditProgramLabel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextEditNumCert.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroupControl2)).EndInit();
@@ -332,8 +336,6 @@ namespace CertificadosOrg
             ((System.ComponentModel.ISupportInitialize)(this.TextEditlote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextEditArtigo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextEditDocumento.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditDataCert.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditDataCert.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

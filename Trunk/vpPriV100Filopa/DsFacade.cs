@@ -10,7 +10,7 @@ namespace Vimaponto.PrimaveraV100.Clientes.Filopa
 {
     public class DsFacade : SisDsServicoDados
     {
-        public override int NivelBaseDados { get { return -1; } }
+        public override int NivelBaseDados { get { return 12; } }
 
         public override Assembly AssemblyComScripts { get { return Assembly.GetExecutingAssembly(); } }
 

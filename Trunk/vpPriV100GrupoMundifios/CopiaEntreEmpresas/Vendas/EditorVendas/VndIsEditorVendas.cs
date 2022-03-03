@@ -1,5 +1,6 @@
 using Generico;
 using Microsoft.VisualBasic;
+using Primavera.Extensibility.Attributes;
 using Primavera.Extensibility.BusinessEntities.ExtensibilityService;
 using Primavera.Extensibility.BusinessEntities.ExtensibilityService.EventArgs;
 using Primavera.Extensibility.Constants.ExtensibilityService;
@@ -28,7 +29,8 @@ namespace CopiaEntreEmpresas
                 }
             }
         }
-
+        [Order(100)]
+        //Deixar os outros eventos similares fazerem o que têm a fazer antes de passar para o CopiaEntreEmpresas
         public override void ClienteIdentificado(string Cliente, ref bool Cancel, ExtensibilityEventArgs e)
         {
             base.ClienteIdentificado(Cliente, ref Cancel, e);
@@ -38,9 +40,10 @@ namespace CopiaEntreEmpresas
                 IdentificarClienteEmpresaGrupo(Cliente);
             }
         }
-
+        [Order(100)]
+        //Deixar os outros eventos similares fazerem o que têm a fazer antes de passar para o CopiaEntreEmpresas
         public override void DepoisDeGravar(string Filial, string Tipo, string Serie, int NumDoc, ExtensibilityEventArgs e)
-        {
+         {
             base.DepoisDeGravar(Filial, Tipo, Serie, NumDoc, e);
             if (Module1.VerificaToken("CopiaEntreEmpresas") == 1)
             {
@@ -62,13 +65,14 @@ namespace CopiaEntreEmpresas
                     if (this.DocumentoVenda.CamposUtil["CDU_EntidadeFinalGrupo"].Valor + "" != "" & this.DocumentoVenda.Tipodoc == "ECL")
                     {
                         StdBELista listEntidadeFinal;
-                        listEntidadeFinal = BSO.Consulta("select c2.Cliente from pri" + BSO.Base.Clientes.Edita(this.DocumentoVenda.Entidade).CamposUtil["CDU_NomeEmpresaGrupo"].Valor + ".dbo.Clientes c  inner join Clientes c2 on c2.CDU_EntidadeInterna=c.CDU_EntidadeInterna where c.Cliente='" + this.DocumentoVenda.CamposUtil["CDU_EntidadeFinalGrupo"] + "'");
+                        listEntidadeFinal = BSO.Consulta("select c2.Cliente from pri" + BSO.Base.Clientes.DaValorAtributo(DocumentoVenda.Entidade, "CDU_NomeEmpresaGrupo") + ".dbo.Clientes c  inner join Clientes c2 on c2.CDU_EntidadeInterna=c.CDU_EntidadeInterna where c.Cliente='" + this.DocumentoVenda.CamposUtil["CDU_EntidadeFinalGrupo"].Valor + "'");
                         listEntidadeFinal.Inicio();
                         if (listEntidadeFinal.Vazia() == false)
                         {
-                            if (BSO.Base.Clientes.Edita(listEntidadeFinal.Valor("Cliente")).CamposUtil["CDU_ObsEncomenda"].Valor + "" != "")
+
+                            if (BSO.Base.Clientes.DaValorAtributo(listEntidadeFinal.Valor("Cliente"), "CDU_ObsEncomenda") + "" != "")
                             {
-                                MessageBox.Show(BSO.Base.Clientes.Edita(listEntidadeFinal.Valor("Cliente")).CamposUtil["CDU_ObsEncomenda"].Valor, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show(BSO.Base.Clientes.DaValorAtributo(listEntidadeFinal.Valor("Cliente"), "CDU_ObsEncomenda"), "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                     }
@@ -165,13 +169,13 @@ namespace CopiaEntreEmpresas
                     DocumentoModelo = BSO.Vendas.Documentos.Edita(Filial_Atual, TipoDoc_Atual, Serie_Atual, NumDoc_Atual);
 
                     // Cliente final inserido
-                    if (Strings.Len(this.DocumentoVenda.CamposUtil["CDU_EntidadeFinalGrupo"].Valor + "") > 0)
+                    if (Strings.Len(this.DocumentoVenda.CamposUtil["CDU_EntidadeFinalGrupo"].Valor + "") > 0) 
                     {
                         // Gerar Encomenda de Cliente
 
                         // #2018.03.08
                         // 2018.03.06 Email dia 2018.03.01 do Eng.º Joaquima onde foi solicitado que ou gera os 2 documentos nas empresas de grupo ou não gera nenhum.
-                        if (MessageBox.Show("Pretende gerar documentos na empresa do Grupo?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        if (MessageBox.Show("Pretende gerar documentos na empresa do Grupo?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
                         {
                             return true;
                         }
@@ -329,79 +333,79 @@ namespace CopiaEntreEmpresas
                 InstanciaEmpresaDestino = stdBE_ListaEmpresasGrupo.Valor("CDU_Instancia");
 
                 // Exibir o formulário para escolha do cliente final
-                FrmClientesView FormularioClientes = new FrmClientesView();
-                FormularioClientes.EmpresaDestino = NomeEmpresaDestino;
-                FormularioClientes.PRIEmpresaDestino = "PRI" + NomeEmpresaDestino;
-
-                FormularioClientes.TextEditCodigoCliente.EditValue = this.DocumentoVenda.CamposUtil["CDU_EntidadeFinalGrupo"].Valor + "";
-                FormularioClientes.TextEditDescricaoCliente.EditValue = this.DocumentoVenda.CamposUtil["CDU_EntidadeFinalGrupoNome"].Valor + ""; // #20180219
-
-                // Se o campo de utilizador "CDU_ArmazemGrupo" do documento estiver preenchido, carrego o pop up com ele
-                if (Strings.Len(this.DocumentoVenda.CamposUtil["CDU_ArmazemGrupo"].Valor + "") > 0)
-                    FormularioClientes.TextEditCodigoArmazem.EditValue = this.DocumentoVenda.CamposUtil["CDU_ArmazemGrupo"].Valor + "";
-                else
-                    FormularioClientes.TextEditCodigoArmazem.EditValue = BSO.Base.Clientes.DaValorAtributo(this.DocumentoVenda.Entidade, "CDU_ArmazemGrupo");
-
-                // Se o campo de utilizador "CDU_MoradaAlternativa" do documento estiver preenchido, carrego o pop up com ele
-                if (Strings.Len(this.DocumentoVenda.CamposUtil["CDU_MoradaAlternativa"].Valor + "") > 0)
-                    FormularioClientes.TextEditCodigoLocalDescarga.EditValue = this.DocumentoVenda.CamposUtil["CDU_MoradaAlternativa"].Valor + "";
-                else
-                    FormularioClientes.TextEditCodigoLocalDescarga.EditValue = this.DocumentoVenda.MoradaAlternativaEntrega;
-
-                if (Strings.Len(this.DocumentoVenda.CamposUtil["CDU_MargemPassagemArtigo"].Valor + "") != 1)
-                    FormularioClientes.TextEditCodigoMargem.EditValue = this.DocumentoVenda.CamposUtil["CDU_MargemPassagemArtigo"].Valor + "";
-                else
-                    // Sugere sempre a do parametro!
-                    FormularioClientes.TextEditCodigoMargem.EditValue = BSO.Vendas.TabVendas.Edita(this.DocumentoVenda.Tipodoc).CamposUtil["CDU_MargemPassagemArtigo"].Valor + "";
-
-                FormularioClientes.TextEditCodigoMargem.EditValue = Strings.Replace(FormularioClientes.TextEditCodigoMargem.EditValue.ToString(), ".", ""); // #2018.03.08
-
                 ExtensibilityResult result = BSO.Extensibility.CreateCustomFormInstance(typeof(FrmClientesView));
 
                 if (result.ResultCode == ExtensibilityResultCode.Ok)
                 {
-                    FrmClientesView frm = result.Result;
-                    frm.ShowDialog();
-                }
+                    FrmClientesView FormularioClientes = result.Result;
 
-                if (result.ResultCode == ExtensibilityResultCode.Ok)
-                {
-                    this.DocumentoVenda.CamposUtil["CDU_EntidadeFinalGrupo"].Valor = FormularioClientes.TextEditCodigoCliente.EditValue;
-                    this.DocumentoVenda.CamposUtil["CDU_EntidadeFinalGrupoNome"].Valor = FormularioClientes.TextEditDescricaoCliente.EditValue; // #20180219
-                    this.DocumentoVenda.CamposUtil["CDU_IdiomaEntidadeFinalGrupo"].Valor = FormularioClientes.TextEditCodigoIdioma.EditValue;
-                    this.DocumentoVenda.CamposUtil["CDU_MargemPassagemArtigo"].Valor = Strings.Replace(FormularioClientes.TextEditCodigoMargem.EditValue.ToString(), ".", ""); // #2018.03.08
-                    this.DocumentoVenda.CamposUtil["CDU_ArmazemGrupo"].Valor = FormularioClientes.TextEditCodigoArmazem.EditValue;
-                    this.DocumentoVenda.CamposUtil["CDU_MoradaAlternativa"].Valor = FormularioClientes.TextEditCodigoLocalDescarga.EditValue;
 
-                    // #20180219 (inicio)
-                    // Se cliente final definido e local de descarga não, atribuir a morada de faturação!
-                    if (Strings.Len(FormularioClientes.TextEditDescricaoCliente.EditValue) > 0 & FormularioClientes.TextEditCodigoLocalDescarga.EditValue.ToString() == "")
-                    {
-                        // Identificar a morada Faturação!
-                        this.DocumentoVenda.MoradaAlternativaEntrega = "";
-                        // #2018.03.08
-                        this.DocumentoVenda.MoradaEntrega = Strings.Left(FormularioClientes.TextEditDescricaoCliente.EditValue.ToString(), 50);
-                        // Me.DocumentoVenda.Morada2Entrega = Left(FormularioClientes.txtDescricaoCliente.Text, 50)
-                        // Me.DocumentoVenda.MoradaEntrega = Left(FormularioClientes.txtDescricaoCliente.Text, 10) & " - " & Left(BSO.Comercial.Clientes.DaValorAtributo(FormularioClientes.txtCodigoCliente.Text, "Fac_Mor"), 37)
-                        this.DocumentoVenda.Morada2Entrega = Strings.Left(BSO.Base.Clientes.DaValorAtributo(FormularioClientes.TextEditCodigoCliente.EditValue.ToString(), "Fac_Mor"), 50);
-                        this.DocumentoVenda.LocalidadeEntrega = BSO.Base.Clientes.DaValorAtributo(FormularioClientes.TextEditCodigoCliente.EditValue.ToString(), "Fac_Local"); ;
-                        this.DocumentoVenda.CargaDescarga.CodPostalEntrega = BSO.Base.Clientes.DaValorAtributo(FormularioClientes.TextEditCodigoCliente.EditValue.ToString(), "Fac_cp");
-                        this.DocumentoVenda.CargaDescarga.CodPostalLocalidadeEntrega = BSO.Base.Clientes.DaValorAtributo(FormularioClientes.TextEditCodigoCliente.EditValue.ToString(), "Fac_CpLoc");
-                        this.DocumentoVenda.CargaDescarga.DistritoEntrega = BSO.Base.Clientes.DaValorAtributo(FormularioClientes.TextEditCodigoCliente.EditValue.ToString(), "Distrito");
-                    }
+                    FormularioClientes.EmpresaDestino = NomeEmpresaDestino;
+                    FormularioClientes.PRIEmpresaDestino =NomeEmpresaDestino;
+
+                    FormularioClientes.CodigoCliente = this.DocumentoVenda.CamposUtil["CDU_EntidadeFinalGrupo"].Valor + "";
+                    FormularioClientes.DescricaoCliente = this.DocumentoVenda.CamposUtil["CDU_EntidadeFinalGrupoNome"].Valor + ""; // #20180219
+
+                    // Se o campo de utilizador "CDU_ArmazemGrupo" do documento estiver preenchido, carrego o pop up com ele
+                    if (Strings.Len(this.DocumentoVenda.CamposUtil["CDU_ArmazemGrupo"].Valor + "") > 0)
+                        FormularioClientes.CodigoArmazem = this.DocumentoVenda.CamposUtil["CDU_ArmazemGrupo"].Valor + "";
                     else
+                        FormularioClientes.CodigoArmazem = BSO.Base.Clientes.DaValorAtributo(this.DocumentoVenda.Entidade, "CDU_ArmazemGrupo");
+
+                    // Se o campo de utilizador "CDU_MoradaAlternativa" do documento estiver preenchido, carrego o pop up com ele
+                    if (Strings.Len(this.DocumentoVenda.CamposUtil["CDU_MoradaAlternativa"].Valor + "") > 0)
+                        FormularioClientes.CodigoLocalDescarga = this.DocumentoVenda.CamposUtil["CDU_MoradaAlternativa"].Valor + "";
+                    else
+                        FormularioClientes.CodigoLocalDescarga = this.DocumentoVenda.MoradaAlternativaEntrega;
+
+                    if (Strings.Len(this.DocumentoVenda.CamposUtil["CDU_MargemPassagemArtigo"].Valor + "") != 1)
+                        FormularioClientes.CodigoMargem = this.DocumentoVenda.CamposUtil["CDU_MargemPassagemArtigo"].Valor + "";
+                    else
+                        // Sugere sempre a do parametro!
+                        FormularioClientes.CodigoMargem = BSO.Vendas.TabVendas.Edita(this.DocumentoVenda.Tipodoc).CamposUtil["CDU_MargemPassagemArtigo"].Valor + "";
+
+                    FormularioClientes.CodigoMargem = Strings.Replace(FormularioClientes.CodigoMargem, ".", ""); // #2018.03.08
+
+                    FormularioClientes.ShowDialog();
+                    if (result.ResultCode == ExtensibilityResultCode.Ok)
                     {
-                        // Esta tem de ser vazia porque não existe. A morada que estamos a falar é da empresa do Grupo.
-                        this.DocumentoVenda.MoradaAlternativaEntrega = "";
-                        // #2018.03.08
-                        this.DocumentoVenda.MoradaEntrega = Strings.Left(FormularioClientes.TextEditDescricaoCliente.EditValue.ToString(), 50);
-                        // Me.DocumentoVenda.Morada2Entrega = Left(FormularioClientes.txtDescricaoCliente.Text, 50)
-                        // Me.DocumentoVenda.MoradaEntrega = Left(FormularioClientes.txtDescricaoCliente.Text, 10) & " - " & Left(FormularioClientes.txtCodigoMoradaEntrega.Text, 37)
-                        this.DocumentoVenda.Morada2Entrega = Strings.Left(FormularioClientes.TextEditCodigoMoradaEntrega2.EditValue.ToString(), 50);
-                        this.DocumentoVenda.LocalidadeEntrega = FormularioClientes.TextEditCodigoLocalidadeEntrega.EditValue.ToString();
-                        this.DocumentoVenda.CargaDescarga.CodPostalEntrega = FormularioClientes.TextEditCodigoPostalEntrega.EditValue.ToString();
-                        this.DocumentoVenda.CargaDescarga.CodPostalLocalidadeEntrega = FormularioClientes.TextEditCodPostalLocalidadeEntrega.EditValue.ToString();
-                        this.DocumentoVenda.CargaDescarga.DistritoEntrega = FormularioClientes.TextEditDistritoEntrega.EditValue.ToString();
+                        this.DocumentoVenda.CamposUtil["CDU_EntidadeFinalGrupo"].Valor = FormularioClientes.CodigoCliente;
+                        this.DocumentoVenda.CamposUtil["CDU_EntidadeFinalGrupoNome"].Valor = FormularioClientes.DescricaoCliente; // #20180219
+                        this.DocumentoVenda.CamposUtil["CDU_IdiomaEntidadeFinalGrupo"].Valor = FormularioClientes.CodigoIdioma;
+                        this.DocumentoVenda.CamposUtil["CDU_MargemPassagemArtigo"].Valor = Strings.Replace(FormularioClientes.CodigoMargem, ".", ""); // #2018.03.08
+                        this.DocumentoVenda.CamposUtil["CDU_ArmazemGrupo"].Valor = FormularioClientes.CodigoArmazem;
+                        this.DocumentoVenda.CamposUtil["CDU_MoradaAlternativa"].Valor = FormularioClientes.CodigoLocalDescarga;
+
+                        // #20180219 (inicio)
+                        // Se cliente final definido e local de descarga não, atribuir a morada de faturação!
+                        if (Strings.Len(FormularioClientes.DescricaoCliente) > 0 & FormularioClientes.CodigoLocalDescarga == "")
+                        {
+                            // Identificar a morada Faturação!
+                            this.DocumentoVenda.MoradaAlternativaEntrega = "";
+                            // #2018.03.08
+                            this.DocumentoVenda.MoradaEntrega = Strings.Left(FormularioClientes.DescricaoCliente, 50);
+                            // Me.DocumentoVenda.Morada2Entrega = Left(FormularioClientes.txtDescricaoCliente.Text, 50)
+                            // Me.DocumentoVenda.MoradaEntrega = Left(FormularioClientes.txtDescricaoCliente.Text, 10) & " - " & Left(BSO.Comercial.Clientes.DaValorAtributo(FormularioClientes.txtCodigoCliente.Text, "Fac_Mor"), 37)
+                            this.DocumentoVenda.Morada2Entrega = Strings.Left(BSO.Base.Clientes.DaValorAtributo(FormularioClientes.CodigoCliente, "Fac_Mor"), 50);
+                            this.DocumentoVenda.LocalidadeEntrega = BSO.Base.Clientes.DaValorAtributo(FormularioClientes.CodigoCliente, "Fac_Local"); ;
+                            this.DocumentoVenda.CargaDescarga.CodPostalEntrega = BSO.Base.Clientes.DaValorAtributo(FormularioClientes.CodigoCliente, "Fac_cp");
+                            this.DocumentoVenda.CargaDescarga.CodPostalLocalidadeEntrega = BSO.Base.Clientes.DaValorAtributo(FormularioClientes.CodigoCliente, "Fac_CpLoc");
+                            this.DocumentoVenda.CargaDescarga.DistritoEntrega = BSO.Base.Clientes.DaValorAtributo(FormularioClientes.CodigoCliente, "Distrito");
+                        }
+                        else
+                        {
+                            // Esta tem de ser vazia porque não existe. A morada que estamos a falar é da empresa do Grupo.
+                            this.DocumentoVenda.MoradaAlternativaEntrega = "";
+                            // #2018.03.08
+                            this.DocumentoVenda.MoradaEntrega = Strings.Left(FormularioClientes.DescricaoCliente, 50);
+                            // Me.DocumentoVenda.Morada2Entrega = Left(FormularioClientes.txtDescricaoCliente.Text, 50)
+                            // Me.DocumentoVenda.MoradaEntrega = Left(FormularioClientes.txtDescricaoCliente.Text, 10) & " - " & Left(FormularioClientes.txtCodigoMoradaEntrega.Text, 37)
+                            this.DocumentoVenda.Morada2Entrega = Strings.Left(FormularioClientes.CodigoMoradaEntrega2, 50);
+                            this.DocumentoVenda.LocalidadeEntrega = FormularioClientes.CodigoLocalidadeEntrega;
+                            this.DocumentoVenda.CargaDescarga.CodPostalEntrega = FormularioClientes.CodigoPostalEntrega;
+                            this.DocumentoVenda.CargaDescarga.CodPostalLocalidadeEntrega = FormularioClientes.CodPostalLocalidadeEntrega;
+                            this.DocumentoVenda.CargaDescarga.DistritoEntrega = FormularioClientes.DistritoEntrega;
+                        }
                     }
                 }
 

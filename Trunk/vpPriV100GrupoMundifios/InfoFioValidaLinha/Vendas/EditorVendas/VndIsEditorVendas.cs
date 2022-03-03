@@ -1,5 +1,6 @@
 using Generico;
 using Microsoft.VisualBasic;
+using Primavera.Extensibility.Attributes;
 using Primavera.Extensibility.BusinessEntities.ExtensibilityService.EventArgs;
 using Primavera.Extensibility.Sales.Editors;
 using StdBE100;
@@ -21,8 +22,10 @@ namespace InfoFioValidaLinha
         private StdBELista ListaCliLevouArtLote;
         private string SqlStringCliLevouArtLote;
 
+        [ContextSyncManagement(ContextSyncManagement.Manual)]
         public override void ValidaLinha(int NumLinha, ExtensibilityEventArgs e)
         {
+            base.RefreshContext();
             base.ValidaLinha(NumLinha, e);
 
             if (Module1.VerificaToken("InfoFioValidaLinha") == 1)
@@ -30,7 +33,9 @@ namespace InfoFioValidaLinha
                 if (BSO.Inventario.ArtigosLotes.Existe(this.DocumentoVenda.Linhas.GetEdita(NumLinha).Artigo, this.DocumentoVenda.Linhas.GetEdita(NumLinha).Lote) == true)
                 {
                     // Comentada dia 28/01/2014 - permitir Angelo alterar Tipo Qualidade no editor de vendas diferente do Tipo Qualidade na ficha do artigo/lote
-                    this.DocumentoVenda.Linhas.GetEdita(NumLinha).CamposUtil["CDU_TipoQualidade"].Valor = BSO.Inventario.ArtigosLotes.Edita(this.DocumentoVenda.Linhas.GetEdita(NumLinha).Artigo, this.DocumentoVenda.Linhas.GetEdita(NumLinha).Lote).CamposUtil["CDU_TipoQualidade"].Valor;
+                    this.DocumentoVenda.Linhas.GetEdita(NumLinha).CamposUtil["CDU_TipoQualidade"].Valor = BSO.Inventario.ArtigosLotes.DaValorAtributo(this.DocumentoVenda.Linhas.GetEdita(NumLinha).Artigo, this.DocumentoVenda.Linhas.GetEdita(NumLinha).Lote, "CDU_TipoQualidade");
+
+
 
                     Module1.EntidadeVerifica = this.DocumentoVenda.Entidade;
                     Module1.ArtigoVerifica = this.DocumentoVenda.Linhas.GetEdita(NumLinha).Artigo;
@@ -73,6 +78,7 @@ namespace InfoFioValidaLinha
                     }
                 }
             }
+            base.CommitContext();
         }
 
         private void VerificaPrecoAbaixoCustoUltimo()

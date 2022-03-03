@@ -21,7 +21,6 @@ namespace EmDisputa
 
 
         }
-
         private void barButtonItemAplicar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
@@ -32,28 +31,15 @@ namespace EmDisputa
 
         }
 
-        private void FrmEmDisputaView_Activated(object sender, EventArgs e)
-        {
 
-                StdBELista lista;
-                string sql;
-
-                sql = "select isnull(CDU_EmDisputa,0) as R from Historico where TipoDoc='" + Module1.dsptipoDoc + "' and NumDocInt='" + Module1.dspNumDoc + "' and Serie='" + Module1.dspSerie + "'";
-                lista = BSO.Consulta(sql);
-
-                lista.Inicio();
-
-
-            if (lista.Vazia() == false)
-                Module1.dspDisputa = lista.Valor("R");
-
-            CheckEditFaturaDisputa.EditValue = Module1.dspDisputa;
-
-
-        }
 
         private void FrmEmDisputaView_Load(object sender, EventArgs e)
         {
+            if (FindForm() is Form pai)
+            {
+                pai.MinimumSize = pai.Size;
+                pai.MaximumSize = pai.Size;
+            }
             StdBELista lista;
             string sql;
 

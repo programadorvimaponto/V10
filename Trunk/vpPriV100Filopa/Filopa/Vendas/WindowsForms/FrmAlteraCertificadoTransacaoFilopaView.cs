@@ -62,9 +62,13 @@ namespace Filopa
 
         private void FrmAlteraCertificadoTransacaoFilopaView_Load(object sender, EventArgs e)
         {
-
-                // Add any initialization after the InitializeComponent() call.
-                TextEditArtigo.EditValue = Module1.certArtigo;
+            if (FindForm() is Form pai)
+            {
+                pai.MinimumSize = pai.Size;
+                pai.MaximumSize = pai.Size;
+            }
+            // Add any initialization after the InitializeComponent() call.
+            TextEditArtigo.EditValue = Module1.certArtigo;
                 // txtLote = certLote
                 TextEditDocumento.EditValue = Module1.certDocumento;
                 //txtIDlinha = Module1.certIDlinha;
@@ -74,6 +78,13 @@ namespace Filopa
                 TextEditCancelado.EditValue = Module1.certCancelado;
 
 
+
+        }
+
+        private void barButtonItemFechar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            this.DialogResult = DialogResult.Cancel;
 
         }
     }

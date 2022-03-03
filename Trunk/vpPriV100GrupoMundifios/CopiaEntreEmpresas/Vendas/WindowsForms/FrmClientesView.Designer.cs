@@ -32,13 +32,13 @@ namespace CopiaEntreEmpresas
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClientesView));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItemConfirmar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemFechar = new DevExpress.XtraBars.BarButtonItem();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+           this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.GroupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.TextEditCodigoMargem = new DevExpress.XtraEditors.TextEdit();
             this.TextEditDistritoEntrega = new DevExpress.XtraEditors.TextEdit();
@@ -95,38 +95,6 @@ namespace CopiaEntreEmpresas
             this.barButtonItemFechar});
             this.barManager1.MaxItemId = 2;
             // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(490, 31);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 389);
-            this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(490, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
-            this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 358);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(490, 31);
-            this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 358);
-            // 
             // bar1
             // 
             this.bar1.BarName = "ações";
@@ -144,7 +112,7 @@ namespace CopiaEntreEmpresas
             // 
             this.barButtonItemConfirmar.Caption = "Confirmar";
             this.barButtonItemConfirmar.Id = 0;
-            this.barButtonItemConfirmar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItemConfirmar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemConfirmar.ImageOptions.Image")));
             this.barButtonItemConfirmar.Name = "barButtonItemConfirmar";
             this.barButtonItemConfirmar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConfirmar_ItemClick);
             // 
@@ -157,9 +125,42 @@ namespace CopiaEntreEmpresas
             this.barButtonItemFechar.Name = "barButtonItemFechar";
             this.barButtonItemFechar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFechar_ItemClick);
             // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(490, 31);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 384);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(490, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 353);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(490, 31);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 353);
+            // 
             // GroupControl1
             // 
             this.GroupControl1.Controls.Add(this.TextEditCodigoMargem);
+            this.GroupControl1.Controls.Add(this.LabelTitulo);
             this.GroupControl1.Controls.Add(this.TextEditDistritoEntrega);
             this.GroupControl1.Controls.Add(this.TextEditCodPostalLocalidadeEntrega);
             this.GroupControl1.Controls.Add(this.TextEditDescricaoCliente);
@@ -177,85 +178,85 @@ namespace CopiaEntreEmpresas
             this.GroupControl1.Controls.Add(this.Label3);
             this.GroupControl1.Controls.Add(this.Label2);
             this.GroupControl1.Controls.Add(this.Label1);
-            this.GroupControl1.Location = new System.Drawing.Point(3, 61);
+            this.GroupControl1.Location = new System.Drawing.Point(3, 37);
             this.GroupControl1.Name = "GroupControl1";
-            this.GroupControl1.Size = new System.Drawing.Size(484, 319);
+            this.GroupControl1.Size = new System.Drawing.Size(484, 343);
             this.GroupControl1.TabIndex = 5;
             this.GroupControl1.Text = "Geral";
             // 
             // TextEditCodigoMargem
             // 
-            this.TextEditCodigoMargem.Location = new System.Drawing.Point(98, 288);
+            this.TextEditCodigoMargem.Location = new System.Drawing.Point(103, 307);
             this.TextEditCodigoMargem.Name = "TextEditCodigoMargem";
             this.TextEditCodigoMargem.Size = new System.Drawing.Size(85, 20);
             this.TextEditCodigoMargem.TabIndex = 17;
             // 
             // TextEditDistritoEntrega
             // 
-            this.TextEditDistritoEntrega.Location = new System.Drawing.Point(387, 290);
+            this.TextEditDistritoEntrega.Location = new System.Drawing.Point(392, 309);
             this.TextEditDistritoEntrega.Name = "TextEditDistritoEntrega";
             this.TextEditDistritoEntrega.Size = new System.Drawing.Size(85, 20);
             this.TextEditDistritoEntrega.TabIndex = 16;
             // 
             // TextEditCodPostalLocalidadeEntrega
             // 
-            this.TextEditCodPostalLocalidadeEntrega.Location = new System.Drawing.Point(287, 250);
+            this.TextEditCodPostalLocalidadeEntrega.Location = new System.Drawing.Point(292, 269);
             this.TextEditCodPostalLocalidadeEntrega.Name = "TextEditCodPostalLocalidadeEntrega";
             this.TextEditCodPostalLocalidadeEntrega.Size = new System.Drawing.Size(185, 20);
             this.TextEditCodPostalLocalidadeEntrega.TabIndex = 15;
             // 
             // TextEditDescricaoCliente
             // 
-            this.TextEditDescricaoCliente.Location = new System.Drawing.Point(204, 29);
+            this.TextEditDescricaoCliente.Location = new System.Drawing.Point(209, 48);
             this.TextEditDescricaoCliente.Name = "TextEditDescricaoCliente";
             this.TextEditDescricaoCliente.Size = new System.Drawing.Size(192, 20);
             this.TextEditDescricaoCliente.TabIndex = 14;
             // 
             // TextEditCodigoIdioma
             // 
-            this.TextEditCodigoIdioma.Location = new System.Drawing.Point(402, 29);
+            this.TextEditCodigoIdioma.Location = new System.Drawing.Point(407, 48);
             this.TextEditCodigoIdioma.Name = "TextEditCodigoIdioma";
             this.TextEditCodigoIdioma.Size = new System.Drawing.Size(70, 20);
             this.TextEditCodigoIdioma.TabIndex = 13;
             // 
             // TextEditDescricaoLocalDescarga
             // 
-            this.TextEditDescricaoLocalDescarga.Location = new System.Drawing.Point(204, 107);
+            this.TextEditDescricaoLocalDescarga.Location = new System.Drawing.Point(209, 126);
             this.TextEditDescricaoLocalDescarga.Name = "TextEditDescricaoLocalDescarga";
             this.TextEditDescricaoLocalDescarga.Size = new System.Drawing.Size(268, 20);
             this.TextEditDescricaoLocalDescarga.TabIndex = 12;
             // 
             // TextEditCodigoLocalidadeEntrega
             // 
-            this.TextEditCodigoLocalidadeEntrega.Location = new System.Drawing.Point(98, 215);
+            this.TextEditCodigoLocalidadeEntrega.Location = new System.Drawing.Point(103, 234);
             this.TextEditCodigoLocalidadeEntrega.Name = "TextEditCodigoLocalidadeEntrega";
             this.TextEditCodigoLocalidadeEntrega.Size = new System.Drawing.Size(374, 20);
             this.TextEditCodigoLocalidadeEntrega.TabIndex = 11;
             // 
             // TextEditCodigoPostalEntrega
             // 
-            this.TextEditCodigoPostalEntrega.Location = new System.Drawing.Point(98, 250);
+            this.TextEditCodigoPostalEntrega.Location = new System.Drawing.Point(103, 269);
             this.TextEditCodigoPostalEntrega.Name = "TextEditCodigoPostalEntrega";
             this.TextEditCodigoPostalEntrega.Size = new System.Drawing.Size(185, 20);
             this.TextEditCodigoPostalEntrega.TabIndex = 10;
             // 
             // TextEditCodigoMoradaEntrega2
             // 
-            this.TextEditCodigoMoradaEntrega2.Location = new System.Drawing.Point(98, 180);
+            this.TextEditCodigoMoradaEntrega2.Location = new System.Drawing.Point(103, 199);
             this.TextEditCodigoMoradaEntrega2.Name = "TextEditCodigoMoradaEntrega2";
             this.TextEditCodigoMoradaEntrega2.Size = new System.Drawing.Size(374, 20);
             this.TextEditCodigoMoradaEntrega2.TabIndex = 9;
             // 
             // TextEditCodigoMoradaEntrega
             // 
-            this.TextEditCodigoMoradaEntrega.Location = new System.Drawing.Point(98, 144);
+            this.TextEditCodigoMoradaEntrega.Location = new System.Drawing.Point(103, 163);
             this.TextEditCodigoMoradaEntrega.Name = "TextEditCodigoMoradaEntrega";
             this.TextEditCodigoMoradaEntrega.Size = new System.Drawing.Size(374, 20);
             this.TextEditCodigoMoradaEntrega.TabIndex = 8;
             // 
             // TextEditCodigoLocalDescarga
             // 
-            this.TextEditCodigoLocalDescarga.Location = new System.Drawing.Point(98, 107);
+            this.TextEditCodigoLocalDescarga.Location = new System.Drawing.Point(103, 126);
             this.TextEditCodigoLocalDescarga.Name = "TextEditCodigoLocalDescarga";
             this.TextEditCodigoLocalDescarga.Size = new System.Drawing.Size(100, 20);
             this.TextEditCodigoLocalDescarga.TabIndex = 7;
@@ -264,14 +265,14 @@ namespace CopiaEntreEmpresas
             // 
             // TextEditDescricaoArmazem
             // 
-            this.TextEditDescricaoArmazem.Location = new System.Drawing.Point(204, 69);
+            this.TextEditDescricaoArmazem.Location = new System.Drawing.Point(209, 88);
             this.TextEditDescricaoArmazem.Name = "TextEditDescricaoArmazem";
             this.TextEditDescricaoArmazem.Size = new System.Drawing.Size(268, 20);
             this.TextEditDescricaoArmazem.TabIndex = 6;
             // 
             // TextEditCodigoArmazem
             // 
-            this.TextEditCodigoArmazem.Location = new System.Drawing.Point(98, 69);
+            this.TextEditCodigoArmazem.Location = new System.Drawing.Point(103, 88);
             this.TextEditCodigoArmazem.Name = "TextEditCodigoArmazem";
             this.TextEditCodigoArmazem.Size = new System.Drawing.Size(100, 20);
             this.TextEditCodigoArmazem.TabIndex = 5;
@@ -280,7 +281,7 @@ namespace CopiaEntreEmpresas
             // 
             // TextEditCodigoCliente
             // 
-            this.TextEditCodigoCliente.Location = new System.Drawing.Point(98, 29);
+            this.TextEditCodigoCliente.Location = new System.Drawing.Point(103, 48);
             this.TextEditCodigoCliente.Name = "TextEditCodigoCliente";
             this.TextEditCodigoCliente.Size = new System.Drawing.Size(100, 20);
             this.TextEditCodigoCliente.TabIndex = 4;
@@ -291,7 +292,7 @@ namespace CopiaEntreEmpresas
             // 
             this.Label4.AutoSize = true;
             this.Label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label4.Location = new System.Drawing.Point(37, 291);
+            this.Label4.Location = new System.Drawing.Point(42, 310);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(55, 16);
             this.Label4.TabIndex = 3;
@@ -301,7 +302,7 @@ namespace CopiaEntreEmpresas
             // 
             this.Label3.AutoSize = true;
             this.Label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label3.Location = new System.Drawing.Point(-2, 108);
+            this.Label3.Location = new System.Drawing.Point(3, 127);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(94, 16);
             this.Label3.TabIndex = 2;
@@ -311,7 +312,7 @@ namespace CopiaEntreEmpresas
             // 
             this.Label2.AutoSize = true;
             this.Label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label2.Location = new System.Drawing.Point(29, 70);
+            this.Label2.Location = new System.Drawing.Point(34, 89);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(63, 16);
             this.Label2.TabIndex = 1;
@@ -321,7 +322,7 @@ namespace CopiaEntreEmpresas
             // 
             this.Label1.AutoSize = true;
             this.Label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label1.Location = new System.Drawing.Point(45, 30);
+            this.Label1.Location = new System.Drawing.Point(50, 49);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(47, 16);
             this.Label1.TabIndex = 0;
@@ -331,7 +332,7 @@ namespace CopiaEntreEmpresas
             // 
             this.LabelTitulo.AutoSize = true;
             this.LabelTitulo.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelTitulo.Location = new System.Drawing.Point(198, 34);
+            this.LabelTitulo.Location = new System.Drawing.Point(205, 20);
             this.LabelTitulo.Name = "LabelTitulo";
             this.LabelTitulo.Size = new System.Drawing.Size(83, 23);
             this.LabelTitulo.TabIndex = 4;
@@ -342,15 +343,17 @@ namespace CopiaEntreEmpresas
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.GroupControl1);
-            this.Controls.Add(this.LabelTitulo);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmClientesView";
-            this.Size = new System.Drawing.Size(490, 389);
-            this.Text = "FrmClientesView";
+            this.Size = new System.Drawing.Size(490, 384);
+            this.Text = "Clientes";
             this.Activated += new System.EventHandler(this.FrmClientesView_Activated);
+            this.Load += new System.EventHandler(this.FrmClientesView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroupControl1)).EndInit();
             this.GroupControl1.ResumeLayout(false);

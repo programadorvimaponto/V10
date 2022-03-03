@@ -10,7 +10,7 @@ namespace Vimaponto.PrimaveraV100.Clientes.GrupoMundifios
 {
     public class DsFacade : SisDsServicoDados
     {
-        public override int NivelBaseDados { get { return 1; } }
+        public override int NivelBaseDados { get { return 2; } }
 
         public override Assembly AssemblyComScripts { get { return Assembly.GetExecutingAssembly(); } }
 

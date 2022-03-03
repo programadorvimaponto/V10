@@ -225,7 +225,11 @@ namespace FornecedoresCertificadosFilopa
         StdBELista ListaClasse;
         private void FrmFornecedoresCertsFilopaView_Load(object sender, EventArgs e)
         {
-
+            if (FindForm() is Form pai)
+            {
+                pai.MinimumSize = pai.Size;
+                pai.MaximumSize = pai.Size;
+            }
             this.TextEditCodigoCliente.EditValue = Module1.certEntidade;
 
 
@@ -242,6 +246,11 @@ namespace FornecedoresCertificadosFilopa
             LookUpEditClasse2.Properties.ValueMember = "CDU_Classe";
 
 
+        }
+
+        private void barButtonItemFechar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

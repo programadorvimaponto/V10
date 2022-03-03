@@ -98,7 +98,7 @@ namespace PreencherPercentagemOrg
                                     }
                                 }
                                 else
-                                {
+                                { 
                                     LinhaNaoExiste.Inicio();
 
                                     if (LinhaNaoExiste.Valor("CDU_Gots") != DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_Gots"])

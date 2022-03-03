@@ -24,7 +24,7 @@ namespace HistoricoPlafond
 
                 PlafondSeguradora = 0;
                 PlafondSolicitado = 0;
-                PlafondAdicional = 0;
+                PlafondAdicional = 0;   
 
                 HistoricoPlafond = BSO.Consulta("select top 1 Data, PlafondSeguradora, PlafondSolicitado, PlafondAdicional from TDU_HistoricoPlafond where Entidade='" + this.Cliente.Cliente + "' and Empresa='Mundifios' order by Data desc");
 

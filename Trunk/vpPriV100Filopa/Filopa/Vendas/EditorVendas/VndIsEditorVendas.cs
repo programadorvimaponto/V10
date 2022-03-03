@@ -106,7 +106,8 @@ namespace Filopa
                 if (BSO.Base.Clientes.DaValorAtributo(this.DocumentoVenda.Entidade, "CondPag") != "")
                 {
                     this.DocumentoVenda.CondPag = BSO.Base.Clientes.DaValorAtributo(this.DocumentoVenda.Entidade, "CondPag");
-                    int preenchedados = int.Parse(PreencheDados.enuDadosCondPag.ToString());
+                    //int preenchedados = int.Parse(PreencheDados.enuDadosCondPag.ToString());              
+                    int preenchedados = 4;
                     BSO.Vendas.Documentos.PreencheDadosRelacionados(this.DocumentoVenda, ref preenchedados);
                 }
             }
@@ -308,15 +309,16 @@ namespace Filopa
                 {
                     TransDiff = false;
 
-                    //if(DocumentoVenda.Linhas.GetEdita(i).IDLinhaOriginal!= "")
+                    if(this.DocumentoVenda.Linhas.GetEdita(i).IDLinhaOriginal==String.Empty)
+                        TransValida = BSO.Consulta("select concat(cd.TipoDoc, ' ', cd.NumDoc,'/', cd.Serie) as 'Doc',  ln.Artigo, ln.CDU_Comissao, ln.Comissao, ln.Vendedor from linhasdoc ln inner join cabecdoc cd on cd.id=ln.idcabecdoc where ln.Id='" + Guid.Empty + "'");
+                    else
                     TransValida = BSO.Consulta("select concat(cd.TipoDoc, ' ', cd.NumDoc,'/', cd.Serie) as 'Doc',  ln.Artigo, ln.CDU_Comissao, ln.Comissao, ln.Vendedor from linhasdoc ln inner join cabecdoc cd on cd.id=ln.idcabecdoc where ln.Id='" + this.DocumentoVenda.Linhas.GetEdita(i).IDLinhaOriginal + "'");
-                    //TransValida = BSO.Consulta("select concat(cd.TipoDoc, ' ', cd.NumDoc,'/', cd.Serie) as 'Doc',  ln.Artigo, ln.CDU_Comissao, ln.Comissao, ln.Vendedor from linhasdoc ln inner join cabecdoc cd on cd.id=ln.idcabecdoc where ln.Id='" + Guid.NewGuid() + "'");
                         
                     if (DocumentoVenda.Linhas.GetEdita(i).Armazem + "" != "" && DocumentoVenda.Linhas.GetEdita(i).IDLinhaOriginal + "" != "")
                     {
                         TransValida.Inicio();
 
-                        if (DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_Comissao"] != TransValida.Valor("CDU_Comissao"))
+                        if (double.Parse(DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_Comissao"].Valor.ToString()) != TransValida.Valor("CDU_Comissao"))
                             TransDiff = true;
                         if (DocumentoVenda.Linhas.GetEdita(i).Comissao != TransValida.Valor("Comissao"))
                             TransDiff = true;

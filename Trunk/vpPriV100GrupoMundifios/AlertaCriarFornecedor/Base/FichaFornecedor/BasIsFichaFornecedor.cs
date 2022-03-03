@@ -15,7 +15,7 @@ namespace AlertaCriarFornecedor
 
             if (Module1.VerificaToken("AlertaCriarFornecedor") == 1)
             {
-                long i;
+                int i;
                 StdBELista listEnt;
                 string VarAssunto;
                 string VarFrom;
@@ -49,8 +49,8 @@ namespace AlertaCriarFornecedor
                     {
                         VarMensagem = VarMensagem + Strings.Chr(13) + Strings.Chr(13) + ""
                                     + "Fornecedor:         " + listEnt.Valor("Fornecedor") + Strings.Chr(13) + ""
-                                    + "Nome:            " + Strings.Replace(listEnt.Valor("Nome"), "'", "") + Strings.Chr(13) + ""
-                                    + "Morada:          " + Strings.Replace(listEnt.Valor("Morada"), "'", "") + Strings.Chr(13) + ""
+                                    + "Nome:            " + listEnt.Valor("Nome") + Strings.Chr(13) + ""
+                                    + "Morada:          " + listEnt.Valor("Morada") + Strings.Chr(13) + ""
                                     + "Local:           " + listEnt.Valor("Local") + Strings.Chr(13) + ""
                                     + "CodigoPostal:    " + listEnt.Valor("Cp") + Strings.Chr(13) + ""
                                     + "Localidade:      " + listEnt.Valor("CpLoc") + Strings.Chr(13) + ""

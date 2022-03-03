@@ -59,6 +59,14 @@
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\APL\ICmpBS100.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="IIntBS100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IIntBS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IntBE100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IntBE100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="IVndBS100">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\APL\IVndBS100.dll</HintPath>
       <Private>False</Private>
@@ -107,16 +115,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="vcSistema">
-      <HintPath>..\..\..\..\..\..\..\COMPONENTES\vcSistema\Trunk\vcSistema\bin\Debug\netstandard2.0\vcSistema.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\Assembly\vcSistema.dll</HintPath>
     </Reference>
     <Reference Include="VndBE100">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\APL\VndBE100.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="vpPriV100">
-      <HintPath>..\..\..\..\VEX\Trunk\vpPriV100\bin\Debug\vpPriV100.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\Assembly\vpPriV100.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +131,12 @@
     <Compile Include="Inovafil\Vendas\EditorVendas\VndIsEditorVendas.cs" />
     <Compile Include="NsPlataforma.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\vpPriV100GrupoMundifios\vpPriV100GrupoMundifios.csproj">
+      <Project>{96E85064-B923-4CBE-A8AC-5DF4617BD832}</Project>
+      <Name>vpPriV100GrupoMundifios</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

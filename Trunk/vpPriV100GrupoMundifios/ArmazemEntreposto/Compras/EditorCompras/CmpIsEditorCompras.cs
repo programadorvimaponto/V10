@@ -1,5 +1,6 @@
 using Generico;
 using Microsoft.VisualBasic;
+using Primavera.Extensibility.Attributes;
 using Primavera.Extensibility.BusinessEntities.ExtensibilityService.EventArgs;
 using Primavera.Extensibility.Purchases.Editors;
 
@@ -7,6 +8,8 @@ namespace ArmazemEntreposto
 {
     public class CmpIsEditorCompras : EditorCompras
     {
+        //Primeiro a correr porque mexe com Artigos Lotes. Segundo a correr será no Comprafio. No copiar Lotes irá copiar os lotes para a mundifios com todos os dados.
+        [Order(0)]
         public override void DepoisDeGravar(string Filial, string Tipo, string Serie, int NumDoc, ExtensibilityEventArgs e)
         {
             base.DepoisDeGravar(Filial, Tipo, Serie, NumDoc, e);

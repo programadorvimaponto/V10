@@ -39,13 +39,10 @@
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\BasBE100.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="C1.Win.C1Input.4, Version=4.0.20131.33296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL">
+    <Reference Include="CblBE100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\ComponentOne\Studio for WinForms\bin\v4\C1.Win.C1Input.4.dll</HintPath>
-    </Reference>
-    <Reference Include="C1.Win.C1SplitContainer.4, Version=4.0.20131.41, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\ComponentOne\Studio for WinForms\bin\v4\C1.Win.C1SplitContainer.4.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\CblBE100.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="CctBE100">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\CctBE100.dll</HintPath>
@@ -55,24 +52,58 @@
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\CmpBE100.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="ConstantesPrimavera100">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\ConstantesPrimavera100.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Docs.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Docs.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="DevExpress.Office.v21.2.Core, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPdfViewer.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraRichEdit.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v21.2.Core, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPdfViewer.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="ErpBS100">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\ErpBS100.dll</HintPath>
       <Private>False</Private>
@@ -87,6 +118,11 @@
     </Reference>
     <Reference Include="IBasBS100">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IBasBS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ICblBS100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\ICblBS100.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
     <Reference Include="ICctBS100">
@@ -130,6 +166,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="Primavera.Extensibility.Attributes">
       <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\APL\Primavera.Extensibility.Attributes.dll</HintPath>
       <Private>False</Private>
@@ -190,9 +227,6 @@
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\Primavera.Platform.Collections.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="PRISDK100">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\PRISDK100.dll</HintPath>
-    </Reference>
     <Reference Include="PriTextBoxF4100">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\PriTextBoxF4100.dll</HintPath>
       <Private>False</Private>
@@ -210,26 +244,26 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Linq" />
     <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="vcSdkUi">
-      <HintPath>..\..\..\..\..\..\..\COMPONENTES\vcSdkUi\Trunk\vcSdkUi\bin\Debug\vcSdkUi.dll</HintPath>
+    <Reference Include="vcSdkUi, Version=22.2.1.301, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assembly\vcSdkUi.dll</HintPath>
     </Reference>
     <Reference Include="vcSistema">
-      <HintPath>..\..\..\..\..\..\..\COMPONENTES\vcSistema\Trunk\vcSistema\bin\Debug\netstandard2.0\vcSistema.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\Assembly\vcSistema.dll</HintPath>
     </Reference>
     <Reference Include="VndBE100">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\APL\VndBE100.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="vpPriV100">
-      <HintPath>..\..\..\..\VEX\Trunk\vpPriV100\bin\Debug\vpPriV100.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\Assembly\vpPriV100.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -238,7 +272,7 @@
     <Compile Include="AlertaObsCliente\Vendas\EditorVendas\VndIsEditorVendas.cs" />
     <Compile Include="AlertaRupturaStkMin\Vendas\EditorVendas\VndIsEditorVendas.cs" />
     <Compile Include="ArmazemEntreposto\Compras\EditorCompras\CmpIsEditorCompras.cs" />
-    <Compile Include="ArmazemEntreposto\Producao\EditorStocks\PrdIsEditorStocks.cs" />
+    <Compile Include="ArmazemEntreposto\Inventario\InvIsTransferenciaArmazens.cs" />
     <Compile Include="ArmazemEntreposto\Vendas\EditorVendas\VndIsEditorVendas.cs" />
     <Compile Include="ArmazemEntreposto\Vendas\WindowsForms\FrmAlteraGuiaAEPView.cs">
       <SubType>UserControl</SubType>
@@ -247,40 +281,94 @@
       <DependentUpon>FrmAlteraGuiaAEPView.cs</DependentUpon>
     </Compile>
     <Compile Include="ArtigosNovos\Base\FichaArtigo\BasIsFichaArtigo.cs" />
-    <Compile Include="AssistenteArtigos\FormGestaoPropriedadeArtigoView.cs">
+    <Compile Include="AssistenteArtigos\ArtigosMundifiosTableAdapters\VMP_ART_ComponenteArtigoTableAdapter.cs" />
+    <Compile Include="AssistenteArtigos\Class\DataBaseLayer.cs" />
+    <Compile Include="AssistenteArtigos\Class\DataServiceLayer.cs" />
+    <Compile Include="AssistenteArtigos\Class\EmpresaGrupo.cs" />
+    <Compile Include="AssistenteArtigos\Class\Enums.cs" />
+    <Compile Include="AssistenteArtigos\Class\Geral.cs" />
+    <Compile Include="AssistenteArtigos\Class\ListParameter.cs" />
+    <Compile Include="AssistenteArtigos\Class\ListParameterDataRow.cs" />
+    <Compile Include="AssistenteArtigos\Class\ListParamTextBox.cs" />
+    <Compile Include="AssistenteArtigos\Class\SingletonFormProvider.cs" />
+    <Compile Include="AssistenteArtigos\Class\VariaveisGlobais.cs" />
+    <Compile Include="AssistenteArtigos\DataSource\DsArtigosMundifios.cs">
+      <DependentUpon>DsArtigosMundifios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\DataSource\DsArtigosMundifios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsArtigosMundifios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\DataSource\DsEmpresasGrupo.cs">
+      <DependentUpon>DsEmpresasGrupo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\DataSource\DsEmpresasGrupo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsEmpresasGrupo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\DataSource\DsListas.cs">
+      <DependentUpon>DsListas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\DataSource\DsListas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsListas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\DataSource\DsListasMundifios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsListasMundifios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\DataSource\DsPropriedadesMundifios.cs">
+      <DependentUpon>DsPropriedadesMundifios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\DataSource\DsPropriedadesMundifios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsPropriedadesMundifios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmListaGeralView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AssistenteArtigos\FormGestaoPropriedadeArtigoView.Designer.cs">
-      <DependentUpon>FormGestaoPropriedadeArtigoView.cs</DependentUpon>
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmListaGeralView.Designer.cs">
+      <DependentUpon>FrmListaGeralView.cs</DependentUpon>
     </Compile>
-    <Compile Include="AssistenteArtigos\FormGestaoPropriedadesMundifiosView.cs">
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmUcGestaoPropriedadesView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AssistenteArtigos\FormGestaoPropriedadesMundifiosView.Designer.cs">
-      <DependentUpon>FormGestaoPropriedadesMundifiosView.cs</DependentUpon>
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmUcGestaoPropriedadesView.Designer.cs">
+      <DependentUpon>FrmUcGestaoPropriedadesView.cs</DependentUpon>
     </Compile>
-    <Compile Include="AssistenteArtigos\FormHelpView.cs">
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmGestaoPropriedadesMundifiosView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AssistenteArtigos\FormHelpView.Designer.cs">
-      <DependentUpon>FormHelpView.cs</DependentUpon>
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmGestaoPropriedadesMundifiosView.Designer.cs">
+      <DependentUpon>FrmGestaoPropriedadesMundifiosView.cs</DependentUpon>
     </Compile>
-    <Compile Include="AssistenteArtigos\FormListaMundifiosView.cs">
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmHelpView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AssistenteArtigos\FormListaMundifiosView.Designer.cs">
-      <DependentUpon>FormListaMundifiosView.cs</DependentUpon>
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmHelpView.Designer.cs">
+      <DependentUpon>FrmHelpView.cs</DependentUpon>
     </Compile>
-    <Compile Include="AssistenteArtigos\FrmArtigoMundifiosView.cs">
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmListaMundifiosView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AssistenteArtigos\FrmArtigoMundifiosView.Designer.cs">
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmListaMundifiosView.Designer.cs">
+      <DependentUpon>FrmListaMundifiosView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmArtigoMundifiosView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmArtigoMundifiosView.Designer.cs">
       <DependentUpon>FrmArtigoMundifiosView.cs</DependentUpon>
     </Compile>
-    <Compile Include="AssistenteArtigos\FrmListaPropriedadesMundifiosView.cs">
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmListaPropriedadesMundifiosView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AssistenteArtigos\FrmListaPropriedadesMundifiosView.Designer.cs">
+    <Compile Include="AssistenteArtigos\WindowsForms\FrmListaPropriedadesMundifiosView.Designer.cs">
       <DependentUpon>FrmListaPropriedadesMundifiosView.cs</DependentUpon>
     </Compile>
     <Compile Include="AvisoCompraTaras\Vendas\EditorVendas\VndIsEditorVendas.cs" />
@@ -331,9 +419,22 @@
       <DependentUpon>FrmCustoTransportesView.cs</DependentUpon>
     </Compile>
     <Compile Include="Default\Compras\EditorCompras\CmpIsEditorCompras.cs" />
+    <Compile Include="Default\Compras\WindowsForms\FrmOutrosDadosView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Default\Compras\WindowsForms\FrmOutrosDadosView.Designer.cs">
+      <DependentUpon>FrmOutrosDadosView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Default\Internos\EditorInternos\IntIsEditorInternos.cs" />
     <Compile Include="Default\Plataforma\PltNsEmpresas.cs" />
     <Compile Include="Default\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="Default\WindowsForms\FrmAlteraEstadoEncomendaView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Default\WindowsForms\FrmAlteraEstadoEncomendaView.Designer.cs">
+      <DependentUpon>FrmAlteraEstadoEncomendaView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevolucaoRemonta\Inventario\TransferenciasStock\InvIsEditorTransferenciasStock.cs" />
     <Compile Include="DsFacade.cs" />
     <Compile Include="DyStar\Compras\EditorCompras\CmpIsEditorCompras.cs" />
     <Compile Include="EmDisputa\PagamentosRecebimentos\EditorCCPendentesGrelha\CctIsEditorCCPendentesGrelha.cs" />
@@ -354,6 +455,42 @@
     </Compile>
     <Compile Include="FAC\Vendas\EditorVendas\VndIsEditorVendas.cs" />
     <Compile Include="FixCambioECL\Vendas\EditorVendas\VndIsEditorVendas.cs" />
+    <Compile Include="Formulários\FrmAlteraDataVencRQRMView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formulários\FrmAlteraDataVencRQRMView.Designer.cs">
+      <DependentUpon>FrmAlteraDataVencRQRMView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\FrmAlteraDataVencView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formulários\FrmAlteraDataVencView.Designer.cs">
+      <DependentUpon>FrmAlteraDataVencView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\FrmAtualizaTaxaCustoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formulários\FrmAtualizaTaxaCustoView.Designer.cs">
+      <DependentUpon>FrmAtualizaTaxaCustoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\FrmImportaDocCBLView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formulários\FrmImportaDocCBLView.Designer.cs">
+      <DependentUpon>FrmImportaDocCBLView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\FrmPesagensPendentesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formulários\FrmPesagensPendentesView.Designer.cs">
+      <DependentUpon>FrmPesagensPendentesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\FrmPrecoArtigosView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formulários\FrmPrecoArtigosView.Designer.cs">
+      <DependentUpon>FrmPrecoArtigosView.cs</DependentUpon>
+    </Compile>
     <Compile Include="FornecedoresCertificados\Base\FichaFornecedor\BasIsFichaFornecedor.cs" />
     <Compile Include="FornecedoresCertificados\Base\WindowsForms\FrmFornecedoresCertsView.cs">
       <SubType>UserControl</SubType>
@@ -361,6 +498,7 @@
     <Compile Include="FornecedoresCertificados\Base\WindowsForms\FrmFornecedoresCertsView.Designer.cs">
       <DependentUpon>FrmFornecedoresCertsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Generico\ImportaDocCBL.cs" />
     <Compile Include="Generico\Mdi_CopiaCaracteristicasTecnicas.cs" />
     <Compile Include="Generico\Mdi_GeraDocumentoCompra.cs" />
     <Compile Include="Generico\Mdi_GeraDocumentoVenda.cs" />
@@ -382,11 +520,11 @@
     <Compile Include="IntegracaoCondPag\Base\FichaCondsPag\BasIsFichaCondsPag.cs" />
     <Compile Include="IntegracaoFilopaDestino\Compras\EditorCompras\CmpIsEditorCompras.cs" />
     <Compile Include="IntegracaoFilopa\Vendas\EditorVendas\VndIsEditorVendas.cs" />
-    <Compile Include="IntegracaoFilopa\Vendas\WindowsForms\FrmOutrosDadosView.cs">
+    <Compile Include="IntegracaoFilopa\Vendas\WindowsForms\FrmOutrosDadosFilopaView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="IntegracaoFilopa\Vendas\WindowsForms\FrmOutrosDadosView.Designer.cs">
-      <DependentUpon>FrmOutrosDadosView.cs</DependentUpon>
+    <Compile Include="IntegracaoFilopa\Vendas\WindowsForms\FrmOutrosDadosFilopaView.Designer.cs">
+      <DependentUpon>FrmOutrosDadosFilopaView.cs</DependentUpon>
     </Compile>
     <Compile Include="IntegracaoIntrastat\Base\FichaIntMercadoria\BasIsFichaIntMercadoria.cs" />
     <Compile Include="Intrastat\Vendas\EditorVendas\VndIsEditorVendas.cs" />
@@ -394,7 +532,6 @@
     <Compile Include="MyTools\Compras\EditorCompras\CmpIsEditorCompras.cs" />
     <Compile Include="NsPlataforma.cs" />
     <Compile Include="PCustoPrTab\Vendas\EditorVendas\VndIsEditorVendas.cs" />
-    <Compile Include="PrecoBase0\Vendas\EditorVendas\VndIsEditorVendas.cs" />
     <Compile Include="PreencherPercentagemOrg\Vendas\EditorVendas\VndIsEditorVendas.cs" />
     <Compile Include="PrintPackingList\Vendas\EditorVendas\VndIsEditorVendas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -402,6 +539,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="QtdMinCliente\Vendas\EditorVendas\VndIsEditorVendas.cs" />
     <Compile Include="SerieC\Compras\EditorCompras\CmpIsEditorCompras.cs" />
@@ -428,20 +570,26 @@
     <EmbeddedResource Include="ArmazemEntreposto\Vendas\WindowsForms\FrmAlteraGuiaAEPView.resx">
       <DependentUpon>FrmAlteraGuiaAEPView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AssistenteArtigos\FormGestaoPropriedadeArtigoView.resx">
-      <DependentUpon>FormGestaoPropriedadeArtigoView.cs</DependentUpon>
+    <EmbeddedResource Include="AssistenteArtigos\WindowsForms\FrmListaGeralView.resx">
+      <DependentUpon>FrmListaGeralView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AssistenteArtigos\FormGestaoPropriedadesMundifiosView.resx">
-      <DependentUpon>FormGestaoPropriedadesMundifiosView.cs</DependentUpon>
+    <EmbeddedResource Include="AssistenteArtigos\WindowsForms\FrmUcGestaoPropriedadesView.resx">
+      <DependentUpon>FrmUcGestaoPropriedadesView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AssistenteArtigos\FormHelpView.resx">
-      <DependentUpon>FormHelpView.cs</DependentUpon>
+    <EmbeddedResource Include="AssistenteArtigos\WindowsForms\FrmGestaoPropriedadesMundifiosView.resx">
+      <DependentUpon>FrmGestaoPropriedadesMundifiosView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AssistenteArtigos\FormListaMundifiosView.resx">
-      <DependentUpon>FormListaMundifiosView.cs</DependentUpon>
+    <EmbeddedResource Include="AssistenteArtigos\WindowsForms\FrmHelpView.resx">
+      <DependentUpon>FrmHelpView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AssistenteArtigos\FrmArtigoMundifiosView.resx">
+    <EmbeddedResource Include="AssistenteArtigos\WindowsForms\FrmListaMundifiosView.resx">
+      <DependentUpon>FrmListaMundifiosView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssistenteArtigos\WindowsForms\FrmArtigoMundifiosView.resx">
       <DependentUpon>FrmArtigoMundifiosView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssistenteArtigos\WindowsForms\FrmListaPropriedadesMundifiosView.resx">
+      <DependentUpon>FrmListaPropriedadesMundifiosView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CertificadosOrg\Compras\WindowsForms\FrmAlteraCertificadoTransacaoView.resx">
       <DependentUpon>FrmAlteraCertificadoTransacaoView.cs</DependentUpon>
@@ -455,11 +603,35 @@
     <EmbeddedResource Include="CustoTransportes\Vendas\WindowsForms\FrmCustoTransportesView.resx">
       <DependentUpon>FrmCustoTransportesView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Default\Compras\WindowsForms\FrmOutrosDadosView.resx">
+      <DependentUpon>FrmOutrosDadosView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Default\WindowsForms\FrmAlteraEstadoEncomendaView.resx">
+      <DependentUpon>FrmAlteraEstadoEncomendaView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmDisputa\PagamentosRecebimentos\WindowsForms\FrmEmDisputaView.resx">
       <DependentUpon>FrmEmDisputaView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facol\Vendas\WindowsForms\FrmFacolPagoView.resx">
       <DependentUpon>FrmFacolPagoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\FrmAlteraDataVencRQRMView.resx">
+      <DependentUpon>FrmAlteraDataVencRQRMView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\FrmAlteraDataVencView.resx">
+      <DependentUpon>FrmAlteraDataVencView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\FrmAtualizaTaxaCustoView.resx">
+      <DependentUpon>FrmAtualizaTaxaCustoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\FrmImportaDocCBLView.resx">
+      <DependentUpon>FrmImportaDocCBLView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\FrmPesagensPendentesView.resx">
+      <DependentUpon>FrmPesagensPendentesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\FrmPrecoArtigosView.resx">
+      <DependentUpon>FrmPrecoArtigosView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FornecedoresCertificados\Base\WindowsForms\FrmFornecedoresCertsView.resx">
       <DependentUpon>FrmFornecedoresCertsView.cs</DependentUpon>
@@ -467,8 +639,8 @@
     <EmbeddedResource Include="Inditex\Base\WindowsForms\FrmInditex.resx">
       <DependentUpon>FrmInditex.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IntegracaoFilopa\Vendas\WindowsForms\FrmOutrosDadosView.resx">
-      <DependentUpon>FrmOutrosDadosView.cs</DependentUpon>
+    <EmbeddedResource Include="IntegracaoFilopa\Vendas\WindowsForms\FrmOutrosDadosFilopaView.resx">
+      <DependentUpon>FrmOutrosDadosFilopaView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -480,13 +652,86 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DevolucaoRemonta\" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Scripts\GrupoMundifios.000.sql" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="AssistenteArtigos\DataSource\DsArtigosMundifios.xsc">
+      <DependentUpon>DsArtigosMundifios.xsd</DependentUpon>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsArtigosMundifios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsArtigosMundifios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsArtigosMundifios.xss">
+      <DependentUpon>DsArtigosMundifios.xsd</DependentUpon>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsEmpresasGrupo.xsc">
+      <DependentUpon>DsEmpresasGrupo.xsd</DependentUpon>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsEmpresasGrupo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsEmpresasGrupo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsEmpresasGrupo.xss">
+      <DependentUpon>DsEmpresasGrupo.xsd</DependentUpon>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsListas.xsc">
+      <DependentUpon>DsListas.xsd</DependentUpon>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsListas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsListas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsListas.xss">
+      <DependentUpon>DsListas.xsd</DependentUpon>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsListasMundifios.xsc">
+      <DependentUpon>DsListasMundifios.xsd</DependentUpon>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsListasMundifios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsListasMundifios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsListasMundifios.xss">
+      <DependentUpon>DsListasMundifios.xsd</DependentUpon>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsPropriedadesMundifios.xsc">
+      <DependentUpon>DsPropriedadesMundifios.xsd</DependentUpon>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsPropriedadesMundifios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsPropriedadesMundifios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AssistenteArtigos\DataSource\DsPropriedadesMundifios.xss">
+      <DependentUpon>DsPropriedadesMundifios.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADODB">
+      <Guid>{B691E011-1797-432E-907A-4D8C69339129}</Guid>
+      <VersionMajor>6</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Scripts\GrupoMundifios.001.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\GrupoMundifios.002.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

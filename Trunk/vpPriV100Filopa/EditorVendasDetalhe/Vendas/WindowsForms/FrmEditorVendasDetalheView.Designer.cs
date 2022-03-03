@@ -31,9 +31,8 @@ namespace EditorVendasDetalhe
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditorVendasDetalheView));
-            this.barManagerEditorVendasDetalhe = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManagerEditorVendasDetalhe = new DevExpress.XtraBars.BarManager();
             this.barEditorVendas = new DevExpress.XtraBars.Bar();
             this.barButtonItemConfirmar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemCancelar = new DevExpress.XtraBars.BarButtonItem();
@@ -114,7 +113,7 @@ namespace EditorVendasDetalhe
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
             this.vmpGridControlLinhasDoc = new Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridControl();
-            this.BsLinhasDoc = new System.Windows.Forms.BindingSource(this.components);
+            this.BsLinhasDoc = new System.Windows.Forms.BindingSource();
             this.dsEditorVendasDetalhe = new Vimaponto.PrimaveraV100.Clientes.Filopa.EditorVendasDetalhe.DataSets.DsEditorVendasDetalhe();
             this.vmpGridViewLinhasDoc = new Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -173,7 +172,7 @@ namespace EditorVendasDetalhe
             this.colParqueDescricao = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCDU_ObsMdf = new DevExpress.XtraGrid.Columns.GridColumn();
             this.vmpGridControlTotalLInhas = new Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridControl();
-            this.BsTotalLinhas = new System.Windows.Forms.BindingSource(this.components);
+            this.BsTotalLinhas = new System.Windows.Forms.BindingSource();
             this.vmpGridViewTotalLinhas = new Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridView();
             this.colNFatura = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colValorFOB = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -257,7 +256,7 @@ namespace EditorVendasDetalhe
             this.labelTipoQualidade = new System.Windows.Forms.Label();
             this.labelPaisOrigem = new System.Windows.Forms.Label();
             this.labelSituacao = new System.Windows.Forms.Label();
-            this.BsCabecDoc = new System.Windows.Forms.BindingSource(this.components);
+            this.BsCabecDoc = new System.Windows.Forms.BindingSource();
             this.helpProviderEditorVendas = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.barManagerEditorVendasDetalhe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
@@ -2674,6 +2673,8 @@ namespace EditorVendasDetalhe
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmEditorVendasDetalheView";
             this.Size = new System.Drawing.Size(1317, 833);
             this.Text = "Detalhes do Documento";

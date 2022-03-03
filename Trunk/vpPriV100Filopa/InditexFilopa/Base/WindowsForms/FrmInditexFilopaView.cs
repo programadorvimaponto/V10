@@ -24,9 +24,14 @@ namespace InditexFilopa
         string SqlTipoIdentificacao;
         private void barButtonItemGravar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
             if (this.textEditCodigoCliente.EditValue.ToString()!= "")
             {
+
+                Module1.FechaEmpresa();
+                Module1.AbreEmpresa("FILOPA");
                 AlteraFiacoesClientes();
+
             }
             else
             {
@@ -87,7 +92,6 @@ namespace InditexFilopa
 
                 CamposFiacoes = BSO.Base.Clientes.DaValorAtributos(textEditCodigoCliente.EditValue.ToString(), "CDU_FiacoesObs", "CDU_FiacoesNIdentificacao", "CDU_FiacoesTIdentificacao", "CDU_FiacoesPreAuditado", "CDU_FiacoesAuditado", "CDU_FiacoesAprovado", "CDU_FiacoesClassificacao", "CDU_FiacoesData");
 
-
                 // Data Atualizacao
                 CamposFiacoes["CDU_FiacoesData"].Valor = Strings.Format(this.dateEditFiacoes.EditValue, "yyyy-MM-dd");
                 // Dados
@@ -114,9 +118,10 @@ namespace InditexFilopa
                 return;
 
             }
-            catch
+            catch ( Exception ex)
             {
                 MessageBox.Show("Filopa - Erro ao gravar", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -136,7 +141,7 @@ namespace InditexFilopa
                     if (Forn.Vazia() == false)
                     {
                         var Campos = new StdBECampos();
-                        Campos = BSO.Base.Clientes.DaValorAtributos(this.textEditCodigoCliente.EditValue.ToString(), "CDU_FiacoesObs", "CDU_FiacoesNIdentificacao", "CDU_FiacoesTIdentificacao", "CDU_FiacoesPreAuditado", "CDU_FiacoesAuditado", "CDU_FiacoesAprovado", "CDU_FiacoesClassificacao", "CDU_FiacoesData");
+                        Campos = BSO.Base.Fornecedores.DaValorAtributos(this.textEditCodigoCliente.EditValue.ToString(), "CDU_FiacoesObs", "CDU_FiacoesNIdentificacao", "CDU_FiacoesTIdentificacao", "CDU_FiacoesPreAuditado", "CDU_FiacoesAuditado", "CDU_FiacoesAprovado", "CDU_FiacoesClassificacao", "CDU_FiacoesData");
                         BSO.Base.Fornecedores.ActualizaValorAtributos(Forn.Valor("Fornecedor"), Campos);
                         MessageBox.Show("Filopa - Dados gravados com sucesso!" + '\r' + '\r' + "Mundifios - Dados gravados com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -168,32 +173,25 @@ namespace InditexFilopa
             //copiar.SetText(resumo);
             //copiar.PutInClipboard();
             Clipboard.SetText(resumo);
-
         }
 
-        private void textEditCliente_EditValueChanged(object sender, EventArgs e)
-        {
 
-            CarregaDados();
-
-        }
 
         private void FrmInditexFilopaView_Load(object sender, EventArgs e)
         {
-
-            this.textEditCodigoCliente.EditValue = Module1.certFiacoes;
-            SqlTipoIdentificacao = "SELECT * FROM prifilopa.dbo.tdu_tipoidentificacaoinditex";
-            ListaTipoIdentificacao = BSO.Consulta(SqlTipoIdentificacao);
-            if (ListaTipoIdentificacao.Vazia() == false)
+            if (FindForm() is Form pai)
             {
-                ListaTipoIdentificacao.Inicio();
-                for (int k = 1, loopTo = ListaTipoIdentificacao.NumLinhas(); k <= loopTo; k++)
-                {
-                    lookUpEditTipoIdentificacao.Properties.DataSource = ListaTipoIdentificacao.Valor("CDU_TipoIdentificacao");
-                    ListaTipoIdentificacao.Seguinte();
-                }
+                pai.MinimumSize = pai.Size;
+                pai.MaximumSize = pai.Size;
             }
-                var lista = new List<string>();
+            string sql = "SELECT CDU_TipoIdentificacao as 'Tipo Identificação' FROM prifilopa.dbo.tdu_tipoidentificacaoinditex";
+
+            DataTable dtTipoId = new DataTable();
+            dtTipoId = BSO.ConsultaDataTable(sql);
+            lookUpEditTipoIdentificacao.Properties.DataSource = dtTipoId;
+            lookUpEditTipoIdentificacao.Properties.DisplayMember = "Tipo Identificação";
+            lookUpEditTipoIdentificacao.Properties.ValueMember = "Tipo Identificação";
+            var lista = new List<string>();
             lista.Add("A");
             lista.Add("B");
             lista.Add("C");
@@ -209,21 +207,40 @@ namespace InditexFilopa
             lookUpEditPreAuditado.Properties.DataSource = lista;
             lookUpEditAuditado.Properties.DataSource = lista;
             lookUpEditAprovado.Properties.DataSource = lista;
+
+            if (Module1.certFiacoes is string)
+                textEditCodigoCliente.Text = Module1.certFiacoes;
+            else
+                textEditCodigoCliente.Text = "";
+
         }
 
+        private void barButtonItemFechar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
 
-    //        'Private Sub TxtCodigoCliente_Change()
 
-    //'    Me.txtCliente.Text = BSO.Comercial.Clientes.DaValorAtributo(Me.TxtCodigoCliente.Text, "Nome")
+        }
 
-    //'End Sub
+        private void textEditCliente_EditValueChanged(object sender, EventArgs e)
+        {
 
-    //'Private Sub TxtCodigoCliente_KeyUp(KeyCode As Integer, Shift As Integer)
-    //'    If KeyCode = vbKeyF4 Then
+            CarregaDados();
 
-    //'        Aplicacao.PlataformaPRIMAVERA.AbreLista 0, "Clientes", "Cliente", Me, Me.TxtCodigoCliente, "mnuTabCliente", , , , , , True
+        }
 
-    //'  End If
-    //'End Sub
+        private void textEditCodigoCliente_EditValueChanged(object sender, EventArgs e)
+        {
+            textEditCliente.EditValue = BSO.Base.Clientes.DaValorAtributo(textEditCodigoCliente.Text, "Nome");
+
+        }
+
+        private void textEditCodigoCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.F4)
+                PSO.AbreLista(0, "Clientes", "Cliente", this.FindForm(), textEditCodigoCliente, "mnuTabCliente", blnModal: true);
+
+        }
     }
 }

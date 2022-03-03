@@ -206,6 +206,7 @@ namespace FornecedoresCertificadosFilopa
             this.barButtonItemFechar.Id = 3;
             this.barButtonItemFechar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemFechar.ImageOptions.Image")));
             this.barButtonItemFechar.Name = "barButtonItemFechar";
+            this.barButtonItemFechar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFechar_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -806,9 +807,11 @@ namespace FornecedoresCertificadosFilopa
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmFornecedoresCertsFilopaView";
             this.Size = new System.Drawing.Size(776, 374);
-            this.Text = "FrmFornecedoresCertsFilopaView";
+            this.Text = "Fornecedores Certs Filopa";
             this.Load += new System.EventHandler(this.FrmFornecedoresCertsFilopaView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextEditCliente.Properties)).EndInit();

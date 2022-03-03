@@ -15,7 +15,7 @@ namespace AlertaCriarCliente
 
             if (Module1.VerificaToken("AlertaCriarCliente") == 1)
             {
-                long i;
+                int i;
                 StdBELista listEnt;
                 string VarAssunto;
                 string VarFrom;
@@ -24,7 +24,7 @@ namespace AlertaCriarCliente
                 string VarMensagem;
                 string VarUtilizador;
 
-                listEnt = BSO.Consulta("select f.Cliente, f.Nome,  f.Fac_Mor as 'Morada', f.Fac_Local as 'Local',  f.Fac_Cp as 'Cp', f.Fac_Cploc as 'CpLoc',  f.Distrito,  f.TipoTerceiro, f.Pais, f.Idioma, f.NumContrib, f.CondPag, f.ModoPag, f.Moeda, f.CDU_EntidadeInterna from PRIMUNDITALIA.dbo.Clientes f where f.CDU_EntidadeInterna not in (select CDU_EntidadeInterna from primundifios.dbo.Clientes)");
+                listEnt = BSO.Consulta("select f.Cliente, f.Nome,  f.Fac_Mor as 'Morada', f.Fac_Local as 'Local',  f.Fac_Cp as 'Cp', f.Fac_Cploc as 'CpLoc',  f.Distrito,  f.TipoTerceiro, f.Pais, f.Idioma, f.NumContrib, f.CondPag, f.ModoPag, f.Moeda, f.CDU_EntidadeInterna from PRIMUNDITALIA.dbo.Clientes f where isnull(f.CDU_EntidadeInterna,'') not in (select isnull(CDU_EntidadeInterna,'') from primundifios.dbo.Clientes)");
 
                 if (listEnt.Vazia() == false)
                 {
@@ -49,11 +49,11 @@ namespace AlertaCriarCliente
                     {
                         VarMensagem = VarMensagem + Strings.Chr(13) + Strings.Chr(13) + ""
                                     + "Cliente:         " + listEnt.Valor("Cliente") + Strings.Chr(13) + ""
-                                    + "Nome:            " + Strings.Replace(listEnt.Valor("Nome"), "'", "") + Strings.Chr(13) + ""
-                                    + "Morada:          " + Strings.Replace(listEnt.Valor("Morada"), "'", "") + Strings.Chr(13) + ""
+                                    + "Nome:            " + listEnt.Valor("Nome") + Strings.Chr(13) + ""
+                                    + "Morada:          " + listEnt.Valor("Morada") + Strings.Chr(13) + ""
                                     + "Local:           " + listEnt.Valor("Local") + Strings.Chr(13) + ""
                                     + "CodigoPostal:    " + listEnt.Valor("Cp") + Strings.Chr(13) + ""
-                                    + "Localidade:      " + listEnt.Valor("CpLoc") + Strings.Chr(13) + ""
+                                    + "Localidade:      " + Strings.Replace(listEnt.Valor("CpLoc"), "'", " ") + Strings.Chr(13) + ""
                                     + "Distrito:        " + listEnt.Valor("Distrito") + Strings.Chr(13) + ""
                                     + "TipoTerceiro:    " + listEnt.Valor("TipoTerceiro") + Strings.Chr(13) + ""
                                     + "Pais:            " + listEnt.Valor("Pais") + Strings.Chr(13) + ""

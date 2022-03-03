@@ -16,7 +16,7 @@ namespace IntegracaoFilopa
         {
             base.DepoisDeGravar(Filial, Tipo, Serie, NumDoc, e);
 
-            if (Module1.VerificaToken("IntegracaoFilopa") == 1)
+            if (Module1.VerificaToken("IntegracaoFilopa") == 1) 
             {
                 // #############################################################################################################
                 // ############# JFC - 21/10/2019 - Copia da Lotes para a Mundifios.                                      ######
@@ -41,13 +41,17 @@ namespace IntegracaoFilopa
                                 ArtigoLote.DataFabrico = DateAndTime.Now;
                                 ArtigoLote.Validade = DateAndTime.Now;
                                 ArtigoLote.Activo = true;
-                                ArtigoLote.Observacoes = this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_ObsLote"].Valor.ToString();
-                                ArtigoLote.CamposUtil["CDU_TipoQualidade"].Valor = this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_TipoQualidade"].Valor;
-                                ArtigoLote.CamposUtil["CDU_Parafinado"].Valor = this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_Parafinado"].Valor;
-                                ArtigoLote.CamposUtil["CDU_LoteForn"].Valor = this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_LoteFornecedor"].Valor;
-                                if (listForn.Vazia() == false)
+                                if (this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_ObsLote"].Valor is string obslote) ArtigoLote.Observacoes = obslote; else ArtigoLote.Observacoes = "";
+                                                               
+                                if (this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_TipoQualidade"].Valor is Int32 tipoqualidade) ArtigoLote.CamposUtil["CDU_TipoQualidade"].Valor = tipoqualidade; else ArtigoLote.CamposUtil["CDU_TipoQualidade"].Valor = 0;
+                                
+                                if (this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_Parafinado"].Valor is Int32 parafinado) ArtigoLote.CamposUtil["CDU_Parafinado"].Valor = parafinado; else ArtigoLote.CamposUtil["CDU_Parafinado"].Valor = 0;
+                               
+                                if (this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_LoteFornecedor"].Valor is string loteforn) ArtigoLote.CamposUtil["CDU_LoteForn"].Valor = loteforn; else ArtigoLote.CamposUtil["CDU_LoteForn"].Valor = "";
+
                                 {
-                                    ArtigoLote.CamposUtil["CDU_Fornecedor"].Valor = listForn.Valor("Fornecedor");
+
+                                    if (int.Parse(listForn.Valor("Fornecedor").ToString()) is Int32 forn) ArtigoLote.CamposUtil["CDU_Fornecedor"].Valor = forn; else ArtigoLote.CamposUtil["CDU_Fornecedor"].Valor = "";
                                 }
 
                                 BSO.Inventario.ArtigosLotes.Actualiza(ArtigoLote);
@@ -57,19 +61,27 @@ namespace IntegracaoFilopa
                                 // Atualiza Lotes
                                 var Campos = new StdBECampos();
                                 Campos = BSO.Inventario.ArtigosLotes.DaValorAtributos(this.DocumentoVenda.Linhas.GetEdita(i).Artigo, this.DocumentoVenda.Linhas.GetEdita(i).Lote, "Observacoes", "CDU_TipoQualidade", "CDU_Parafinado", "CDU_LoteForn", "CDU_Fornecedor");
-                                Campos["Observacoes"].Valor = this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_ObsLote"].Valor;
-                                Campos["CDU_TipoQualidade"].Valor = this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_TipoQualidade"].Valor;
-                                Campos["CDU_Parafinado"].Valor = this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_Parafinado"].Valor;
-                                Campos["CDU_LoteForn"].Valor = this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_LoteFornecedor"].Valor;
+
+
+                                if (this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_ObsLote"].Valor is string obslote) Campos["Observacoes"].Valor = obslote; else Campos["Observacoes"].Valor = "";
+
+                                if (this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_TipoQualidade"].Valor is Int32 tipoqualidade) Campos["CDU_TipoQualidade"].Valor = tipoqualidade; else Campos["CDU_TipoQualidade"].Valor = 0;
+
+                                if (this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_Parafinado"].Valor is Int32 parafinado) Campos["CDU_Parafinado"].Valor = parafinado; else Campos["CDU_Parafinado"].Valor = 0;
+
+                                if (this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_LoteFornecedor"].Valor is string loteforn) Campos["CDU_LoteForn"].Valor = loteforn; else Campos["CDU_LoteForn"].Valor = "";
+
                                 if (listForn.Vazia() == false)
                                 {
-                                    Campos["CDU_Fornecedor"].Valor = listForn.Valor("Fornecedor");
+                                    if (listForn.Valor("Fornecedor") is Int32 forn) Campos["CDU_Fornecedor"].Valor = forn; else Campos["CDU_Fornecedor"].Valor = "";
                                 }
 
                                 BSO.Inventario.ArtigosLotes.ActualizaValorAtributos(this.DocumentoVenda.Linhas.GetEdita(i).Artigo, this.DocumentoVenda.Linhas.GetEdita(i).Lote, Campos);
                             }
                         }
                     }
+
+                    string empresaAtual = BSO.DSO.NomeBD.Substring(3);
 
                     // Cria lotes na Mundifios
                     if (Module1.AbreEmpresa("MUNDIFIOS"))
@@ -87,9 +99,17 @@ namespace IntegracaoFilopa
 
                         Module1.FechaEmpresa();
                     }
+                    Module1.AbreEmpresa(empresaAtual);
+
                     // JFC 14/07/2021
                     // Cria lotes na Empresa Destino (Ignora a Mundifios porque já copiou em cima)
-                    if (BSO.Base.Fornecedores.Edita(this.DocumentoVenda.CamposUtil["CDU_Fornecedor"].Valor.ToString()).CamposUtil["CDU_NomeEmpresaGrupo"].Valor + "" != "Mundifios" & Module1.AbreEmpresa("" + BSO.Base.Fornecedores.Edita(this.DocumentoVenda.CamposUtil["CDU_Fornecedor"].Valor.ToString()).CamposUtil["CDU_NomeEmpresaGrupo"].Valor + ""))
+
+                    if (this.DocumentoVenda.CamposUtil["CDU_Fornecedor"].Valor.ToString() is string fornecedor) fornecedor = this.DocumentoVenda.CamposUtil["CDU_Fornecedor"].Valor.ToString(); else fornecedor = "";
+
+                    if (BSO.Base.Fornecedores.Edita(fornecedor).CamposUtil["CDU_NomeEmpresaGrupo"].Valor is string empresa)  empresa= BSO.Base.Fornecedores.Edita(fornecedor).CamposUtil["CDU_NomeEmpresaGrupo"].Valor.ToString() ; empresa="";
+
+
+                    if (empresa != "" && empresa + "" != "Mundifios" & Module1.AbreEmpresa("" + empresa + ""))
                     {
                         for (int i = 1, loopTo2 = this.DocumentoVenda.Linhas.NumItens; i <= loopTo2; i++)
                         {
@@ -307,8 +327,8 @@ namespace IntegracaoFilopa
                 // ####              JFC 21/10/2019 Sugestão de Lotes                            ##############
                 // ############################################################################################
 
-                // Alt+F - Sugere Lotes
-                if (KeyCode == 70 & (this.DocumentoVenda.Tipodoc == "CNT" | this.DocumentoVenda.Tipodoc == "EMB"))
+                // Alt+L - Sugere Lotes
+                if (KeyCode == 76 & (this.DocumentoVenda.Tipodoc == "CNT" | this.DocumentoVenda.Tipodoc == "EMB"))
                 {
                     if (this.DocumentoVenda.CamposUtil["CDU_Fornecedor"].Valor + "" == "")
                     {
@@ -418,8 +438,8 @@ namespace IntegracaoFilopa
                 // ####              JFC 21/10/2019 Sugestão de Lotes                            ##############
                 // ############################################################################################
 
-                // Ctrl+F1 - Preenche dados dos campos de utilizador
-                if (KeyCode == 112)
+                // Ctrl+L - Preenche dados dos campos de utilizador
+                if (KeyCode == 76)
                 {
                     // Verifica se é uma linha que não existe na tabela linhascompras
                     if (this.LinhaActual == -1)
@@ -438,8 +458,8 @@ namespace IntegracaoFilopa
                     Module1.LoteEnc = this.DocumentoVenda.Linhas.GetEdita(this.LinhaActual).Lote;
                     Module1.LinhaEnc = this.LinhaActual;
 
-                    ExtensibilityResult result = BSO.Extensibility.CreateCustomFormInstance(typeof(FrmOutrosDadosView));
-                    FrmOutrosDadosView frm = result.Result;
+                    ExtensibilityResult result = BSO.Extensibility.CreateCustomFormInstance(typeof(FrmOutrosDadosFilopaView));
+                    FrmOutrosDadosFilopaView frm = result.Result;
                     frm.DocumentoVenda = DocumentoVenda;
                     frm.ShowDialog();
                 }

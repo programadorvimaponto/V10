@@ -203,6 +203,7 @@ namespace FornecedoresCertificados
             this.barButtonItemFechar.Id = 1;
             this.barButtonItemFechar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemFechar.ImageOptions.Image")));
             this.barButtonItemFechar.Name = "barButtonItemFechar";
+            this.barButtonItemFechar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFechar_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -210,7 +211,7 @@ namespace FornecedoresCertificados
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(776, 31);
+            this.barDockControlTop.Size = new System.Drawing.Size(770, 31);
             // 
             // barDockControlBottom
             // 
@@ -218,7 +219,7 @@ namespace FornecedoresCertificados
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 369);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(776, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(770, 0);
             // 
             // barDockControlLeft
             // 
@@ -232,7 +233,7 @@ namespace FornecedoresCertificados
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(776, 31);
+            this.barDockControlRight.Location = new System.Drawing.Point(770, 31);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 338);
             // 
@@ -791,9 +792,11 @@ namespace FornecedoresCertificados
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmFornecedoresCertsView";
-            this.Size = new System.Drawing.Size(776, 369);
-            this.Text = "FrmFornecedoresCertsView";
+            this.Size = new System.Drawing.Size(770, 369);
+            this.Text = "Fornecedores Certificados";
             this.Load += new System.EventHandler(this.FrmFornecedoresCertsView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroupControl4)).EndInit();

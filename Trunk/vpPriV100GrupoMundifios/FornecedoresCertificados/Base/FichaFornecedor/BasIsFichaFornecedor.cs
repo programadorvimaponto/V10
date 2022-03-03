@@ -16,8 +16,8 @@ namespace FornecedoresCertificados
             if (Module1.VerificaToken("FornecedoresCertificados") == 1)
             {
                 //
-                // Crtl + Q JFC 04/11/2019
-                if (KeyCode == 81 & this.Fornecedor.Inactivo == false)
+                // Crtl + R JFC 04/11/2019
+                if (KeyCode == 82 & this.Fornecedor.Inactivo == false)
                 {
                     Module1.certEntidade = this.Fornecedor.Fornecedor;
 

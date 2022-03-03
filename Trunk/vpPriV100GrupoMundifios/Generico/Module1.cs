@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using System;
 using Vimaponto.PrimaveraV100;
+using ErpBS100;
 
 namespace Generico
 {
@@ -94,11 +95,13 @@ namespace Generico
 
         private const int TipoEmpresa = 0;
 
+        public static ErpBS emp = new ErpBS();
+
         public static bool AbreEmpresa(string Empresa)
         {
             try
             {
-                PriV100Api.BSO.AbreEmpresaTrabalho(TipoEmpresa, Empresa, PriV100Api.BSO.Contexto.UtilizadorActual, PriV100Api.BSO.Contexto.PasswordUtilizadorActual);
+                emp.AbreEmpresaTrabalho(TipoEmpresa, Empresa, PriV100Api.BSO.Contexto.UtilizadorActual, PriV100Api.BSO.Contexto.PasswordUtilizadorActual);
                 return true;
             }
             catch
@@ -109,7 +112,7 @@ namespace Generico
 
         public static void FechaEmpresa()
         {
-            PriV100Api.BSO.FechaEmpresaTrabalho();
+            emp.FechaEmpresaTrabalho();
         }
 
         public static string ArtigoEnc;
@@ -176,5 +179,68 @@ namespace Generico
             Func_Ultimo_Dia_MesRet = DateAndTime.DateAdd("d", -1, Func_Ultimo_Dia_MesRet);
             return Func_Ultimo_Dia_MesRet;
         }
+
+        public static T HandleNullValue<T>(object valor, T default_if_null)
+        {
+            T valor_output;
+
+            if (valor == null || Information.IsDBNull(valor))
+                return default_if_null;
+
+            // # se o tipo passado for o tipo de dados de output, não haverá problema!
+            // # contudo, se não for irá disparar a excepção e aí considera o valor default!
+            try
+            {
+                valor_output = (T)valor;
+            }
+            catch (Exception ex)
+            {
+                valor_output = default_if_null;
+            }
+
+            return valor_output;
+        }
+
+        public static T DaValor<T>(this StdBE100.StdBELista lista, String campo)
+        {
+            if (TemValor<T>(lista, campo, out T valor))
+                return valor;
+            return default(T);
+        }
+
+        public static bool TemValor<T>(this StdBE100.StdBELista lista, String campo)
+        {
+            return TemValor<T>(lista, campo, out T valor);
+        }
+
+        public static bool TemValor<T>(this StdBE100.StdBELista lista, String campo, out T valor)
+        {
+            valor = default(T);
+
+            if (lista is null)
+                return false;
+
+            if (lista.Valor(campo) == System.DBNull.Value)
+                return false;
+
+            if (lista.Valor(campo) is null)
+                return false;
+
+            valor = (T)lista.Valor(campo);
+
+            return true;
+        }
+
+        public static double QuantidadeEnc;
+        public static double QtReservadaEnc;
+        public static double QtSatisfeitaEnc;
+        public static double PrecoEnc;
+        public static double NovaQuantidadeEnc;
+        public static double NovaQtReservadaEnc;
+        public static double NovoPrecoEnc;
+        public static object IdLinhaEnc;
+        public static int Opcao;
+        public static string ObsEnc;
+
     }
 }

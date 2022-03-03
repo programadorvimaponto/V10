@@ -13,6 +13,8 @@ namespace Vatbook
             // #################################################################################################
             // ## Preenchimento automatico do CDU_Fattura_Numero para efeitos de Vatbook (JFC - 11/07/2019)
             // #################################################################################################
+            if (this.DocumentoVenda.CamposUtil["CDU_Fattura_Numero"].Valor == null) this.DocumentoVenda.CamposUtil["CDU_Fattura_Numero"].Valor = string.Empty;
+
             if (this.DocumentoVenda.CamposUtil["CDU_Fattura_Numero"].Valor + "" == "" | this.DocumentoVenda.CamposUtil["CDU_Fattura_Numero"].Valor.ToString() == "0")
             {
                 string str;

@@ -20,7 +20,7 @@ namespace PCustoPrTab
                 // *******************************************************************************************************************************************
                 // #### Verifica e envia email se uma GR ou ECL for criada com o preço unitario inferior ao preço de custo - Bruno 05/02/2020 ####
                 // *******************************************************************************************************************************************
-                if (this.DocumentoVenda.Tipodoc == "ECL" & Strings.Right(this.DocumentoVenda.Serie, 1) != "B" & NovaEncomenda == true)
+                if (this.DocumentoVenda.Tipodoc == "ECL" & Strings.Right(this.DocumentoVenda.Serie, 1) != "B" & BSO.Vendas.Documentos.Existe(DocumentoVenda.Filial, DocumentoVenda.Tipodoc, DocumentoVenda.Serie, DocumentoVenda.NumDoc) == true)
                 {
                     VerificaPrecoAbaixoCustoEEnviaEmail();
                     VerificaPrecoCustoEEnviaEmail();
@@ -160,7 +160,7 @@ namespace PCustoPrTab
                         PCusto = ListaPCU.Valor("PCusto");
                         // 1 - definir preçounitário (prunit+margempassagem ou precobase, / cambio)
                         PrUnit = 0;
-                        if ((this.DocumentoVenda.Pais != "PT" & (Information.IsNothing(this.DocumentoVenda.CamposUtil["CDU_IdiomaEntidadeFinalGrupo"].Valor) | this.DocumentoVenda.CamposUtil["CDU_IdiomaEntidadeFinalGrupo"].Valor.ToString() != "PT")))
+                        if (this.DocumentoVenda.Pais != "PT" && this.DocumentoVenda.CamposUtil["CDU_IdiomaEntidadeFinalGrupo"].Valor.ToString()  + "" == "" | this.DocumentoVenda.CamposUtil["CDU_IdiomaEntidadeFinalGrupo"].Valor.ToString() != "PT")
                             PrUnit = double.Parse(DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_PrecoBase"].Valor.ToString()) / (double)this.DocumentoVenda.Cambio;
                         else
                             PrUnit = (DocumentoVenda.Linhas.GetEdita(i).PrecUnit + double.Parse(DocumentoVenda.CamposUtil["CDU_MargemPassagemArtigo"].Valor.ToString())) / (double)this.DocumentoVenda.Cambio;
@@ -264,9 +264,12 @@ namespace PCustoPrTab
             for (i = 1; i <= this.DocumentoVenda.Linhas.NumItens; i++)
             {
                 qualidade = "--";
-                if (this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_TipoQualidade"].Valor.ToString() == "002")
+
+                if (this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_TipoQualidade"].Valor == null) this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_TipoQualidade"].Valor = "";
+
+                if (this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_TipoQualidade"].Valor.ToString() + "" == "002")
                     qualidade = "c/Gar. p/Branco";
-                if (this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_TipoQualidade"].Valor.ToString() == "003")
+                if (this.DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_TipoQualidade"].Valor.ToString() + "" == "003")
                     qualidade = "Baixa Contamin.";
 
                 if (this.DocumentoVenda.Linhas.GetEdita(i).Artigo + "" != "" & this.DocumentoVenda.Linhas.GetEdita(i).Lote + "" != "")
@@ -279,7 +282,7 @@ namespace PCustoPrTab
                         PCusto = ListaPCU.Valor("PCusto");
                         // 1 - definir preçounitário (prunit+margempassagem ou precobase, / cambio)
                         PrUnit = 0;
-                        if ((this.DocumentoVenda.Pais != "PT" & (Information.IsNothing(this.DocumentoVenda.CamposUtil["CDU_IdiomaEntidadeFinalGrupo"].Valor) | this.DocumentoVenda.CamposUtil["CDU_IdiomaEntidadeFinalGrupo"].Valor.ToString() != "PT")))
+                        if (this.DocumentoVenda.Pais != "PT" && this.DocumentoVenda.CamposUtil["CDU_IdiomaEntidadeFinalGrupo"].Valor + "" == "" | this.DocumentoVenda.CamposUtil["CDU_IdiomaEntidadeFinalGrupo"].Valor.ToString() != "PT")
                             PrUnit = double.Parse(DocumentoVenda.Linhas.GetEdita(i).CamposUtil["CDU_PrecoBase"].Valor.ToString()) / (double)this.DocumentoVenda.Cambio;
                         else
                             PrUnit = (this.DocumentoVenda.Linhas.GetEdita(i).PrecUnit + double.Parse(DocumentoVenda.CamposUtil["CDU_MargemPassagemArtigo"].Valor.ToString())) / (double)this.DocumentoVenda.Cambio;

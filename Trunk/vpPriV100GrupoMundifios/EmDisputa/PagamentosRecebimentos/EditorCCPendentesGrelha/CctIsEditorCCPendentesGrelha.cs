@@ -14,9 +14,9 @@ namespace EmDisputa
             base.PendenteSeleccionado(NumLinha, objBeCampos, e);
             if (Module1.VerificaToken("EmDisputa") == 1)
             {
-                Module1.dsptipoDoc = objBeCampos[4].Valor.ToString();
-                Module1.dspSerie = objBeCampos[6].Valor.ToString();
-                Module1.dspNumDoc = objBeCampos[8].Valor.ToString();
+                Module1.dsptipoDoc = objBeCampos[3].Valor.ToString();
+                Module1.dspSerie = objBeCampos[5].Valor.ToString();
+                Module1.dspNumDoc = objBeCampos[7].Valor.ToString();
             }
         }
 
@@ -31,7 +31,7 @@ namespace EmDisputa
 
             if (Module1.VerificaToken("EmDisputa") == 1)
             {
-                if (KeyCode == 68)
+                if  (KeyCode == 68 && Shift == 2 )
                 {
                     ExtensibilityResult result = BSO.Extensibility.CreateCustomFormInstance(typeof(FrmEmDisputaView));
 

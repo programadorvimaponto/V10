@@ -97,15 +97,15 @@ namespace CertificadosOrg
         public override void TeclaPressionada(int KeyCode, int Shift, ExtensibilityEventArgs e)
         {
             base.TeclaPressionada(KeyCode, Shift, e);
-            if (Module1.VerificaToken("CertificadosOrg") == 1)
+            if (Module1.VerificaToken("CertificadosOrg") == 1)  
             {
                 // #################################################################################################
                 // # Inserir Certificados de Transação, Formulário FrmAlteraCertificadoTransacao2 (JFC 13/05/2019) #
                 // #################################################################################################
-                // Crtl+F- AlteraCertificadoTransacao
+                // Crtl+R- AlteraCertificadoTransacao
                 if (this.LinhaActual > 0)
                 {
-                    if (KeyCode == 70)
+                    if (KeyCode == 82)
                     {
                         Module1.certArtigo = this.DocumentoVenda.Linhas.GetEdita(this.LinhaActual).Artigo;
                         Module1.certDocumento = this.DocumentoVenda.Tipodoc + " " + this.DocumentoVenda.NumDoc + "/" + this.DocumentoVenda.Serie;

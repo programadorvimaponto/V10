@@ -1,5 +1,6 @@
 using Generico;
 using Microsoft.VisualBasic;
+using Primavera.Extensibility.Attributes;
 using Primavera.Extensibility.BusinessEntities.ExtensibilityService.EventArgs;
 using Primavera.Extensibility.Purchases.Editors;
 using StdBE100;
@@ -8,6 +9,8 @@ namespace CopiarLotes
 {
     public class CmpIsEditorCompras : EditorCompras
     {
+        //último a correr porque mexe com Artigos Lotes. Primeiro a correr será no ArmazemEntreposto. O segundo será no comprafio.
+        [Order(100)]
         public override void DepoisDeGravar(string Filial, string Tipo, string Serie, int NumDoc, ExtensibilityEventArgs e)
         {
             base.DepoisDeGravar(Filial, Tipo, Serie, NumDoc, e);

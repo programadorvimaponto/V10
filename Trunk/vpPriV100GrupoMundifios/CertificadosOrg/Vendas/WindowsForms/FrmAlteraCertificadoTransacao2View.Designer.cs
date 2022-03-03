@@ -59,9 +59,9 @@ namespace CertificadosOrg
             this.textEditQtd1 = new DevExpress.XtraEditors.TextEdit();
             this.textEditQtd3 = new DevExpress.XtraEditors.TextEdit();
             this.textEditQtd2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEditTrans2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEditTrans3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEditTrans1 = new DevExpress.XtraEditors.TextEdit();
+            this.lookUpEditTrans1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.lookUpEditTrans2 = new DevExpress.XtraEditors.LookUpEdit();
+            this.lookUpEditTrans3 = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditDocumento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditEmitirCertificado.Properties)).BeginInit();
@@ -74,9 +74,9 @@ namespace CertificadosOrg
             ((System.ComponentModel.ISupportInitialize)(this.textEditQtd1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditQtd3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditQtd2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditTrans2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditTrans3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditTrans1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditTrans1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditTrans2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditTrans3.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -136,6 +136,7 @@ namespace CertificadosOrg
             this.barButtonItemFechar.Id = 2;
             this.barButtonItemFechar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemFechar.ImageOptions.Image")));
             this.barButtonItemFechar.Name = "barButtonItemFechar";
+            this.barButtonItemFechar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFechar_ItemClick);
             // 
             // barButtonItemAtualizaLista
             // 
@@ -363,43 +364,46 @@ namespace CertificadosOrg
             this.textEditQtd2.TabIndex = 29;
             this.textEditQtd2.EditValueChanged += new System.EventHandler(this.textEditQtd2_EditValueChanged);
             // 
-            // textEditTrans2
+            // lookUpEditTrans1
             // 
-            this.textEditTrans2.Location = new System.Drawing.Point(68, 166);
-            this.textEditTrans2.MenuManager = this.barManager1;
-            this.textEditTrans2.Name = "textEditTrans2";
-            this.textEditTrans2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEditTrans2.Properties.Appearance.Options.UseFont = true;
-            this.textEditTrans2.Size = new System.Drawing.Size(220, 22);
-            this.textEditTrans2.TabIndex = 34;
+            this.lookUpEditTrans1.Location = new System.Drawing.Point(68, 125);
+            this.lookUpEditTrans1.MenuManager = this.barManager1;
+            this.lookUpEditTrans1.Name = "lookUpEditTrans1";
+            this.lookUpEditTrans1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditTrans1.Properties.NullText = "";
+            this.lookUpEditTrans1.Size = new System.Drawing.Size(230, 20);
+            this.lookUpEditTrans1.TabIndex = 41;
             // 
-            // textEditTrans3
+            // lookUpEditTrans2
             // 
-            this.textEditTrans3.Location = new System.Drawing.Point(68, 209);
-            this.textEditTrans3.MenuManager = this.barManager1;
-            this.textEditTrans3.Name = "textEditTrans3";
-            this.textEditTrans3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEditTrans3.Properties.Appearance.Options.UseFont = true;
-            this.textEditTrans3.Size = new System.Drawing.Size(220, 22);
-            this.textEditTrans3.TabIndex = 35;
+            this.lookUpEditTrans2.Location = new System.Drawing.Point(68, 168);
+            this.lookUpEditTrans2.MenuManager = this.barManager1;
+            this.lookUpEditTrans2.Name = "lookUpEditTrans2";
+            this.lookUpEditTrans2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditTrans2.Properties.NullText = "";
+            this.lookUpEditTrans2.Size = new System.Drawing.Size(230, 20);
+            this.lookUpEditTrans2.TabIndex = 42;
             // 
-            // textEditTrans1
+            // lookUpEditTrans3
             // 
-            this.textEditTrans1.Location = new System.Drawing.Point(68, 123);
-            this.textEditTrans1.MenuManager = this.barManager1;
-            this.textEditTrans1.Name = "textEditTrans1";
-            this.textEditTrans1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEditTrans1.Properties.Appearance.Options.UseFont = true;
-            this.textEditTrans1.Size = new System.Drawing.Size(220, 22);
-            this.textEditTrans1.TabIndex = 36;
+            this.lookUpEditTrans3.Location = new System.Drawing.Point(68, 211);
+            this.lookUpEditTrans3.MenuManager = this.barManager1;
+            this.lookUpEditTrans3.Name = "lookUpEditTrans3";
+            this.lookUpEditTrans3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditTrans3.Properties.NullText = "";
+            this.lookUpEditTrans3.Size = new System.Drawing.Size(230, 20);
+            this.lookUpEditTrans3.TabIndex = 43;
             // 
             // FrmAlteraCertificadoTransacao2View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textEditTrans1);
-            this.Controls.Add(this.textEditTrans3);
-            this.Controls.Add(this.textEditTrans2);
+            this.Controls.Add(this.lookUpEditTrans3);
+            this.Controls.Add(this.lookUpEditTrans2);
+            this.Controls.Add(this.lookUpEditTrans1);
             this.Controls.Add(this.textEditQtd2);
             this.Controls.Add(this.textEditQtd3);
             this.Controls.Add(this.textEditQtd1);
@@ -422,9 +426,11 @@ namespace CertificadosOrg
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmAlteraCertificadoTransacao2View";
             this.Size = new System.Drawing.Size(567, 241);
-            this.Text = "Altera Certificado Transação";
+            this.Text = "Altera Certificado Transação Vendas";
             this.Load += new System.EventHandler(this.FrmAlteraCertificadoTransacao2View_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditDocumento.Properties)).EndInit();
@@ -438,9 +444,9 @@ namespace CertificadosOrg
             ((System.ComponentModel.ISupportInitialize)(this.textEditQtd1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditQtd3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditQtd2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditTrans2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditTrans3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditTrans1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditTrans1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditTrans2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditTrans3.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,8 +482,8 @@ namespace CertificadosOrg
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.CheckEdit checkEditCertEmitido;
         private DevExpress.XtraEditors.CheckEdit checkEditBCIEmitido;
-        private DevExpress.XtraEditors.TextEdit textEditTrans1;
-        private DevExpress.XtraEditors.TextEdit textEditTrans3;
-        private DevExpress.XtraEditors.TextEdit textEditTrans2;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEditTrans3;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEditTrans2;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEditTrans1;
     }
 }

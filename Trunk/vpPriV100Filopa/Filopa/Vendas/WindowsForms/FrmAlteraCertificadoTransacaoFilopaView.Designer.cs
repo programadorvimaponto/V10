@@ -29,17 +29,16 @@ namespace Filopa
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAlteraCertificadoTransacaoFilopaView));
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItemAplicar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemClear = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemFechar = new DevExpress.XtraBars.BarButtonItem();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.Label1 = new System.Windows.Forms.Label();
             this.CheckEditCertificadoEmitido = new DevExpress.XtraEditors.CheckEdit();
             this.TextEditCancelado = new DevExpress.XtraEditors.TextEdit();
@@ -72,6 +71,46 @@ namespace Filopa
             this.barButtonItemFechar});
             this.barManager1.MaxItemId = 3;
             // 
+            // bar1
+            // 
+            this.bar1.BarName = "ações";
+            this.bar1.DockCol = 0;
+            this.bar1.DockRow = 0;
+            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItemAplicar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItemClear, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItemFechar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.bar1.OptionsBar.DrawDragBorder = false;
+            this.bar1.OptionsBar.UseWholeRow = true;
+            this.bar1.Text = "ações";
+            // 
+            // barButtonItemAplicar
+            // 
+            this.barButtonItemAplicar.Caption = "Aplicar";
+            this.barButtonItemAplicar.Id = 0;
+            this.barButtonItemAplicar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemAplicar.ImageOptions.Image")));
+            this.barButtonItemAplicar.Name = "barButtonItemAplicar";
+            this.barButtonItemAplicar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAplicar_ItemClick);
+            // 
+            // barButtonItemClear
+            // 
+            this.barButtonItemClear.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barButtonItemClear.Caption = "Clear";
+            this.barButtonItemClear.Id = 1;
+            this.barButtonItemClear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemClear.ImageOptions.Image")));
+            this.barButtonItemClear.Name = "barButtonItemClear";
+            this.barButtonItemClear.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemClear_ItemClick);
+            // 
+            // barButtonItemFechar
+            // 
+            this.barButtonItemFechar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barButtonItemFechar.Caption = "Fechar";
+            this.barButtonItemFechar.Id = 2;
+            this.barButtonItemFechar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemFechar.ImageOptions.Image")));
+            this.barButtonItemFechar.Name = "barButtonItemFechar";
+            this.barButtonItemFechar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFechar_ItemClick);
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
@@ -103,45 +142,6 @@ namespace Filopa
             this.barDockControlRight.Location = new System.Drawing.Point(534, 31);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 124);
-            // 
-            // bar1
-            // 
-            this.bar1.BarName = "ações";
-            this.bar1.DockCol = 0;
-            this.bar1.DockRow = 0;
-            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItemAplicar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItemClear, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItemFechar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-            this.bar1.OptionsBar.DrawDragBorder = false;
-            this.bar1.OptionsBar.UseWholeRow = true;
-            this.bar1.Text = "ações";
-            // 
-            // barButtonItemAplicar
-            // 
-            this.barButtonItemAplicar.Caption = "Aplicar";
-            this.barButtonItemAplicar.Id = 0;
-            this.barButtonItemAplicar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemAplicar.ImageOptions.Image")));
-            this.barButtonItemAplicar.Name = "barButtonItemAplicar";
-            this.barButtonItemAplicar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAplicar_ItemClick);
-            // 
-            // barButtonItemClear
-            // 
-            this.barButtonItemClear.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barButtonItemClear.Caption = "Clear";
-            this.barButtonItemClear.Id = 1;
-            this.barButtonItemClear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItemClear.Name = "barButtonItemClear";
-            this.barButtonItemClear.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemClear_ItemClick);
-            // 
-            // barButtonItemFechar
-            // 
-            this.barButtonItemFechar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barButtonItemFechar.Caption = "Fechar";
-            this.barButtonItemFechar.Id = 2;
-            this.barButtonItemFechar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.barButtonItemFechar.Name = "barButtonItemFechar";
             // 
             // Label1
             // 
@@ -218,9 +218,11 @@ namespace Filopa
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmAlteraCertificadoTransacaoFilopaView";
             this.Size = new System.Drawing.Size(534, 155);
-            this.Text = "FrmAlteraCertificadoTransacaoFilopaView";
+            this.Text = "Altera Certificado Transação";
             this.Load += new System.EventHandler(this.FrmAlteraCertificadoTransacaoFilopaView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CheckEditCertificadoEmitido.Properties)).EndInit();

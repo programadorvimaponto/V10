@@ -30,7 +30,6 @@ namespace PrintPackingList
         {
             try
             {
-                {
                     PSO.Mapas.Inicializar("VND");
 
                     string strFormula;
@@ -51,10 +50,11 @@ namespace PrintPackingList
                     PSO.Mapas.AddFormula("DadosEmpresa", strFormula);
 
                     string SelFormula;
-                    SelFormula = "{CabecDoc.Filial}='" + this.DocumentoVenda.Filial + "' And {CabecDoc.Serie}='" + this.DocumentoVenda.Serie + "' And {CabecDoc.TipoDoc}='" + this.DocumentoVenda.Tipodoc + "' and {CabecDoc.NumDoc}= " + this.DocumentoVenda.NumDoc;
 
-                    PSO.Mapas.ImprimeListagem("GCJFC", "GC " + this.DocumentoVenda.NumDoc + "/" + this.DocumentoVenda.Serie,  "W",  1, bMapaSistema: true, strUniqueIdentifier: this.DocumentoVenda.ID, sSelFormula: SelFormula);
-                }
+         
+                SelFormula = "{CabecDoc.Filial}='" + this.DocumentoVenda.Filial + "' And {CabecDoc.Serie}='" + this.DocumentoVenda.Serie + "' And {CabecDoc.TipoDoc}='" + this.DocumentoVenda.Tipodoc + "' and {CabecDoc.NumDoc}= " + this.DocumentoVenda.NumDoc;
+            
+                PSO.Mapas.ImprimeListagem("GCJFC", "GC " + this.DocumentoVenda.NumDoc + "/" + this.DocumentoVenda.Serie,  "W",  1, sSelFormula: SelFormula, bMapaSistema: false, strUniqueIdentifier: this.DocumentoVenda.ID);
             }
             catch
             {
@@ -88,7 +88,7 @@ namespace PrintPackingList
                     string SelFormula;
                     SelFormula = "{CabecDoc.Filial}='" + this.DocumentoVenda.Filial + "' And {CabecDoc.Serie}='" + this.DocumentoVenda.Serie + "' And {CabecDoc.TipoDoc}='" + this.DocumentoVenda.Tipodoc + "' and {CabecDoc.NumDoc}= " + this.DocumentoVenda.NumDoc;
 
-                    PSO.Mapas.ImprimeListagem(sReport: "GCARGA", sTitulo: "GC " + this.DocumentoVenda.NumDoc + "/" + this.DocumentoVenda.Serie, sDestino: "W", iNumCopias: 1, bMapaSistema: true, strUniqueIdentifier: this.DocumentoVenda.ID, sSelFormula: SelFormula);
+                    PSO.Mapas.ImprimeListagem(sReport: "GCARGA", sTitulo: "GC " + this.DocumentoVenda.NumDoc + "/" + this.DocumentoVenda.Serie, sDestino: "W", iNumCopias: 1, bMapaSistema: false, strUniqueIdentifier: this.DocumentoVenda.ID, sSelFormula: SelFormula);
                 }
             }
             catch

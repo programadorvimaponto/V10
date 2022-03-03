@@ -20,9 +20,12 @@ namespace EmDisputa
 
             if (Module1.VerificaToken("EmDisputa") == 1)
             {
-                if (KeyCode == 68)
+                if (KeyCode == 68 && Shift == 2)
                 {
                     Module1.dspModulo = "M";
+                    Module1.dsptipoDoc = DocumentoPendente.Tipodoc;
+                    Module1.dspSerie = DocumentoPendente.Serie;
+                    Module1.dspNumDoc = DocumentoPendente.NumDocInt.ToString();
 
                     StdBELista listaPen;
                     bool Pen;
@@ -35,6 +38,8 @@ namespace EmDisputa
 
                     if (Pen)
                     {
+
+
                         ExtensibilityResult result = BSO.Extensibility.CreateCustomFormInstance(typeof(FrmEmDisputaView));
 
                         if (result.ResultCode == ExtensibilityResultCode.Ok)

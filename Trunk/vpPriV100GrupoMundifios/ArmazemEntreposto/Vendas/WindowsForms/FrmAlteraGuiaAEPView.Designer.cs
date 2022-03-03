@@ -109,7 +109,7 @@ namespace ArmazemEntreposto
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(404, 31);
+            this.barDockControlTop.Size = new System.Drawing.Size(400, 31);
             // 
             // barDockControlBottom
             // 
@@ -117,7 +117,7 @@ namespace ArmazemEntreposto
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 112);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(404, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(400, 0);
             // 
             // barDockControlLeft
             // 
@@ -131,7 +131,7 @@ namespace ArmazemEntreposto
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(404, 31);
+            this.barDockControlRight.Location = new System.Drawing.Point(400, 31);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 81);
             // 
@@ -186,20 +186,20 @@ namespace ArmazemEntreposto
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(186, 36);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(208, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 16);
+            this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 10;
-            this.label1.Text = "DESPDAU";
+            this.label1.Text = "DespDau";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(204, 62);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(217, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 11;
             this.label2.Text = "Regime";
             // 
@@ -219,9 +219,11 @@ namespace ArmazemEntreposto
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmAlteraGuiaAEPView";
-            this.Size = new System.Drawing.Size(404, 112);
-            this.Text = "FrmAlteraGuiaEpView";
+            this.Size = new System.Drawing.Size(400, 112);
+            this.Text = "Altera Guia AEP";
             this.Load += new System.EventHandler(this.FrmAlteraGuiaAEPView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditDocumento.Properties)).EndInit();

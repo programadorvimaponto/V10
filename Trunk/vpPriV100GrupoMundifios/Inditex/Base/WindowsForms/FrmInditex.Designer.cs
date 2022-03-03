@@ -60,6 +60,8 @@ namespace Inditex
             this.memoEditCpLoc = new DevExpress.XtraEditors.MemoEdit();
             this.memoEditFiacoesObs = new DevExpress.XtraEditors.MemoEdit();
             this.textEditCodigoFornecedor = new DevExpress.XtraEditors.TextEdit();
+            this.memoEditMorada = new DevExpress.XtraEditors.MemoEdit();
+            this.memoEditPais = new DevExpress.XtraEditors.MemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditFornecedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditNIdentificacao.Properties)).BeginInit();
@@ -73,6 +75,8 @@ namespace Inditex
             ((System.ComponentModel.ISupportInitialize)(this.memoEditCpLoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEditFiacoesObs.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCodigoFornecedor.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEditMorada.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEditPais.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -113,6 +117,7 @@ namespace Inditex
             this.barButtonItemGravar.Id = 0;
             this.barButtonItemGravar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemGravar.ImageOptions.Image")));
             this.barButtonItemGravar.Name = "barButtonItemGravar";
+            this.barButtonItemGravar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemGravar_ItemClick);
             // 
             // barButtonItemCopiaInformacao
             // 
@@ -120,6 +125,7 @@ namespace Inditex
             this.barButtonItemCopiaInformacao.Id = 1;
             this.barButtonItemCopiaInformacao.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemCopiaInformacao.ImageOptions.Image")));
             this.barButtonItemCopiaInformacao.Name = "barButtonItemCopiaInformacao";
+            this.barButtonItemCopiaInformacao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemCopiaInformacao_ItemClick);
             // 
             // barButtonItemFechar
             // 
@@ -128,6 +134,7 @@ namespace Inditex
             this.barButtonItemFechar.Id = 2;
             this.barButtonItemFechar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemFechar.ImageOptions.Image")));
             this.barButtonItemFechar.Name = "barButtonItemFechar";
+            this.barButtonItemFechar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFechar_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -249,6 +256,7 @@ namespace Inditex
             this.textEditFornecedor.Name = "textEditFornecedor";
             this.textEditFornecedor.Size = new System.Drawing.Size(297, 20);
             this.textEditFornecedor.TabIndex = 13;
+            this.textEditFornecedor.EditValueChanged += new System.EventHandler(this.textEditFornecedor_EditValueChanged);
             // 
             // textEditNIdentificacao
             // 
@@ -323,12 +331,12 @@ namespace Inditex
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditFiacoes.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditFiacoes.Size = new System.Drawing.Size(100, 20);
+            this.dateEditFiacoes.Size = new System.Drawing.Size(75, 20);
             this.dateEditFiacoes.TabIndex = 20;
             // 
             // memoEditCpLoc
             // 
-            this.memoEditCpLoc.Location = new System.Drawing.Point(408, 163);
+            this.memoEditCpLoc.Location = new System.Drawing.Point(408, 184);
             this.memoEditCpLoc.MenuManager = this.barManager1;
             this.memoEditCpLoc.Name = "memoEditCpLoc";
             this.memoEditCpLoc.Size = new System.Drawing.Size(107, 33);
@@ -349,11 +357,31 @@ namespace Inditex
             this.textEditCodigoFornecedor.Name = "textEditCodigoFornecedor";
             this.textEditCodigoFornecedor.Size = new System.Drawing.Size(112, 20);
             this.textEditCodigoFornecedor.TabIndex = 27;
+            this.textEditCodigoFornecedor.EditValueChanged += new System.EventHandler(this.textEditCodigoFornecedor_EditValueChanged);
+            this.textEditCodigoFornecedor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEditCodigoFornecedor_KeyDown);
+            // 
+            // memoEditMorada
+            // 
+            this.memoEditMorada.Location = new System.Drawing.Point(408, 184);
+            this.memoEditMorada.MenuManager = this.barManager1;
+            this.memoEditMorada.Name = "memoEditMorada";
+            this.memoEditMorada.Size = new System.Drawing.Size(107, 33);
+            this.memoEditMorada.TabIndex = 32;
+            // 
+            // memoEditPais
+            // 
+            this.memoEditPais.Location = new System.Drawing.Point(408, 184);
+            this.memoEditPais.MenuManager = this.barManager1;
+            this.memoEditPais.Name = "memoEditPais";
+            this.memoEditPais.Size = new System.Drawing.Size(107, 33);
+            this.memoEditPais.TabIndex = 33;
             // 
             // FrmInditex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.memoEditPais);
+            this.Controls.Add(this.memoEditMorada);
             this.Controls.Add(this.textEditCodigoFornecedor);
             this.Controls.Add(this.memoEditFiacoesObs);
             this.Controls.Add(this.memoEditCpLoc);
@@ -378,9 +406,11 @@ namespace Inditex
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmInditex";
             this.Size = new System.Drawing.Size(521, 377);
-            this.Text = "FrmInditex";
+            this.Text = "Inditex";
             this.Load += new System.EventHandler(this.FrmInditex_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditFornecedor.Properties)).EndInit();
@@ -395,6 +425,8 @@ namespace Inditex
             ((System.ComponentModel.ISupportInitialize)(this.memoEditCpLoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEditFiacoesObs.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCodigoFornecedor.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEditMorada.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEditPais.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,5 +464,7 @@ namespace Inditex
         private System.Windows.Forms.Label label1;
         private PriTextBoxF4100.PriTextBoxF4 TxtCodigoCliente;
         private DevExpress.XtraEditors.TextEdit textEditCodigoFornecedor;
+        private DevExpress.XtraEditors.MemoEdit memoEditMorada;
+        private DevExpress.XtraEditors.MemoEdit memoEditPais;
     }
 }

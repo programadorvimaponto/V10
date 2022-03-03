@@ -24,8 +24,8 @@ namespace CertificadosFaturaPDF
                 {
                     if ((BSO.Vendas.TabVendas.Edita(this.DocumentoVenda.Tipodoc).TipoDocumento == 4 | this.DocumentoVenda.Tipodoc == "GR"))
                     {
-                        ImprimePDF();
                         Cancel = true;
+                        ImprimePDF();
                     }
                 }
             }

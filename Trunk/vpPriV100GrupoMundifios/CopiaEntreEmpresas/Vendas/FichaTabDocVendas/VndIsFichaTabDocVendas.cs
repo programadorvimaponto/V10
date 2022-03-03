@@ -23,7 +23,7 @@ namespace CopiaEntreEmpresas
                 }
             }
         }
-
+        
         private bool ValidacaoCamposUtilVenda()
         {
             string DocVendaDestino;

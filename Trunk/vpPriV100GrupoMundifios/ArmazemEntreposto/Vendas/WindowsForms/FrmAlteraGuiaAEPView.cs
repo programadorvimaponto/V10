@@ -7,7 +7,6 @@ namespace ArmazemEntreposto
 {
     public partial class FrmAlteraGuiaAEPView : CustomForm
     {
-
         public VndBE100.VndBEDocumentoVenda DocumentoVenda { get; set; }
         public int LinhaActual { get; set; }
         public FrmAlteraGuiaAEPView()
@@ -32,6 +31,13 @@ namespace ArmazemEntreposto
 
         private void FrmAlteraGuiaAEPView_Load(object sender, EventArgs e)
         {
+
+            if(FindForm() is Form pai)
+            {
+                pai.MinimumSize = pai.Size;
+                pai.MaximumSize = pai.Size;
+            }
+
             textEditArtigo.EditValue = Module1.aepArtigo;
             textEditArm.EditValue = Module1.aepArmazem;
             textEditLote.EditValue = Module1.aepLote;

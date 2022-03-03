@@ -80,7 +80,7 @@ namespace CertificadosOrg
                                 }
                             }
                             // jfc 03/09/2020 alerta da ana castro, os bci's são identificados nas observações do lote.
-                            if (Strings.UCase(BSO.Inventario.ArtigosLotes.Edita(this.DocumentoCompra.Linhas.GetEdita(l).Artigo, this.DocumentoCompra.Linhas.GetEdita(l).Lote).Observacoes).Contains("BCI"))
+                            if (Strings.UCase(BSO.Inventario.ArtigosLotes.DaValorAtributo(this.DocumentoCompra.Linhas.GetEdita(l).Artigo, this.DocumentoCompra.Linhas.GetEdita(l).Lote, "Observacoes")).Contains("BCI"))
                             {
                                 if (listforncert.Valor("cdu_bci") != true)
                                 {
@@ -155,7 +155,7 @@ namespace CertificadosOrg
                 // crtl+f- alteracertificadotransacao
                 if (this.LinhaActual > 0)
                 {
-                    if (keycode == 70 & this.DocumentoCompra.Tipodoc == "ECF")
+                    if (keycode == 82 & this.DocumentoCompra.Tipodoc == "ECF")
                     {
                         Module1.certArtigo = this.DocumentoCompra.Linhas.GetEdita(this.LinhaActual).Artigo;
                         Module1.certDescricao = this.DocumentoCompra.Linhas.GetEdita(this.LinhaActual).Descricao;

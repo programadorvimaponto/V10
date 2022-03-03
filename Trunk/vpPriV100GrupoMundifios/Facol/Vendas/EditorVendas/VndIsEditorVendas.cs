@@ -64,7 +64,7 @@ namespace Facol
                 // #############################################################################
                 // Crtl+D- Comissao Facol Pago
 
-                if (KeyCode == 68 & this.DocumentoVenda.Tipodoc == "NET")
+                if (KeyCode == 80 & this.DocumentoVenda.Tipodoc == "NET")
                 {
                     Module1.dsptipoDoc = this.DocumentoVenda.Tipodoc;
                     Module1.dspSerie = this.DocumentoVenda.Serie;

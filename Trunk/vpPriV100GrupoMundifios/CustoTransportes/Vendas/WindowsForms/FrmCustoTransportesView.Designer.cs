@@ -339,9 +339,11 @@ namespace CustoTransportes
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmCustoTransportesView";
             this.Size = new System.Drawing.Size(485, 253);
-            this.Text = "FrmCustoTransportesView";
+            this.Text = "Custo Transportes";
             this.Load += new System.EventHandler(this.FrmCustoTransportesView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GroupControl1)).EndInit();
             this.GroupControl1.ResumeLayout(false);

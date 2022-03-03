@@ -51,6 +51,11 @@ namespace Facol
 
         private void FrmFacolPagoView_Load(object sender, EventArgs e)
         {
+            if (FindForm() is Form pai)
+            {
+                pai.MinimumSize = pai.Size;
+                pai.MaximumSize = pai.Size;
+            }
             DaValores();
         }
     }

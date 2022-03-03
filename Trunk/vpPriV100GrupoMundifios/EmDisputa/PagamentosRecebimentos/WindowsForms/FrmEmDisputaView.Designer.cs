@@ -34,13 +34,13 @@ namespace EmDisputa
             this.CheckEditFaturaDisputa = new DevExpress.XtraEditors.CheckEdit();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.bar1 = new DevExpress.XtraBars.Bar();
+            this.barButtonItemAplicar = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemFechar = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.bar1 = new DevExpress.XtraBars.Bar();
-            this.barButtonItemAplicar = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemFechar = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.CheckEditFaturaDisputa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
@@ -78,6 +78,36 @@ namespace EmDisputa
             this.barButtonItemFechar});
             this.barManager1.MaxItemId = 2;
             // 
+            // bar1
+            // 
+            this.bar1.BarName = "ações";
+            this.bar1.DockCol = 0;
+            this.bar1.DockRow = 0;
+            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItemAplicar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItemFechar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.bar1.OptionsBar.DrawDragBorder = false;
+            this.bar1.OptionsBar.UseWholeRow = true;
+            this.bar1.Text = "ações";
+            // 
+            // barButtonItemAplicar
+            // 
+            this.barButtonItemAplicar.Caption = "Aplicar";
+            this.barButtonItemAplicar.Id = 0;
+            this.barButtonItemAplicar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemAplicar.ImageOptions.Image")));
+            this.barButtonItemAplicar.Name = "barButtonItemAplicar";
+            this.barButtonItemAplicar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAplicar_ItemClick);
+            // 
+            // barButtonItemFechar
+            // 
+            this.barButtonItemFechar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barButtonItemFechar.Caption = "Fechar";
+            this.barButtonItemFechar.Id = 1;
+            this.barButtonItemFechar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemFechar.ImageOptions.Image")));
+            this.barButtonItemFechar.Name = "barButtonItemFechar";
+            this.barButtonItemFechar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFechar_ItemClick);
+            // 
             // barDockControl1
             // 
             this.barDockControl1.CausesValidation = false;
@@ -110,36 +140,6 @@ namespace EmDisputa
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 40);
             // 
-            // bar1
-            // 
-            this.bar1.BarName = "ações";
-            this.bar1.DockCol = 0;
-            this.bar1.DockRow = 0;
-            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItemAplicar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItemFechar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-            this.bar1.OptionsBar.DrawDragBorder = false;
-            this.bar1.OptionsBar.UseWholeRow = true;
-            this.bar1.Text = "ações";
-            // 
-            // barButtonItemAplicar
-            // 
-            this.barButtonItemAplicar.Caption = "Aplicar";
-            this.barButtonItemAplicar.Id = 0;
-            this.barButtonItemAplicar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemAplicar.ImageOptions.Image")));
-            this.barButtonItemAplicar.Name = "barButtonItemAplicar";
-            this.barButtonItemAplicar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAplicar_ItemClick);
-            // 
-            // barButtonItemFechar
-            // 
-            this.barButtonItemFechar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barButtonItemFechar.Caption = "Fechar";
-            this.barButtonItemFechar.Id = 1;
-            this.barButtonItemFechar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemFechar.ImageOptions.Image")));
-            this.barButtonItemFechar.Name = "barButtonItemFechar";
-            this.barButtonItemFechar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFechar_ItemClick);
-            // 
             // FrmEmDisputaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,10 +150,11 @@ namespace EmDisputa
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControl1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmEmDisputaView";
             this.Size = new System.Drawing.Size(285, 71);
-            this.Text = "FrmEmDisputaView";
-            this.Activated += new System.EventHandler(this.FrmEmDisputaView_Activated);
+            this.Text = "Em Disputa";
             this.Load += new System.EventHandler(this.FrmEmDisputaView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CheckEditFaturaDisputa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();

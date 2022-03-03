@@ -1,0 +1,1768 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsListas" targetNamespace="http://tempuri.org/DsListas.xsd" xmlns:mstns="http://tempuri.org/DsListas.xsd" xmlns="http://tempuri.org/DsListas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PRIEMPREConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PRIEMPREConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Vimaponto.PrimaveraV100.Clientes.GrupoMundifios.Properties.Settings.GlobalReference.Default.PRIEMPREConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PRIMUNDIFIOSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PRIMUNDIFIOSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Vimaponto.PrimaveraV100.Clientes.GrupoMundifios.Properties.Settings.GlobalReference.Default.PRIMUNDIFIOSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ArtigoMundifiosTableAdapter" GeneratorDataComponentClassName="ArtigoMundifiosTableAdapter" Name="ArtigoMundifios" UserDataComponentName="ArtigoMundifiosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        A.Artigo, A.Descricao, A.UnidadeBase, A.Familia, F.Descricao AS FamiliaDesc, A.SubFamilia, SF.Descricao AS SubFamiliaDesc, A.CDU_NE, NE.Descricao AS NEDesc, A.CDU_Texturizacao, 
+                         T.Descricao AS TexturizacaoDesc, A.CDU_Componentes AS Componentes, A.CDU_ComponentesPerc AS PercentagemComponentes
+FROM            Artigo AS A INNER JOIN
+                         Familias AS F ON F.Familia = A.Familia INNER JOIN
+                         SubFamilias AS SF ON SF.Familia = A.Familia AND SF.SubFamilia = A.SubFamilia INNER JOIN
+                         VMP_ART_NE AS NE ON NE.Codigo = A.CDU_NE INNER JOIN
+                         VMP_ART_Texturizacao AS T ON T.Codigo = A.CDU_Texturizacao</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Artigo" DataSetColumn="Artigo" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+              <Mapping SourceColumn="UnidadeBase" DataSetColumn="UnidadeBase" />
+              <Mapping SourceColumn="Familia" DataSetColumn="Familia" />
+              <Mapping SourceColumn="FamiliaDesc" DataSetColumn="FamiliaDesc" />
+              <Mapping SourceColumn="SubFamilia" DataSetColumn="SubFamilia" />
+              <Mapping SourceColumn="SubFamiliaDesc" DataSetColumn="SubFamiliaDesc" />
+              <Mapping SourceColumn="CDU_NE" DataSetColumn="CDU_NE" />
+              <Mapping SourceColumn="NEDesc" DataSetColumn="NEDesc" />
+              <Mapping SourceColumn="CDU_Texturizacao" DataSetColumn="CDU_Texturizacao" />
+              <Mapping SourceColumn="TexturizacaoDesc" DataSetColumn="TexturizacaoDesc" />
+              <Mapping SourceColumn="Componentes" DataSetColumn="Componentes" />
+              <Mapping SourceColumn="PercentagemComponentes" DataSetColumn="PercentagemComponentes" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CentrosTrabalhoOperacaoRotaTableAdapter" GeneratorDataComponentClassName="CentrosTrabalhoOperacaoRotaTableAdapter" Name="CentrosTrabalhoOperacaoRota" UserDataComponentName="CentrosTrabalhoOperacaoRotaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select  Distinct r.Codigo  , ct.PRD_IDCentroTrabalho , ct.PRD_CentroTrabalho, ct.PRD_Descricao 
+from VMP_PLA_RoteiroFabrico r
+INNER join VMP_PLA_RoteiroFabricoMaquina  rf 
+	on rf.IdRoteiroFabrico = r.Id
+INNER JOIN VMP_PLA_CentrosTrabalho ct
+	ON ct.PRD_IDCentroTrabalho = rf.IdCentroTrabalho
+INNER JOIN VMP_PLA_Operacoes_CentrosTrabalho oct
+	 ON oct.IdCentroTrabalho = ct.PRD_IDCentroTrabalho   
+INNER JOin VIM_OperacoesProducao op
+	ON op.PRD_Operacao  = oct.IdOperacao   
+Order By r.Codigo,  ct.PRD_CentroTrabalho</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="PRD_IDCentroTrabalho" DataSetColumn="PRD_IDCentroTrabalho" />
+              <Mapping SourceColumn="PRD_CentroTrabalho" DataSetColumn="PRD_CentroTrabalho" />
+              <Mapping SourceColumn="PRD_Descricao" DataSetColumn="PRD_Descricao" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCodCentroTrabalho" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByCodCentroTrabalho" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByCodCentroTrabalho">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select  Distinct 
+	r.Codigo  , 
+	ct.PRD_IDCentroTrabalho , 
+	ct.PRD_CentroTrabalho, 
+	ct.PRD_Descricao 
+from VMP_PLA_RoteiroFabrico r
+INNER join VMP_PLA_RoteiroFabricoMaquina  rf 
+	on rf.IdRoteiroFabrico = r.Id
+INNER JOIN VMP_PLA_CentrosTrabalho ct
+	ON ct.PRD_IDCentroTrabalho = rf.IdCentroTrabalho
+INNER JOIN VMP_PLA_Operacoes_CentrosTrabalho oct
+	 ON oct.IdCentroTrabalho = ct.PRD_IDCentroTrabalho   
+INNER JOin VIM_OperacoesProducao op
+	ON op.PRD_Operacao  = oct.IdOperacao 
+WHERE ct.PRD_CentroTrabalho = @centroTrabalho   and op.PRD_Operacao = @Op And r.Codigo=@codRoteiro
+Order By r.Codigo,  ct.PRD_CentroTrabalho</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="centroTrabalho" ColumnName="PRD_CentroTrabalho" DataSourceName="PRIMUNDIFIOS.dbo.VMP_PLA_CentrosTrabalho" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@centroTrabalho" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="PRD_CentroTrabalho" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Op" ColumnName="PRD_Operacao" DataSourceName="PRIMUNDIFIOS.dbo.VIM_OperacoesProducao" DataTypeServer="nvarchar(15)" DbType="String" Direction="Input" ParameterName="@Op" Precision="0" ProviderType="NVarChar" Scale="0" Size="15" SourceColumn="PRD_Operacao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="codRoteiro" ColumnName="Codigo" DataSourceName="PRIMUNDIFIOS.dbo.VMP_PLA_RoteiroFabrico" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@codRoteiro" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByIdRotaOperacao" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillByIdRotaOperacao" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByIdRotaOperacao">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select  Distinct r.Codigo  , ct.PRD_IDCentroTrabalho , ct.PRD_CentroTrabalho, ct.PRD_Descricao 
+from VMP_PLA_RoteiroFabrico r
+INNER join VMP_PLA_RoteiroFabricoMaquina  rf 
+	on rf.IdRoteiroFabrico = r.Id
+INNER JOIN VMP_PLA_CentrosTrabalho ct
+	ON ct.PRD_IDCentroTrabalho = rf.IdCentroTrabalho
+INNER JOIN VMP_PLA_Operacoes_CentrosTrabalho oct
+	 ON oct.IdCentroTrabalho = ct.PRD_IDCentroTrabalho   
+INNER JOin VIM_OperacoesProducao op
+	ON op.PRD_Operacao  = oct.IdOperacao   
+where (op.PRD_Operacao  in (select * from VIM_SplitStringToInClause (@Op, ',')))
+ And r.Codigo=@codRoteiro
+Order By r.Codigo,  ct.PRD_CentroTrabalho
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="codRoteiro" ColumnName="Codigo" DataSourceName="PRIMUNDIFIOS.dbo.VMP_PLA_RoteiroFabrico" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@codRoteiro" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Op" ColumnName="" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="@Op" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MotivoTableAdapter" GeneratorDataComponentClassName="MotivoTableAdapter" Name="Motivo" UserDataComponentName="MotivoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.VMP_PLA_Motivo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Id, IdTipoMotivo, Codigo, Motivo
+FROM            VMP_PLA_Motivo
+ORDER BY Codigo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="IdTipoMotivo" DataSetColumn="IdTipoMotivo" />
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="Motivo" DataSetColumn="Motivo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Fornecedores" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByCodFornecedor" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByCodFornecedor" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByCodFornecedor">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Fornecedor, Nome 
+FROM Fornecedores 
+WHERE (Fornecedor = @Forn)
+ and (Fornecedor NOT IN (SELECT Value FROM dbo.VIM_SplitStringToInClause(@Fornecedores, ',') AS VIM_SplitStringToInClause_1)) OR (@Fornecedores IS NULL) 
+  ORDER BY Fornecedor</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Forn" ColumnName="Fornecedor" DataSourceName="PRIMUNDIFIOS.dbo.Fornecedores" DataTypeServer="nvarchar(12)" DbType="String" Direction="Input" ParameterName="@Forn" Precision="0" ProviderType="NVarChar" Scale="0" Size="12" SourceColumn="Fornecedor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Fornecedores" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="String" Direction="Input" ParameterName="@Fornecedores" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Fornecedores" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByFiltro" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByFiltro" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByFiltro">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Fornecedor, Nome FROM Fornecedores WHERE (Fornecedor NOT IN (SELECT Value FROM dbo.VIM_SplitStringToInClause(@Fornecedores, ',') AS VIM_SplitStringToInClause_1)) OR (@Fornecedores IS NULL)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Fornecedores" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="String" Direction="Input" ParameterName="@Fornecedores" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VMP_PLA_RoteiroFabricoTableAdapter" GeneratorDataComponentClassName="VMP_PLA_RoteiroFabricoTableAdapter" Name="VMP_PLA_RoteiroFabrico" UserDataComponentName="VMP_PLA_RoteiroFabricoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.VMP_PLA_RoteiroFabrico" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByCodigo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByCodigo" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByCodigo">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [VMP_PLA_RoteiroFabrico] WHERE (([Id] = @Original_Id) AND ([Codigo] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)) AND ((@IsNull_Observacoes = 1 AND [Observacoes] IS NULL) OR ([Observacoes] = @Original_Observacoes)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Observacoes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Observacoes" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Observacoes" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Observacoes" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [VMP_PLA_RoteiroFabrico] ([Id], [Codigo], [Descricao], [Observacoes]) VALUES (@Id, @Codigo, @Descricao, @Observacoes);
+SELECT Id, Codigo, Descricao, Observacoes FROM VMP_PLA_RoteiroFabrico WHERE (Id = @Id) ORDER BY Codigo</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Id" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Observacoes" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Observacoes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Id, Codigo, Descricao, Observacoes
+FROM            VMP_PLA_RoteiroFabrico
+WHERE Codigo = @Codigo
+ORDER BY Codigo </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Codigo" ColumnName="Codigo" DataSourceName="PRIMUNDIFIOS.dbo.VMP_PLA_RoteiroFabrico" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [VMP_PLA_RoteiroFabrico] SET [Id] = @Id, [Codigo] = @Codigo, [Descricao] = @Descricao, [Observacoes] = @Observacoes WHERE (([Id] = @Original_Id) AND ([Codigo] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)) AND ((@IsNull_Observacoes = 1 AND [Observacoes] IS NULL) OR ([Observacoes] = @Original_Observacoes)));
+SELECT Id, Codigo, Descricao, Observacoes FROM VMP_PLA_RoteiroFabrico WHERE (Id = @Id) ORDER BY Codigo</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Id" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Observacoes" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Observacoes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Observacoes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Observacoes" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Observacoes" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Observacoes" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+              <Mapping SourceColumn="Observacoes" DataSetColumn="Observacoes" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.VMP_PLA_RoteiroFabrico" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Id, Codigo, Descricao, Observacoes
+FROM            VMP_PLA_RoteiroFabrico
+ORDER BY Codigo </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClientesTableAdapter" GeneratorDataComponentClassName="ClientesTableAdapter" Name="Clientes" UserDataComponentName="ClientesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Clientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Clientes] WHERE (([Cliente] = @Original_Cliente) AND ((@IsNull_Nome = 1 AND [Nome] IS NULL) OR ([Nome] = @Original_Nome)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Cliente" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Cliente" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Nome" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Nome" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Nome" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Nome" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Clientes] ([Cliente], [Nome]) VALUES (@Cliente, @Nome);
+SELECT Cliente, Nome FROM Clientes WHERE (Cliente = @Cliente)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Cliente" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Cliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Nome" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Nome" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Cliente, Nome
+FROM            Clientes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Clientes] SET [Cliente] = @Cliente, [Nome] = @Nome WHERE (([Cliente] = @Original_Cliente) AND ((@IsNull_Nome = 1 AND [Nome] IS NULL) OR ([Nome] = @Original_Nome)));
+SELECT Cliente, Nome FROM Clientes WHERE (Cliente = @Cliente)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Cliente" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Cliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Nome" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Nome" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Cliente" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Cliente" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Nome" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Nome" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Nome" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Nome" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Cliente" DataSetColumn="Cliente" />
+              <Mapping SourceColumn="Nome" DataSetColumn="Nome" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Clientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Cliente, Nome
+FROM            Clientes
+Where Cliente NOT IN(SELECT Value
+    FROM dbo.VIM_SplitStringToInClause(@Clientes, ',') AS VIM_SplitStringToInClause_1) OR @Clientes IS NULL</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Clientes" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="String" Direction="Input" ParameterName="@Clientes" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Clientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByCodCliente" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCodCliente" GeneratorSourceName="FillByCodCliente" GetMethodModifier="Public" GetMethodName="GetDataByCodCliente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCodCliente" UserSourceName="FillByCodCliente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Cliente , Nome 
+FROM Clientes 
+WHERE (Cliente = @Cli)
+ and (Cliente NOT IN (SELECT Value FROM dbo.VIM_SplitStringToInClause(@Cliente, ',') AS VIM_SplitStringToInClause_1)) OR (@Cliente IS NULL) 
+  ORDER BY Cliente</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Cli" ColumnName="Cliente" DataSourceName="PRIMUNDIFIOS.dbo.Clientes" DataTypeServer="nvarchar(12)" DbType="String" Direction="Input" ParameterName="@Cli" Precision="0" ProviderType="NVarChar" Scale="0" Size="12" SourceColumn="Cliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Cliente" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="String" Direction="Input" ParameterName="@Cliente" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VMP_PLA_CentrosTrabalhoTableAdapter" GeneratorDataComponentClassName="VMP_PLA_CentrosTrabalhoTableAdapter" Name="VMP_PLA_CentrosTrabalho" UserDataComponentName="VMP_PLA_CentrosTrabalhoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.VMP_PLA_CentrosTrabalho" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [VMP_PLA_CentrosTrabalho] WHERE (([PRD_IDCentroTrabalho] = @Original_PRD_IDCentroTrabalho) AND ([PRD_CentroTrabalho] = @Original_PRD_CentroTrabalho) AND ([PRD_Descricao] = @Original_PRD_Descricao))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_PRD_IDCentroTrabalho" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PRD_IDCentroTrabalho" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_PRD_CentroTrabalho" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PRD_CentroTrabalho" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_PRD_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PRD_Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select PRD_IDCentroTrabalho , PRD_CentroTrabalho, PRD_Descricao
+from VMP_PLA_CentrosTrabalho 
+Order By  PRD_CentroTrabalho</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [VMP_PLA_CentrosTrabalho] SET [PRD_CentroTrabalho] = @PRD_CentroTrabalho, [PRD_Descricao] = @PRD_Descricao WHERE (([PRD_IDCentroTrabalho] = @Original_PRD_IDCentroTrabalho) AND ([PRD_CentroTrabalho] = @Original_PRD_CentroTrabalho) AND ([PRD_Descricao] = @Original_PRD_Descricao));
+SELECT PRD_IDCentroTrabalho, PRD_CentroTrabalho, PRD_Descricao FROM VMP_PLA_CentrosTrabalho WHERE (PRD_IDCentroTrabalho = @PRD_IDCentroTrabalho) ORDER BY PRD_CentroTrabalho</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@PRD_CentroTrabalho" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PRD_CentroTrabalho" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@PRD_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PRD_Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_PRD_IDCentroTrabalho" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PRD_IDCentroTrabalho" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_PRD_CentroTrabalho" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PRD_CentroTrabalho" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_PRD_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PRD_Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="PRD_IDCentroTrabalho" ColumnName="PRD_IDCentroTrabalho" DataSourceName="PRIMUNDIFIOS.dbo.VMP_PLA_CentrosTrabalho" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@PRD_IDCentroTrabalho" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="PRD_IDCentroTrabalho" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PRD_IDCentroTrabalho" DataSetColumn="PRD_IDCentroTrabalho" />
+              <Mapping SourceColumn="PRD_CentroTrabalho" DataSetColumn="PRD_CentroTrabalho" />
+              <Mapping SourceColumn="PRD_Descricao" DataSetColumn="PRD_Descricao" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.VMP_PLA_CentrosTrabalho" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByCodCentroTrabalho" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByCodCentroTrabalho" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByCodCentroTrabalho">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select PRD_IDCentroTrabalho , PRD_CentroTrabalho, PRD_Descricao
+from VMP_PLA_CentrosTrabalho
+WHERE PRD_CentroTrabalho =@CodCentroTrabalho
+Order By  PRD_CentroTrabalho
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CodCentroTrabalho" ColumnName="PRD_CentroTrabalho" DataSourceName="PRIMUNDIFIOS.dbo.VMP_PLA_CentrosTrabalho" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@CodCentroTrabalho" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="PRD_CentroTrabalho" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FornecedoresTableAdapter" GeneratorDataComponentClassName="FornecedoresTableAdapter" Name="Fornecedores" UserDataComponentName="FornecedoresTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Fornecedores" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Fornecedores] WHERE (([Fornecedor] = @Original_Fornecedor) AND ((@IsNull_Nome = 1 AND [Nome] IS NULL) OR ([Nome] = @Original_Nome)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Fornecedor" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Fornecedor" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Nome" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Nome" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Nome" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Nome" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Fornecedores] ([Fornecedor], [Nome]) VALUES (@Fornecedor, @Nome);
+SELECT Fornecedor, Nome FROM Fornecedores WHERE (Fornecedor = @Fornecedor) ORDER BY Fornecedor</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Fornecedor" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Fornecedor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Nome" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Nome" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Fornecedor, Nome
+FROM            Fornecedores
+ORDER BY Fornecedor</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Fornecedores] SET [Fornecedor] = @Fornecedor, [Nome] = @Nome WHERE (([Fornecedor] = @Original_Fornecedor) AND ((@IsNull_Nome = 1 AND [Nome] IS NULL) OR ([Nome] = @Original_Nome)));
+SELECT Fornecedor, Nome FROM Fornecedores WHERE (Fornecedor = @Fornecedor) ORDER BY Fornecedor</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Fornecedor" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Fornecedor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Nome" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Nome" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Fornecedor" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Fornecedor" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Nome" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Nome" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Nome" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Nome" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Fornecedor" DataSetColumn="Fornecedor" />
+              <Mapping SourceColumn="Nome" DataSetColumn="Nome" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Fornecedores" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByCodFornecedor" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByCodFornecedor" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByCodFornecedor">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Fornecedor, Nome 
+FROM Fornecedores 
+WHERE (Fornecedor = @Forn)
+ and (Fornecedor NOT IN (SELECT Value FROM dbo.VIM_SplitStringToInClause(@Fornecedores, ',') AS VIM_SplitStringToInClause_1)) OR (@Fornecedores IS NULL) 
+  ORDER BY Fornecedor</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Forn" ColumnName="Fornecedor" DataSourceName="PRIMUNDIFIOS.dbo.Fornecedores" DataTypeServer="nvarchar(12)" DbType="String" Direction="Input" ParameterName="@Forn" Precision="0" ProviderType="NVarChar" Scale="0" Size="12" SourceColumn="Fornecedor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Fornecedores" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="String" Direction="Input" ParameterName="@Fornecedores" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Fornecedores" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByFiltro" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByFiltro" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByFiltro">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Fornecedor, Nome FROM Fornecedores WHERE (Fornecedor NOT IN (SELECT Value FROM dbo.VIM_SplitStringToInClause(@Fornecedores, ',') AS VIM_SplitStringToInClause_1)) OR (@Fornecedores IS NULL)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Fornecedores" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="String" Direction="Input" ParameterName="@Fornecedores" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ArtigoGeradorSeqTableAdapter" GeneratorDataComponentClassName="ArtigoGeradorSeqTableAdapter" Name="ArtigoGeradorSeq" UserDataComponentName="ArtigoGeradorSeqTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT A.Artigo
+	,A.Descricao
+	,A.UnidadeBase
+	,F.Descricao AS Familia
+	,SF.Descricao AS SubFamilia
+FROM Artigo AS A
+INNER JOIN VMP_ART_GA_ArtigoPropriedadesXml AS AXML ON AXML.Artigo = A.Artigo
+LEFT OUTER JOIN Familias AS F ON F.Familia = A.Familia
+LEFT OUTER JOIN SubFamilias AS SF ON SF.Familia = A.Familia
+	AND SF.SubFamilia = A.SubFamilia
+WHERE A.TratamentoDim &lt;&gt; 2</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Artigo" DataSetColumn="Artigo" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+              <Mapping SourceColumn="UnidadeBase" DataSetColumn="UnidadeBase" />
+              <Mapping SourceColumn="Familia" DataSetColumn="Familia" />
+              <Mapping SourceColumn="SubFamilia" DataSetColumn="SubFamilia" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByArtigo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByArtigo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByArtigo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT A.Artigo,
+       A.Descricao,
+       A.UnidadeBase,
+       F.Descricao AS Familia,
+       SF.Descricao AS SubFamilia
+FROM Artigo AS A
+     LEFT OUTER JOIN Familias AS F ON F.Familia = A.Familia
+     LEFT OUTER JOIN SubFamilias AS SF ON SF.Familia = A.Familia AND SF.SubFamilia = A.SubFamilia
+WHERE A.TratamentoDim IN (0, 1) AND A.Artigo LIKE @ArtigoLike</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="ArtigoLike" ColumnName="Artigo" DataSourceName="PRIMUNDIFIOS.dbo.Artigo" DataTypeServer="nvarchar(48)" DbType="String" Direction="Input" ParameterName="@ArtigoLike" Precision="0" ProviderType="NVarChar" Scale="0" Size="48" SourceColumn="Artigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MarcasTableAdapter" GeneratorDataComponentClassName="MarcasTableAdapter" Name="Marcas" UserDataComponentName="MarcasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Marcas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Marcas] WHERE (([Marca] = @Original_Marca) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Marca" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Marca" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Marcas] ([Marca], [Descricao]) VALUES (@Marca, @Descricao);
+SELECT Marca, Descricao FROM Marcas WHERE (Marca = @Marca) ORDER BY Marca</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Marca" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Marca" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Marca, Descricao
+FROM            Marcas
+ORDER BY Marca</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Marcas] SET [Marca] = @Marca, [Descricao] = @Descricao WHERE (([Marca] = @Original_Marca) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)));
+SELECT Marca, Descricao FROM Marcas WHERE (Marca = @Marca) ORDER BY Marca</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Marca" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Marca" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Marca" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Marca" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Marca" DataSetColumn="Marca" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Marcas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByFamilia" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByFamilia" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByFamilia">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Marca, Descricao
+FROM            Marcas
+WHERE CDU_Familia= @Familia
+ORDER BY Marca</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Familia" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Object" Direction="Input" ParameterName="@Familia" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Marcas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByMarca" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMarca" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByMarca">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Marca, Descricao
+FROM            Marcas
+WHERE Marca = @marca
+ORDER BY Marca</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="marca" ColumnName="Marca" DataSourceName="PRIMUNDIFIOS.dbo.Marcas" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@marca" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="Marca" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="ObtemDescricao" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="ObtemDescricao" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ObtemDescricao">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ISNULL(Descricao, '') FROM Marcas WHERE Marca = @Marca 
+
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Marca" ColumnName="Marca" DataSourceName="PRIMUNDIFIOS.dbo.Marcas" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@Marca" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="Marca" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VMP_ART_GA_CategoriasTableAdapter" GeneratorDataComponentClassName="VMP_ART_GA_CategoriasTableAdapter" Name="VMP_ART_GA_Categorias" UserDataComponentName="VMP_ART_GA_CategoriasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.VMP_ART_GA_Categorias" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [VMP_ART_GA_Categorias] WHERE (([Categoria] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [VMP_ART_GA_Categorias] ([Categoria], [Descricao]) VALUES (@Codigo, @Descricao);
+SELECT Categoria AS Codigo, Descricao FROM VMP_ART_GA_Categorias WHERE (Categoria = @Categoria)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Categoria" ColumnName="Categoria" DataSourceName="PRIMUNDIFIOS.dbo.VMP_ART_GA_Categorias" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Categoria" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Categoria AS Codigo, Descricao FROM VMP_ART_GA_Categorias</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [VMP_ART_GA_Categorias] SET [Categoria] = @Codigo, [Descricao] = @Descricao WHERE (([Categoria] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)));
+SELECT Categoria AS Codigo, Descricao FROM VMP_ART_GA_Categorias WHERE (Categoria = @Categoria)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Categoria" ColumnName="Categoria" DataSourceName="PRIMUNDIFIOS.dbo.VMP_ART_GA_Categorias" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Categoria" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TiposDimensaoTableAdapter" GeneratorDataComponentClassName="TiposDimensaoTableAdapter" Name="TiposDimensao" UserDataComponentName="TiposDimensaoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.TiposDimensao" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [TiposDimensao] WHERE (([Tipodim] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [TiposDimensao] ([Tipodim], [Descricao]) VALUES (@Codigo, @Descricao);
+SELECT Tipodim AS Codigo, Descricao FROM TiposDimensao WHERE (Tipodim = @Tipodim)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Tipodim" ColumnName="Tipodim" DataSourceName="PRIMUNDIFIOS.dbo.TiposDimensao" DataTypeServer="nvarchar(15)" DbType="String" Direction="Input" ParameterName="@Tipodim" Precision="0" ProviderType="NVarChar" Scale="0" Size="15" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Tipodim AS Codigo, Descricao FROM TiposDimensao</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [TiposDimensao] SET [Tipodim] = @Codigo, [Descricao] = @Descricao WHERE (([Tipodim] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)));
+SELECT Tipodim AS Codigo, Descricao FROM TiposDimensao WHERE (Tipodim = @Tipodim)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Tipodim" ColumnName="Tipodim" DataSourceName="PRIMUNDIFIOS.dbo.TiposDimensao" DataTypeServer="nvarchar(15)" DbType="String" Direction="Input" ParameterName="@Tipodim" Precision="0" ProviderType="NVarChar" Scale="0" Size="15" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DimensaoTableAdapter" GeneratorDataComponentClassName="DimensaoTableAdapter" Name="Dimensao" UserDataComponentName="DimensaoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Dimensao" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Dimensao] WHERE (([Dimensao] = @Original_Dimensao) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)) AND ((@IsNull_TipoDim = 1 AND [TipoDim] IS NULL) OR ([TipoDim] = @Original_TipoDim)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Dimensao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Dimensao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TipoDim" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TipoDim" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TipoDim" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TipoDim" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Dimensao] ([Dimensao], [Descricao], [TipoDim]) VALUES (@Dimensao, @Descricao, @TipoDim);
+SELECT Dimensao, Descricao, TipoDim FROM Dimensao WHERE (Dimensao = @Dimensao)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Dimensao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Dimensao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TipoDim" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TipoDim" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Dimensao, Descricao, TipoDim FROM Dimensao</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Dimensao] SET [Dimensao] = @Dimensao, [Descricao] = @Descricao, [TipoDim] = @TipoDim WHERE (([Dimensao] = @Original_Dimensao) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)) AND ((@IsNull_TipoDim = 1 AND [TipoDim] IS NULL) OR ([TipoDim] = @Original_TipoDim)));
+SELECT Dimensao, Descricao, TipoDim FROM Dimensao WHERE (Dimensao = @Dimensao)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Dimensao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Dimensao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TipoDim" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TipoDim" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Dimensao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Dimensao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TipoDim" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TipoDim" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TipoDim" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TipoDim" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Dimensao" DataSetColumn="Dimensao" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+              <Mapping SourceColumn="TipoDim" DataSetColumn="TipoDim" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Dimensao" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByTipo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByTipo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByTipo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Dimensao, Descricao, TipoDim FROM Dimensao
+WHERE TipoDim = @TipoDim</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TipoDim" ColumnName="TipoDim" DataSourceName="PRIMUNDIFIOS.dbo.Dimensao" DataTypeServer="nvarchar(15)" DbType="String" Direction="Input" ParameterName="@TipoDim" Precision="0" ProviderType="NVarChar" Scale="0" Size="15" SourceColumn="TipoDim" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="ObtemDescricao" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="ObtemDescricao" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ObtemDescricao">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ISNULL(Descricao, '')
+FROM Dimensao
+WHERE Dimensao = @Dim</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Dim" ColumnName="Dimensao" DataSourceName="PRIMUNDIFIOS.dbo.Dimensao" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@Dim" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Dimensao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VMP_ART_GA_ModelosTableAdapter" GeneratorDataComponentClassName="VMP_ART_GA_ModelosTableAdapter" Name="VMP_ART_GA_Modelos" UserDataComponentName="VMP_ART_GA_ModelosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.VMP_ART_GA_Modelos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [VMP_ART_GA_Modelos] WHERE (([Modelo] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [VMP_ART_GA_Modelos] ([Modelo], [Descricao]) VALUES (@Codigo, @Descricao);
+SELECT Modelo AS Codigo, Descricao FROM VMP_ART_GA_Modelos WHERE (Modelo = @Modelo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Modelo" ColumnName="Modelo" DataSourceName="PRIMUNDIFIOS.dbo.VMP_ART_GA_Modelos" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@Modelo" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Modelo AS Codigo, Descricao FROM VMP_ART_GA_Modelos</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [VMP_ART_GA_Modelos] SET [Modelo] = @Codigo, [Descricao] = @Descricao WHERE (([Modelo] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)));
+SELECT Modelo AS Codigo, Descricao FROM VMP_ART_GA_Modelos WHERE (Modelo = @Modelo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Modelo" ColumnName="Modelo" DataSourceName="PRIMUNDIFIOS.dbo.VMP_ART_GA_Modelos" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@Modelo" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FamiliasTableAdapter" GeneratorDataComponentClassName="FamiliasTableAdapter" Name="Familias" UserDataComponentName="FamiliasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Familias" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Familias] WHERE (([Familia] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Familias] ([Familia], [Descricao]) VALUES (@Codigo, @Descricao);
+SELECT Familia AS Codigo, Descricao FROM Familias WHERE (Familia = @Familia)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Familia" ColumnName="Familia" DataSourceName="PRIMUNDIFIOS.dbo.Familias" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@Familia" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Familia AS Codigo, Descricao FROM Familias</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Familias] SET [Familia] = @Codigo, [Descricao] = @Descricao WHERE (([Familia] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)));
+SELECT Familia AS Codigo, Descricao FROM Familias WHERE (Familia = @Familia)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Familia" ColumnName="Familia" DataSourceName="PRIMUNDIFIOS.dbo.Familias" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@Familia" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="ObtemDescricao" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="ObtemDescricao" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ObtemDescricao">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ISNULL(Descricao, '') FROM Familias WHERE Familia = @Familia</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Familia" ColumnName="Familia" DataSourceName="PRIMUNDIFIOS.dbo.Familias" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@Familia" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="Familia" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TiposArtigoTableAdapter" GeneratorDataComponentClassName="TiposArtigoTableAdapter" Name="TiposArtigo" UserDataComponentName="TiposArtigoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.TiposArtigo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [TiposArtigo] WHERE (([TipoArtigo] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [TiposArtigo] ([TipoArtigo], [Descricao]) VALUES (@Codigo, @Descricao);
+SELECT TipoArtigo AS Codigo, Descricao FROM TiposArtigo WHERE (TipoArtigo = @TipoArtigo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="TipoArtigo" ColumnName="TipoArtigo" DataSourceName="PRIMUNDIFIOS.dbo.TiposArtigo" DataTypeServer="nvarchar(3)" DbType="String" Direction="Input" ParameterName="@TipoArtigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="3" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT TipoArtigo AS Codigo, Descricao FROM TiposArtigo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [TiposArtigo] SET [TipoArtigo] = @Codigo, [Descricao] = @Descricao WHERE (([TipoArtigo] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)));
+SELECT TipoArtigo AS Codigo, Descricao FROM TiposArtigo WHERE (TipoArtigo = @TipoArtigo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="TipoArtigo" ColumnName="TipoArtigo" DataSourceName="PRIMUNDIFIOS.dbo.TiposArtigo" DataTypeServer="nvarchar(3)" DbType="String" Direction="Input" ParameterName="@TipoArtigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="3" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="ObtemDescricao" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="ObtemDescricao" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ObtemDescricao">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ISNULL(Descricao, '') FROM TiposArtigo WHERE TipoArtigo = @TipoArtigo</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="TipoArtigo" ColumnName="TipoArtigo" DataSourceName="PRIMUNDIFIOS.dbo.TiposArtigo" DataTypeServer="nvarchar(3)" DbType="String" Direction="Input" ParameterName="@TipoArtigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="3" SourceColumn="TipoArtigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ArmazensTableAdapter" GeneratorDataComponentClassName="ArmazensTableAdapter" Name="Armazens" UserDataComponentName="ArmazensTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Armazens" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Armazens] WHERE (([Armazem] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Armazens] ([Armazem], [Descricao]) VALUES (@Codigo, @Descricao);
+SELECT Armazem AS Codigo, Descricao FROM Armazens WHERE (Armazem = @Armazem)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Armazem" ColumnName="Armazem" DataSourceName="PRIMUNDIFIOS.dbo.Armazens" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@Armazem" Precision="0" ProviderType="NVarChar" Scale="0" Size="5" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Armazem AS Codigo, Descricao FROM Armazens</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Armazens] SET [Armazem] = @Codigo, [Descricao] = @Descricao WHERE (([Armazem] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)));
+SELECT Armazem AS Codigo, Descricao FROM Armazens WHERE (Armazem = @Armazem)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Armazem" ColumnName="Armazem" DataSourceName="PRIMUNDIFIOS.dbo.Armazens" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@Armazem" Precision="0" ProviderType="NVarChar" Scale="0" Size="5" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="ObtemDescricao" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="ObtemDescricao" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ObtemDescricao">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ISNULL(Descricao, '') FROM Armazens WHERE Armazem = @Armazem</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Armazem" ColumnName="Armazem" DataSourceName="PRIMUNDIFIOS.dbo.Armazens" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@Armazem" Precision="0" ProviderType="NVarChar" Scale="0" Size="5" SourceColumn="Armazem" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UnidadesTableAdapter" GeneratorDataComponentClassName="UnidadesTableAdapter" Name="Unidades" UserDataComponentName="UnidadesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.Unidades" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Unidades] WHERE (([Unidade] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Unidades] ([Unidade], [Descricao]) VALUES (@Codigo, @Descricao);
+SELECT Unidade AS Codigo, Descricao FROM Unidades WHERE (Unidade = @Unidade)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Unidade" ColumnName="Unidade" DataSourceName="PRIMUNDIFIOS.dbo.Unidades" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@Unidade" Precision="0" ProviderType="NVarChar" Scale="0" Size="5" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Unidade AS Codigo, Descricao FROM Unidades
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Unidades] SET [Unidade] = @Codigo, [Descricao] = @Descricao WHERE (([Unidade] = @Original_Codigo) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)));
+SELECT Unidade AS Codigo, Descricao FROM Unidades WHERE (Unidade = @Unidade)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Codigo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Unidade" ColumnName="Unidade" DataSourceName="PRIMUNDIFIOS.dbo.Unidades" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@Unidade" Precision="0" ProviderType="NVarChar" Scale="0" Size="5" SourceColumn="Codigo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="ObtemDescricao" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="ObtemDescricao" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ObtemDescricao">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ISNULL(Descricao, '') FROM Unidades WHERE Unidade = @Unidade</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Unidade" ColumnName="Unidade" DataSourceName="PRIMUNDIFIOS.dbo.Unidades" DataTypeServer="nvarchar(5)" DbType="String" Direction="Input" ParameterName="@Unidade" Precision="0" ProviderType="NVarChar" Scale="0" Size="5" SourceColumn="Unidade" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SubFamiliasTableAdapter" GeneratorDataComponentClassName="SubFamiliasTableAdapter" Name="SubFamilias" UserDataComponentName="SubFamiliasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectName="PRIMUNDIFIOS.dbo.SubFamilias" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [SubFamilias] WHERE (([Familia] = @Original_Familia) AND ([SubFamilia] = @Original_SubFamilia) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Familia" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Familia" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SubFamilia" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SubFamilia" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Familia, SubFamilia, Descricao
+FROM            SubFamilias</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [SubFamilias] SET [Familia] = @Familia, [SubFamilia] = @SubFamilia, [Descricao] = @Descricao WHERE (([Familia] = @Original_Familia) AND ([SubFamilia] = @Original_SubFamilia) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)));
+SELECT Familia, SubFamilia, Descricao FROM SubFamilias WHERE (Familia = @Familia) AND (SubFamilia = @SubFamilia)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Familia" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Familia" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SubFamilia" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SubFamilia" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Familia" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Familia" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SubFamilia" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SubFamilia" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Descricao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Descricao" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Descricao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Familia" DataSetColumn="Familia" />
+              <Mapping SourceColumn="SubFamilia" DataSetColumn="SubFamilia" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByFamilia" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByFamilia" GeneratorSourceName="FillByFamilia" GetMethodModifier="Public" GetMethodName="GetDataByFamilia" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByFamilia" UserSourceName="FillByFamilia">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+	s.Familia,
+	f.Descricao DescFamilia,
+	s.SubFamilia ,
+	s.Descricao
+FROM SubFamilias s
+INNER JOIN Familias f
+	 On f.Familia = s.Familia 
+WHERE (s.Familia = @familia)
+ORDER BY s.Ordem, s.SubFamilia</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="familia" ColumnName="Familia" DataSourceName="PRIMUNDIFIOS.dbo.SubFamilias" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@familia" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="Familia" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySubFamilia" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySubFamilia" GeneratorSourceName="FillBySubFamilia" GetMethodModifier="Public" GetMethodName="GetDataBySubFamilia" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySubFamilia" UserSourceName="FillBySubFamilia">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+	s.Familia,
+	f.Descricao DescFamilia,
+	s.SubFamilia ,
+	s.Descricao
+FROM SubFamilias s
+INNER JOIN Familias f
+	 On f.Familia = s.Familia 
+WHERE (s.Familia = @Familia and SubFamilia =@SubFamilia)
+ORDER BY s.Ordem,  s.SubFamilia</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Familia" ColumnName="Familia" DataSourceName="PRIMUNDIFIOS.dbo.SubFamilias" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@Familia" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="Familia" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="SubFamilia" ColumnName="SubFamilia" DataSourceName="PRIMUNDIFIOS.dbo.SubFamilias" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@SubFamilia" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="SubFamilia" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="PRIMUNDIFIOSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="ObtemDescricao" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="ObtemDescricao" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ObtemDescricao">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ISNULL(Descricao, '') FROM SubFamilias WHERE Familia = @Familia AND SubFamilia = @SubFamilia</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Familia" ColumnName="Familia" DataSourceName="PRIMUNDIFIOS.dbo.SubFamilias" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@Familia" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="Familia" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="SubFamilia" ColumnName="SubFamilia" DataSourceName="PRIMUNDIFIOS.dbo.SubFamilias" DataTypeServer="nvarchar(10)" DbType="String" Direction="Input" ParameterName="@SubFamilia" Precision="0" ProviderType="NVarChar" Scale="0" Size="10" SourceColumn="SubFamilia" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsListas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsListas" msprop:Generator_UserDSName="DsListas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ArtigoMundifios" msprop:Generator_TableClassName="ArtigoMundifiosDataTable" msprop:Generator_TableVarName="tableArtigoMundifios" msprop:Generator_TablePropName="ArtigoMundifios" msprop:Generator_RowDeletingName="ArtigoMundifiosRowDeleting" msprop:Generator_RowChangingName="ArtigoMundifiosRowChanging" msprop:Generator_RowEvHandlerName="ArtigoMundifiosRowChangeEventHandler" msprop:Generator_RowDeletedName="ArtigoMundifiosRowDeleted" msprop:Generator_UserTableName="ArtigoMundifios" msprop:Generator_RowChangedName="ArtigoMundifiosRowChanged" msprop:Generator_RowEvArgName="ArtigoMundifiosRowChangeEvent" msprop:Generator_RowClassName="ArtigoMundifiosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Artigo" msprop:Generator_ColumnVarNameInTable="columnArtigo" msprop:Generator_ColumnPropNameInRow="Artigo" msprop:Generator_ColumnPropNameInTable="ArtigoColumn" msprop:Generator_UserColumnName="Artigo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="48" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UnidadeBase" msprop:Generator_ColumnVarNameInTable="columnUnidadeBase" msprop:Generator_ColumnPropNameInRow="UnidadeBase" msprop:Generator_ColumnPropNameInTable="UnidadeBaseColumn" msprop:Generator_UserColumnName="UnidadeBase">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Familia" msprop:Generator_ColumnVarNameInTable="columnFamilia" msprop:Generator_ColumnPropNameInRow="Familia" msprop:Generator_ColumnPropNameInTable="FamiliaColumn" msprop:Generator_UserColumnName="Familia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FamiliaDesc" msprop:Generator_ColumnVarNameInTable="columnFamiliaDesc" msprop:Generator_ColumnPropNameInRow="FamiliaDesc" msprop:Generator_ColumnPropNameInTable="FamiliaDescColumn" msprop:Generator_UserColumnName="FamiliaDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SubFamilia" msprop:Generator_ColumnVarNameInTable="columnSubFamilia" msprop:Generator_ColumnPropNameInRow="SubFamilia" msprop:Generator_ColumnPropNameInTable="SubFamiliaColumn" msprop:Generator_UserColumnName="SubFamilia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SubFamiliaDesc" msprop:Generator_ColumnVarNameInTable="columnSubFamiliaDesc" msprop:Generator_ColumnPropNameInRow="SubFamiliaDesc" msprop:Generator_ColumnPropNameInTable="SubFamiliaDescColumn" msprop:Generator_UserColumnName="SubFamiliaDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CDU_NE" msprop:Generator_ColumnVarNameInTable="columnCDU_NE" msprop:Generator_ColumnPropNameInRow="CDU_NE" msprop:Generator_ColumnPropNameInTable="CDU_NEColumn" msprop:Generator_UserColumnName="CDU_NE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NEDesc" msprop:Generator_ColumnVarNameInTable="columnNEDesc" msprop:Generator_ColumnPropNameInRow="NEDesc" msprop:Generator_ColumnPropNameInTable="NEDescColumn" msprop:Generator_UserColumnName="NEDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CDU_Texturizacao" msprop:Generator_ColumnVarNameInTable="columnCDU_Texturizacao" msprop:Generator_ColumnPropNameInRow="CDU_Texturizacao" msprop:Generator_ColumnPropNameInTable="CDU_TexturizacaoColumn" msprop:Generator_UserColumnName="CDU_Texturizacao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TexturizacaoDesc" msprop:Generator_ColumnVarNameInTable="columnTexturizacaoDesc" msprop:Generator_ColumnPropNameInRow="TexturizacaoDesc" msprop:Generator_ColumnPropNameInTable="TexturizacaoDescColumn" msprop:Generator_UserColumnName="TexturizacaoDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Componentes" msprop:Generator_ColumnVarNameInTable="columnComponentes" msprop:Generator_ColumnPropNameInRow="Componentes" msprop:Generator_ColumnPropNameInTable="ComponentesColumn" msprop:Generator_UserColumnName="Componentes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PercentagemComponentes" msprop:Generator_ColumnVarNameInTable="columnPercentagemComponentes" msprop:Generator_ColumnPropNameInRow="PercentagemComponentes" msprop:Generator_ColumnPropNameInTable="PercentagemComponentesColumn" msprop:Generator_UserColumnName="PercentagemComponentes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CentrosTrabalhoOperacaoRota" msprop:Generator_TableClassName="CentrosTrabalhoOperacaoRotaDataTable" msprop:Generator_TableVarName="tableCentrosTrabalhoOperacaoRota" msprop:Generator_TablePropName="CentrosTrabalhoOperacaoRota" msprop:Generator_RowDeletingName="CentrosTrabalhoOperacaoRotaRowDeleting" msprop:Generator_RowChangingName="CentrosTrabalhoOperacaoRotaRowChanging" msprop:Generator_RowEvHandlerName="CentrosTrabalhoOperacaoRotaRowChangeEventHandler" msprop:Generator_RowDeletedName="CentrosTrabalhoOperacaoRotaRowDeleted" msprop:Generator_UserTableName="CentrosTrabalhoOperacaoRota" msprop:Generator_RowChangedName="CentrosTrabalhoOperacaoRotaRowChanged" msprop:Generator_RowEvArgName="CentrosTrabalhoOperacaoRotaRowChangeEvent" msprop:Generator_RowClassName="CentrosTrabalhoOperacaoRotaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PRD_IDCentroTrabalho" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnPRD_IDCentroTrabalho" msprop:Generator_ColumnPropNameInRow="PRD_IDCentroTrabalho" msprop:Generator_ColumnPropNameInTable="PRD_IDCentroTrabalhoColumn" msprop:Generator_UserColumnName="PRD_IDCentroTrabalho" type="xs:int" />
+              <xs:element name="PRD_CentroTrabalho" msprop:Generator_ColumnVarNameInTable="columnPRD_CentroTrabalho" msprop:Generator_ColumnPropNameInRow="PRD_CentroTrabalho" msprop:Generator_ColumnPropNameInTable="PRD_CentroTrabalhoColumn" msprop:Generator_UserColumnName="PRD_CentroTrabalho">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PRD_Descricao" msprop:Generator_ColumnVarNameInTable="columnPRD_Descricao" msprop:Generator_ColumnPropNameInRow="PRD_Descricao" msprop:Generator_ColumnPropNameInTable="PRD_DescricaoColumn" msprop:Generator_UserColumnName="PRD_Descricao">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Motivo" msprop:Generator_TableClassName="MotivoDataTable" msprop:Generator_TableVarName="tableMotivo" msprop:Generator_TablePropName="Motivo" msprop:Generator_RowDeletingName="MotivoRowDeleting" msprop:Generator_RowChangingName="MotivoRowChanging" msprop:Generator_RowEvHandlerName="MotivoRowChangeEventHandler" msprop:Generator_RowDeletedName="MotivoRowDeleted" msprop:Generator_UserTableName="Motivo" msprop:Generator_RowChangedName="MotivoRowChanged" msprop:Generator_RowEvArgName="MotivoRowChangeEvent" msprop:Generator_RowClassName="MotivoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:string" />
+              <xs:element name="IdTipoMotivo" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnIdTipoMotivo" msprop:Generator_ColumnPropNameInRow="IdTipoMotivo" msprop:Generator_ColumnPropNameInTable="IdTipoMotivoColumn" msprop:Generator_UserColumnName="IdTipoMotivo" type="xs:string" minOccurs="0" />
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo" type="xs:int" minOccurs="0" />
+              <xs:element name="Motivo" msprop:Generator_ColumnVarNameInTable="columnMotivo" msprop:Generator_ColumnPropNameInRow="Motivo" msprop:Generator_ColumnPropNameInTable="MotivoColumn" msprop:Generator_UserColumnName="Motivo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VMP_PLA_RoteiroFabrico" msprop:Generator_TableClassName="VMP_PLA_RoteiroFabricoDataTable" msprop:Generator_TableVarName="tableVMP_PLA_RoteiroFabrico" msprop:Generator_TablePropName="VMP_PLA_RoteiroFabrico" msprop:Generator_RowDeletingName="VMP_PLA_RoteiroFabricoRowDeleting" msprop:Generator_RowChangingName="VMP_PLA_RoteiroFabricoRowChanging" msprop:Generator_RowEvHandlerName="VMP_PLA_RoteiroFabricoRowChangeEventHandler" msprop:Generator_RowDeletedName="VMP_PLA_RoteiroFabricoRowDeleted" msprop:Generator_UserTableName="VMP_PLA_RoteiroFabrico" msprop:Generator_RowChangedName="VMP_PLA_RoteiroFabricoRowChanged" msprop:Generator_RowEvArgName="VMP_PLA_RoteiroFabricoRowChangeEvent" msprop:Generator_RowClassName="VMP_PLA_RoteiroFabricoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:string" />
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Observacoes" msprop:Generator_ColumnVarNameInTable="columnObservacoes" msprop:Generator_ColumnPropNameInRow="Observacoes" msprop:Generator_ColumnPropNameInTable="ObservacoesColumn" msprop:Generator_UserColumnName="Observacoes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Clientes" msprop:Generator_TableClassName="ClientesDataTable" msprop:Generator_TableVarName="tableClientes" msprop:Generator_TablePropName="Clientes" msprop:Generator_RowDeletingName="ClientesRowDeleting" msprop:Generator_RowChangingName="ClientesRowChanging" msprop:Generator_RowEvHandlerName="ClientesRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientesRowDeleted" msprop:Generator_UserTableName="Clientes" msprop:Generator_RowChangedName="ClientesRowChanged" msprop:Generator_RowEvArgName="ClientesRowChangeEvent" msprop:Generator_RowClassName="ClientesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nome" msprop:Generator_ColumnVarNameInTable="columnNome" msprop:Generator_ColumnPropNameInRow="Nome" msprop:Generator_ColumnPropNameInTable="NomeColumn" msprop:Generator_UserColumnName="Nome" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VMP_PLA_CentrosTrabalho" msprop:Generator_TableClassName="VMP_PLA_CentrosTrabalhoDataTable" msprop:Generator_TableVarName="tableVMP_PLA_CentrosTrabalho" msprop:Generator_TablePropName="VMP_PLA_CentrosTrabalho" msprop:Generator_RowDeletingName="VMP_PLA_CentrosTrabalhoRowDeleting" msprop:Generator_RowChangingName="VMP_PLA_CentrosTrabalhoRowChanging" msprop:Generator_RowEvHandlerName="VMP_PLA_CentrosTrabalhoRowChangeEventHandler" msprop:Generator_RowDeletedName="VMP_PLA_CentrosTrabalhoRowDeleted" msprop:Generator_UserTableName="VMP_PLA_CentrosTrabalho" msprop:Generator_RowChangedName="VMP_PLA_CentrosTrabalhoRowChanged" msprop:Generator_RowEvArgName="VMP_PLA_CentrosTrabalhoRowChangeEvent" msprop:Generator_RowClassName="VMP_PLA_CentrosTrabalhoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PRD_IDCentroTrabalho" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnPRD_IDCentroTrabalho" msprop:Generator_ColumnPropNameInRow="PRD_IDCentroTrabalho" msprop:Generator_ColumnPropNameInTable="PRD_IDCentroTrabalhoColumn" msprop:Generator_UserColumnName="PRD_IDCentroTrabalho" type="xs:int" />
+              <xs:element name="PRD_CentroTrabalho" msprop:Generator_ColumnVarNameInTable="columnPRD_CentroTrabalho" msprop:Generator_ColumnPropNameInRow="PRD_CentroTrabalho" msprop:Generator_ColumnPropNameInTable="PRD_CentroTrabalhoColumn" msprop:Generator_UserColumnName="PRD_CentroTrabalho">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PRD_Descricao" msprop:Generator_ColumnVarNameInTable="columnPRD_Descricao" msprop:Generator_ColumnPropNameInRow="PRD_Descricao" msprop:Generator_ColumnPropNameInTable="PRD_DescricaoColumn" msprop:Generator_UserColumnName="PRD_Descricao">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Fornecedores" msprop:Generator_TableClassName="FornecedoresDataTable" msprop:Generator_TableVarName="tableFornecedores" msprop:Generator_TablePropName="Fornecedores" msprop:Generator_RowDeletingName="FornecedoresRowDeleting" msprop:Generator_RowChangingName="FornecedoresRowChanging" msprop:Generator_RowEvHandlerName="FornecedoresRowChangeEventHandler" msprop:Generator_RowDeletedName="FornecedoresRowDeleted" msprop:Generator_UserTableName="Fornecedores" msprop:Generator_RowChangedName="FornecedoresRowChanged" msprop:Generator_RowEvArgName="FornecedoresRowChangeEvent" msprop:Generator_RowClassName="FornecedoresRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fornecedor" msprop:Generator_ColumnVarNameInTable="columnFornecedor" msprop:Generator_ColumnPropNameInRow="Fornecedor" msprop:Generator_ColumnPropNameInTable="FornecedorColumn" msprop:Generator_UserColumnName="Fornecedor">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nome" msprop:Generator_ColumnVarNameInTable="columnNome" msprop:Generator_ColumnPropNameInRow="Nome" msprop:Generator_ColumnPropNameInTable="NomeColumn" msprop:Generator_UserColumnName="Nome" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ArtigoGeradorSeq" msprop:Generator_TableClassName="ArtigoGeradorSeqDataTable" msprop:Generator_TableVarName="tableArtigoGeradorSeq" msprop:Generator_TablePropName="ArtigoGeradorSeq" msprop:Generator_RowDeletingName="ArtigoGeradorSeqRowDeleting" msprop:Generator_RowChangingName="ArtigoGeradorSeqRowChanging" msprop:Generator_RowEvHandlerName="ArtigoGeradorSeqRowChangeEventHandler" msprop:Generator_RowDeletedName="ArtigoGeradorSeqRowDeleted" msprop:Generator_UserTableName="ArtigoGeradorSeq" msprop:Generator_RowChangedName="ArtigoGeradorSeqRowChanged" msprop:Generator_RowEvArgName="ArtigoGeradorSeqRowChangeEvent" msprop:Generator_RowClassName="ArtigoGeradorSeqRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Artigo" msprop:Generator_ColumnVarNameInTable="columnArtigo" msprop:Generator_ColumnPropNameInRow="Artigo" msprop:Generator_ColumnPropNameInTable="ArtigoColumn" msprop:Generator_UserColumnName="Artigo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="48" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UnidadeBase" msprop:Generator_ColumnVarNameInTable="columnUnidadeBase" msprop:Generator_ColumnPropNameInRow="UnidadeBase" msprop:Generator_ColumnPropNameInTable="UnidadeBaseColumn" msprop:Generator_UserColumnName="UnidadeBase">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Familia" msprop:Generator_ColumnVarNameInTable="columnFamilia" msprop:Generator_ColumnPropNameInRow="Familia" msprop:Generator_ColumnPropNameInTable="FamiliaColumn" msprop:Generator_UserColumnName="Familia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SubFamilia" msprop:Generator_ColumnVarNameInTable="columnSubFamilia" msprop:Generator_ColumnPropNameInRow="SubFamilia" msprop:Generator_ColumnPropNameInTable="SubFamiliaColumn" msprop:Generator_UserColumnName="SubFamilia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Marcas" msprop:Generator_TableClassName="MarcasDataTable" msprop:Generator_TableVarName="tableMarcas" msprop:Generator_TablePropName="Marcas" msprop:Generator_RowDeletingName="MarcasRowDeleting" msprop:Generator_RowChangingName="MarcasRowChanging" msprop:Generator_RowEvHandlerName="MarcasRowChangeEventHandler" msprop:Generator_RowDeletedName="MarcasRowDeleted" msprop:Generator_UserTableName="Marcas" msprop:Generator_RowChangedName="MarcasRowChanged" msprop:Generator_RowEvArgName="MarcasRowChangeEvent" msprop:Generator_RowClassName="MarcasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Marca" msprop:Generator_ColumnVarNameInTable="columnMarca" msprop:Generator_ColumnPropNameInRow="Marca" msprop:Generator_ColumnPropNameInTable="MarcaColumn" msprop:Generator_UserColumnName="Marca">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VMP_ART_GA_Categorias" msprop:Generator_TableClassName="VMP_ART_GA_CategoriasDataTable" msprop:Generator_TableVarName="tableVMP_ART_GA_Categorias" msprop:Generator_TablePropName="VMP_ART_GA_Categorias" msprop:Generator_RowDeletingName="VMP_ART_GA_CategoriasRowDeleting" msprop:Generator_RowChangingName="VMP_ART_GA_CategoriasRowChanging" msprop:Generator_RowEvHandlerName="VMP_ART_GA_CategoriasRowChangeEventHandler" msprop:Generator_RowDeletedName="VMP_ART_GA_CategoriasRowDeleted" msprop:Generator_UserTableName="VMP_ART_GA_Categorias" msprop:Generator_RowChangedName="VMP_ART_GA_CategoriasRowChanged" msprop:Generator_RowEvArgName="VMP_ART_GA_CategoriasRowChangeEvent" msprop:Generator_RowClassName="VMP_ART_GA_CategoriasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TiposDimensao" msprop:Generator_TableClassName="TiposDimensaoDataTable" msprop:Generator_TableVarName="tableTiposDimensao" msprop:Generator_TablePropName="TiposDimensao" msprop:Generator_RowDeletingName="TiposDimensaoRowDeleting" msprop:Generator_RowChangingName="TiposDimensaoRowChanging" msprop:Generator_RowEvHandlerName="TiposDimensaoRowChangeEventHandler" msprop:Generator_RowDeletedName="TiposDimensaoRowDeleted" msprop:Generator_UserTableName="TiposDimensao" msprop:Generator_RowChangedName="TiposDimensaoRowChanged" msprop:Generator_RowEvArgName="TiposDimensaoRowChangeEvent" msprop:Generator_RowClassName="TiposDimensaoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Dimensao" msprop:Generator_TableClassName="DimensaoDataTable" msprop:Generator_TableVarName="tableDimensao" msprop:Generator_TablePropName="Dimensao" msprop:Generator_RowDeletingName="DimensaoRowDeleting" msprop:Generator_RowChangingName="DimensaoRowChanging" msprop:Generator_RowEvHandlerName="DimensaoRowChangeEventHandler" msprop:Generator_RowDeletedName="DimensaoRowDeleted" msprop:Generator_UserTableName="Dimensao" msprop:Generator_RowChangedName="DimensaoRowChanged" msprop:Generator_RowEvArgName="DimensaoRowChangeEvent" msprop:Generator_RowClassName="DimensaoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Dimensao" msprop:Generator_ColumnVarNameInTable="columnDimensao" msprop:Generator_ColumnPropNameInRow="Dimensao" msprop:Generator_ColumnPropNameInTable="DimensaoColumn" msprop:Generator_UserColumnName="Dimensao">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TipoDim" msprop:Generator_ColumnVarNameInTable="columnTipoDim" msprop:Generator_ColumnPropNameInRow="TipoDim" msprop:Generator_ColumnPropNameInTable="TipoDimColumn" msprop:Generator_UserColumnName="TipoDim" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VMP_ART_GA_Modelos" msprop:Generator_TableClassName="VMP_ART_GA_ModelosDataTable" msprop:Generator_TableVarName="tableVMP_ART_GA_Modelos" msprop:Generator_TablePropName="VMP_ART_GA_Modelos" msprop:Generator_RowDeletingName="VMP_ART_GA_ModelosRowDeleting" msprop:Generator_RowChangingName="VMP_ART_GA_ModelosRowChanging" msprop:Generator_RowEvHandlerName="VMP_ART_GA_ModelosRowChangeEventHandler" msprop:Generator_RowDeletedName="VMP_ART_GA_ModelosRowDeleted" msprop:Generator_UserTableName="VMP_ART_GA_Modelos" msprop:Generator_RowChangedName="VMP_ART_GA_ModelosRowChanged" msprop:Generator_RowEvArgName="VMP_ART_GA_ModelosRowChangeEvent" msprop:Generator_RowClassName="VMP_ART_GA_ModelosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Familias" msprop:Generator_TableClassName="FamiliasDataTable" msprop:Generator_TableVarName="tableFamilias" msprop:Generator_TablePropName="Familias" msprop:Generator_RowDeletingName="FamiliasRowDeleting" msprop:Generator_RowChangingName="FamiliasRowChanging" msprop:Generator_RowEvHandlerName="FamiliasRowChangeEventHandler" msprop:Generator_RowDeletedName="FamiliasRowDeleted" msprop:Generator_UserTableName="Familias" msprop:Generator_RowChangedName="FamiliasRowChanged" msprop:Generator_RowEvArgName="FamiliasRowChangeEvent" msprop:Generator_RowClassName="FamiliasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TiposArtigo" msprop:Generator_TableClassName="TiposArtigoDataTable" msprop:Generator_TableVarName="tableTiposArtigo" msprop:Generator_TablePropName="TiposArtigo" msprop:Generator_RowDeletingName="TiposArtigoRowDeleting" msprop:Generator_RowChangingName="TiposArtigoRowChanging" msprop:Generator_RowEvHandlerName="TiposArtigoRowChangeEventHandler" msprop:Generator_RowDeletedName="TiposArtigoRowDeleted" msprop:Generator_UserTableName="TiposArtigo" msprop:Generator_RowChangedName="TiposArtigoRowChanged" msprop:Generator_RowEvArgName="TiposArtigoRowChangeEvent" msprop:Generator_RowClassName="TiposArtigoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Armazens" msprop:Generator_TableClassName="ArmazensDataTable" msprop:Generator_TableVarName="tableArmazens" msprop:Generator_TablePropName="Armazens" msprop:Generator_RowDeletingName="ArmazensRowDeleting" msprop:Generator_RowChangingName="ArmazensRowChanging" msprop:Generator_RowEvHandlerName="ArmazensRowChangeEventHandler" msprop:Generator_RowDeletedName="ArmazensRowDeleted" msprop:Generator_UserTableName="Armazens" msprop:Generator_RowChangedName="ArmazensRowChanged" msprop:Generator_RowEvArgName="ArmazensRowChangeEvent" msprop:Generator_RowClassName="ArmazensRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Unidades" msprop:Generator_TableClassName="UnidadesDataTable" msprop:Generator_TableVarName="tableUnidades" msprop:Generator_TablePropName="Unidades" msprop:Generator_RowDeletingName="UnidadesRowDeleting" msprop:Generator_RowChangingName="UnidadesRowChanging" msprop:Generator_RowEvHandlerName="UnidadesRowChangeEventHandler" msprop:Generator_RowDeletedName="UnidadesRowDeleted" msprop:Generator_UserTableName="Unidades" msprop:Generator_RowChangedName="UnidadesRowChanged" msprop:Generator_RowEvArgName="UnidadesRowChangeEvent" msprop:Generator_RowClassName="UnidadesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SubFamilias" msprop:Generator_TableClassName="SubFamiliasDataTable" msprop:Generator_TableVarName="tableSubFamilias" msprop:Generator_RowChangedName="SubFamiliasRowChanged" msprop:Generator_TablePropName="SubFamilias" msprop:Generator_RowDeletingName="SubFamiliasRowDeleting" msprop:Generator_RowChangingName="SubFamiliasRowChanging" msprop:Generator_RowEvHandlerName="SubFamiliasRowChangeEventHandler" msprop:Generator_RowDeletedName="SubFamiliasRowDeleted" msprop:Generator_RowClassName="SubFamiliasRow" msprop:Generator_UserTableName="SubFamilias" msprop:Generator_RowEvArgName="SubFamiliasRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Familia" msprop:Generator_ColumnVarNameInTable="columnFamilia" msprop:Generator_ColumnPropNameInRow="Familia" msprop:Generator_ColumnPropNameInTable="FamiliaColumn" msprop:Generator_UserColumnName="Familia">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SubFamilia" msprop:Generator_ColumnVarNameInTable="columnSubFamilia" msprop:Generator_ColumnPropNameInRow="SubFamilia" msprop:Generator_ColumnPropNameInTable="SubFamiliaColumn" msprop:Generator_UserColumnName="SubFamilia">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descricao" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_UserColumnName="Descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ArtigoMundifios" />
+      <xs:field xpath="mstns:Artigo" />
+    </xs:unique>
+    <xs:unique name="CentrosTrabalhoOperacaoRota_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CentrosTrabalhoOperacaoRota" />
+      <xs:field xpath="mstns:PRD_IDCentroTrabalho" />
+    </xs:unique>
+    <xs:unique name="Motivo_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Motivo" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="VMP_PLA_RoteiroFabrico_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VMP_PLA_RoteiroFabrico" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Clientes_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Clientes" />
+      <xs:field xpath="mstns:Cliente" />
+    </xs:unique>
+    <xs:unique name="VMP_PLA_CentrosTrabalho_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VMP_PLA_CentrosTrabalho" />
+      <xs:field xpath="mstns:PRD_IDCentroTrabalho" />
+    </xs:unique>
+    <xs:unique name="Fornecedores_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Fornecedores" />
+      <xs:field xpath="mstns:Fornecedor" />
+    </xs:unique>
+    <xs:unique name="ArtigoGeradorSeq_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ArtigoGeradorSeq" />
+      <xs:field xpath="mstns:Artigo" />
+    </xs:unique>
+    <xs:unique name="Marcas_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Marcas" />
+      <xs:field xpath="mstns:Marca" />
+    </xs:unique>
+    <xs:unique name="VMP_ART_GA_Categorias_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VMP_ART_GA_Categorias" />
+      <xs:field xpath="mstns:Codigo" />
+    </xs:unique>
+    <xs:unique name="TiposDimensao_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TiposDimensao" />
+      <xs:field xpath="mstns:Codigo" />
+    </xs:unique>
+    <xs:unique name="Dimensao_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Dimensao" />
+      <xs:field xpath="mstns:Dimensao" />
+    </xs:unique>
+    <xs:unique name="VMP_ART_GA_Modelos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VMP_ART_GA_Modelos" />
+      <xs:field xpath="mstns:Codigo" />
+    </xs:unique>
+    <xs:unique name="Familias_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Familias" />
+      <xs:field xpath="mstns:Codigo" />
+    </xs:unique>
+    <xs:unique name="TiposArtigo_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TiposArtigo" />
+      <xs:field xpath="mstns:Codigo" />
+    </xs:unique>
+    <xs:unique name="Armazens_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Armazens" />
+      <xs:field xpath="mstns:Codigo" />
+    </xs:unique>
+    <xs:unique name="Unidades_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Unidades" />
+      <xs:field xpath="mstns:Codigo" />
+    </xs:unique>
+    <xs:unique name="SubFamilias_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SubFamilias" />
+      <xs:field xpath="mstns:Familia" />
+      <xs:field xpath="mstns:SubFamilia" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Artigo_SubFamilias_FK" msdata:parent="SubFamilias" msdata:child="ArtigoGeradorSeq" msdata:parentkey="Familia SubFamilia" msdata:childkey="Familia SubFamilia" msprop:Generator_UserChildTable="ArtigoGeradorSeq" msprop:Generator_ChildPropName="GetArtigoGeradorSeqRows" msprop:Generator_UserRelationName="Artigo_SubFamilias_FK" msprop:Generator_RelationVarName="relationArtigo_SubFamilias_FK" msprop:Generator_UserParentTable="SubFamilias" msprop:Generator_ParentPropName="SubFamiliasRowParent" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

@@ -29,27 +29,26 @@ namespace EditorVendasDetalhe
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListaBsView));
-            this.barManagerListaBs = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManagerListaBs = new DevExpress.XtraBars.BarManager();
             this.barListaBs = new DevExpress.XtraBars.Bar();
+            this.barButtonItemConfirmar = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemCancelar = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
+            this.barHeaderItemTotalRegistos = new DevExpress.XtraBars.BarHeaderItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barButtonItemConfirmar = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemCancelar = new DevExpress.XtraBars.BarButtonItem();
-            this.vmpGridControlListaBs = new Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridControl();
-            this.vmpGridViewListaBs = new Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridView();
             this.barStaticItemTotalRegistos = new DevExpress.XtraBars.BarStaticItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.barHeaderItemTotalRegistos = new DevExpress.XtraBars.BarHeaderItem();
+            this.vmpGridControlListaBs = new Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridControl();
+            this.vmpGridViewListaBs = new Vimaponto.Componentes.Sdk.Controlos.VmpGrid.VmpGridView();
             ((System.ComponentModel.ISupportInitialize)(this.barManagerListaBs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vmpGridControlListaBs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vmpGridViewListaBs)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManagerListaBs
@@ -89,6 +88,21 @@ namespace EditorVendasDetalhe
             this.barListaBs.OptionsBar.UseWholeRow = true;
             this.barListaBs.Text = "Tools";
             // 
+            // barButtonItemConfirmar
+            // 
+            this.barButtonItemConfirmar.Caption = "Confirmar";
+            this.barButtonItemConfirmar.Id = 0;
+            this.barButtonItemConfirmar.Name = "barButtonItemConfirmar";
+            this.barButtonItemConfirmar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConfirmar_ItemClick);
+            // 
+            // barButtonItemCancelar
+            // 
+            this.barButtonItemCancelar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barButtonItemCancelar.Caption = "Cancelar";
+            this.barButtonItemCancelar.Id = 1;
+            this.barButtonItemCancelar.Name = "barButtonItemCancelar";
+            this.barButtonItemCancelar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemCancelar_ItemClick);
+            // 
             // bar3
             // 
             this.bar3.BarName = "Status bar";
@@ -102,6 +116,12 @@ namespace EditorVendasDetalhe
             this.bar3.OptionsBar.DrawDragBorder = false;
             this.bar3.OptionsBar.UseWholeRow = true;
             this.bar3.Text = "Status bar";
+            // 
+            // barHeaderItemTotalRegistos
+            // 
+            this.barHeaderItemTotalRegistos.Caption = "LblText";
+            this.barHeaderItemTotalRegistos.Id = 4;
+            this.barHeaderItemTotalRegistos.Name = "barHeaderItemTotalRegistos";
             // 
             // barDockControlTop
             // 
@@ -135,20 +155,23 @@ namespace EditorVendasDetalhe
             this.barDockControlRight.Manager = this.barManagerListaBs;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 396);
             // 
-            // barButtonItemConfirmar
+            // barStaticItemTotalRegistos
             // 
-            this.barButtonItemConfirmar.Caption = "Confirmar";
-            this.barButtonItemConfirmar.Id = 0;
-            this.barButtonItemConfirmar.Name = "barButtonItemConfirmar";
-            this.barButtonItemConfirmar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConfirmar_ItemClick);
+            this.barStaticItemTotalRegistos.Caption = "LblTotalRegistos";
+            this.barStaticItemTotalRegistos.Id = 2;
+            this.barStaticItemTotalRegistos.Name = "barStaticItemTotalRegistos";
             // 
-            // barButtonItemCancelar
+            // barEditItem1
             // 
-            this.barButtonItemCancelar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barButtonItemCancelar.Caption = "Cancelar";
-            this.barButtonItemCancelar.Id = 1;
-            this.barButtonItemCancelar.Name = "barButtonItemCancelar";
-            this.barButtonItemCancelar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemCancelar_ItemClick);
+            this.barEditItem1.Caption = "TotalRegistos";
+            this.barEditItem1.Edit = this.repositoryItemTextEdit1;
+            this.barEditItem1.Id = 3;
+            this.barEditItem1.Name = "barEditItem1";
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
             // vmpGridControlListaBs
             // 
@@ -177,30 +200,6 @@ namespace EditorVendasDetalhe
             this.vmpGridViewListaBs.Name = "vmpGridViewListaBs";
             this.vmpGridViewListaBs.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect;
             // 
-            // barStaticItemTotalRegistos
-            // 
-            this.barStaticItemTotalRegistos.Caption = "LblTotalRegistos";
-            this.barStaticItemTotalRegistos.Id = 2;
-            this.barStaticItemTotalRegistos.Name = "barStaticItemTotalRegistos";
-            // 
-            // barEditItem1
-            // 
-            this.barEditItem1.Caption = "TotalRegistos";
-            this.barEditItem1.Edit = this.repositoryItemTextEdit1;
-            this.barEditItem1.Id = 3;
-            this.barEditItem1.Name = "barEditItem1";
-            // 
-            // repositoryItemTextEdit1
-            // 
-            this.repositoryItemTextEdit1.AutoHeight = false;
-            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-            // 
-            // barHeaderItemTotalRegistos
-            // 
-            this.barHeaderItemTotalRegistos.Caption = "LblText";
-            this.barHeaderItemTotalRegistos.Id = 4;
-            this.barHeaderItemTotalRegistos.Name = "barHeaderItemTotalRegistos";
-            // 
             // FrmListaBsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,13 +209,15 @@ namespace EditorVendasDetalhe
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmListaBsView";
             this.Size = new System.Drawing.Size(800, 450);
             this.Text = "FrmListaBsView";
             ((System.ComponentModel.ISupportInitialize)(this.barManagerListaBs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vmpGridControlListaBs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vmpGridViewListaBs)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

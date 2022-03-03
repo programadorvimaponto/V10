@@ -121,20 +121,20 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="barButtonItem1.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="barButtonItemConfirmar.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAB0SURBVDhPYxi6oGTRIm4ok3RQsXy6Q9ny6ffJMqR82UwboOaXFcumO0GFiAe000zIL1A/vwTR
-        UCEEAGkuWz7tXumyafZQIRSAVzMMQJ33At15JPkZ3RCyAgzkDZCm8uUzSsCa8TkbF8DlHZIARcmUzoCB
-        AQAX5F5jUEp56QAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAHRJREFUOE9j
+        GLqgZNEibiiTdFCxfLpD2fLp98kypHzZTBug5pcVy6Y7QYWIB7TTTMgvUD+/BNFQIQQAaS5bPu1e6bJp
+        9lAhFIBXMwxAnfcC3Xkk+RndELICDOQNkKby5TNKwJrxORsXwOUdkgBFyZTOgIEBABfkXmNQSnnpAAAA
+        AElFTkSuQmCC
 </value>
   </data>
   <data name="barButtonItemFechar.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAACGSURBVDhPYxg84Hqyy6zria72UC5OcD3FxQGkFspFAJDmG0kuL/EZAtIMVgOkoUKo4GaSi83N
-        ZJcXN1LcnKBCcACSA2nGJocCsCkkWjMMIGsgWTMMwPwLwjj9jA9QZABFXsCmgWhD8CkkaAjMz/j8C1aT
-        7PIKqxpwUiYisEBqsCblAQIMDACxiH5LfzX8+AAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAIZJREFUOE9j
+        GDzgerLLrOuJrvZQLk5wPcXFAaQWykUAkOYbSS4v8RkC0gxWA6ShQqjgZpKLzc1klxc3UtycoEJwAJID
+        acYmhwKwKSRaMwwgayBZMwzA/AvCOP2MD1BkAEVewKaBaEPwKSRoCMzP+PwLVpPs8gqrGnBSJiKwQGqw
+        JuUBAgwMALGIfkt/Nfz4AAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

@@ -25,7 +25,7 @@ BEGIN
 		,CDU_AplicaFuncionalidade
 		)
 	VALUES (
-		'CompraFio'
+		'Compra de Fios'
 		,'Compra de Fios'
 		,'0'
 		);
@@ -764,23 +764,6 @@ END
 IF NOT EXISTS (
 		SELECT 1
 		FROM TDU_FuncionalidadesExt
-		WHERE CDU_TokenFuncionalidade = 'PrecoBase0'
-		)
-BEGIN
-	INSERT INTO TDU_FuncionalidadesExt (
-		CDU_TokenFuncionalidade
-		,CDU_DescricaoFuncionalidade
-		,CDU_AplicaFuncionalidade
-		)
-	VALUES (
-		'PrecoBase0'
-		,'Nao deixa gravar nenhuma documento caso o Preço Base seja 0'
-		,'0'
-		);
-END
-IF NOT EXISTS (
-		SELECT 1
-		FROM TDU_FuncionalidadesExt
 		WHERE CDU_TokenFuncionalidade = 'IntegracaoFilopaDestino'
 		)
 BEGIN
@@ -863,6 +846,25 @@ BEGIN
 		,'0'
 		);
 END
+
+IF NOT EXISTS (
+		SELECT 1
+		FROM TDU_FuncionalidadesExt
+		WHERE CDU_TokenFuncionalidade = 'FornecedoresCertificadosFilopa'
+		)
+BEGIN
+	INSERT INTO TDU_FuncionalidadesExt (
+		CDU_TokenFuncionalidade
+		,CDU_DescricaoFuncionalidade
+		,CDU_AplicaFuncionalidade
+		)
+	VALUES (
+		'FornecedoresCertificadosFilopa'
+		,'Formulário Certificados FrmFornecedoresCertsFilopa.'
+		,'0'
+		);
+END
+
 IF NOT EXISTS (
 		SELECT 1
 		FROM TDU_FuncionalidadesExt
@@ -911,6 +913,24 @@ BEGIN
 	VALUES (
 		'QtdMinCliente'
 		,'Alerta do comercial para quantidades minimas por Cliente. Valida as quantidade pela tabela TDU_QntMinimas.'
+		,'0'
+		);
+END
+GO
+IF NOT EXISTS (
+		SELECT 1
+		FROM TDU_FuncionalidadesExt
+		WHERE CDU_TokenFuncionalidade = 'DevolucaoRemonta'
+		)
+BEGIN
+	INSERT INTO TDU_FuncionalidadesExt (
+		CDU_TokenFuncionalidade
+		,CDU_DescricaoFuncionalidade
+		,CDU_AplicaFuncionalidade
+		)
+	VALUES (
+		'DevolucaoRemonta'
+		,'DevolucaoRemonta de artigos'
 		,'0'
 		);
 END

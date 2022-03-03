@@ -47,7 +47,7 @@ namespace Generico
                 DocumentoCompra.LocalCarga = DocumentoBase.LocalCarga;
                 DocumentoCompra.CamposUtil["CDU_DocumentoOrigem"].Valor = DocumentoBase.Tipodoc + " " + DocumentoBase.Serie + "/" + DocumentoBase.NumDoc;
                 DocumentoCompra.MoradaEntrega = DocumentoBase.MoradaEntrega;
-                PriV100Api.BSO.Compras.Documentos.PreencheDadosRelacionados(DocumentoCompra);
+                Module1.emp.Compras.Documentos.PreencheDadosRelacionados(DocumentoCompra);
 
                 // Carga
                 DocumentoCompra.CargaDescarga.MoradaCarga = DocumentoBase.CargaDescarga.MoradaCarga;
@@ -79,7 +79,7 @@ namespace Generico
                 // se não colocar isto, nao consigo gravar documentos de uma série diferente à serie actual, praticada na data do sistema
                 // DocumentoCompra.DataIntroducao = DocumentoCompra.DataDoc
 
-                PriV100Api.BSO.Compras.Documentos.PreencheDadosRelacionados(DocumentoCompra);
+                Module1.emp.Compras.Documentos.PreencheDadosRelacionados(DocumentoCompra);
                 int i;
                 int j;
                 string Artigo;
@@ -89,7 +89,7 @@ namespace Generico
 
                 // ''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 // @1@ @2@/N.º@3@ de @4@
-                PriV100Api.BSO.Compras.Documentos.AdicionaLinhaEspecial(DocumentoCompra, compTipoLinhaEspecial.compLinha_Comentario, Descricao: "@1@ @2@/N.º@3@ de @4@");
+                Module1.emp.Compras.Documentos.AdicionaLinhaEspecial(DocumentoCompra, compTipoLinhaEspecial.compLinha_Comentario, Descricao: "@1@ @2@/N.º@3@ de @4@");
                 // ''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 // j = 1
                 j = 2;
@@ -101,7 +101,7 @@ namespace Generico
                     {
                         if (Strings.InStr(1, DocumentoBase.Linhas.GetEdita(i).Descricao, "/N.º") == 0)
                         {
-                            PriV100Api.BSO.Compras.Documentos.AdicionaLinhaEspecial(DocumentoCompra, compTipoLinhaEspecial.compLinha_Comentario, Descricao: DocumentoBase.Linhas.GetEdita(i).Descricao);
+                            Module1.emp.Compras.Documentos.AdicionaLinhaEspecial(DocumentoCompra, compTipoLinhaEspecial.compLinha_Comentario, Descricao: DocumentoBase.Linhas.GetEdita(i).Descricao);
                             IDLinhaDocOriginal[j] = DocumentoBase.Linhas.GetEdita(i).IdLinha + ";" + DocumentoCompra.Linhas.GetEdita(j).IdLinha;
                             j = j + 1;
                         }
@@ -113,7 +113,7 @@ namespace Generico
                         Quantidade = DocumentoBase.Linhas.GetEdita(i).Quantidade;
                         Armazem = Interaction.IIf(Strings.Len(Armazem_Destino) > 0, Armazem_Destino, DocumentoBase.Linhas.GetEdita(i).Armazem).ToString();
                         Localizacao = Interaction.IIf(Strings.Len(Armazem_Destino) > 0, Armazem_Destino, DocumentoBase.Linhas.GetEdita(i).Localizacao).ToString();
-                        PriV100Api.BSO.Compras.Documentos.AdicionaLinha(DocumentoCompra, Artigo, ref Quantidade, ref Armazem, ref Localizacao);
+                        Module1.emp.Compras.Documentos.AdicionaLinha(DocumentoCompra, Artigo, ref Quantidade, ref Armazem, ref Localizacao);
                         DocumentoCompra.Linhas.GetEdita(j).Descricao = DocumentoBase.Linhas.GetEdita(i).Descricao;
                         DocumentoCompra.Linhas.GetEdita(j).Lote = DocumentoBase.Linhas.GetEdita(i).Lote;
                         DocumentoCompra.Linhas.GetEdita(j).Unidade = DocumentoBase.Linhas.GetEdita(i).Unidade;
@@ -133,7 +133,7 @@ namespace Generico
                     }
                 }
 
-                PriV100Api.BSO.Compras.Documentos.Actualiza(DocumentoCompra);
+                Module1.emp.Compras.Documentos.Actualiza(DocumentoCompra);
                 long k;
                 var loopTo1 = DocumentoCompra.Linhas.NumItens;
                 for (k = 1L; k <= loopTo1; k++)
@@ -147,7 +147,7 @@ namespace Generico
 
                     if (Strings.InStr(1, IDLinhaDocOriginal[k], ";") > 0 & Strings.Len(Strings.Mid(IDLinhaDocOriginal[k], Strings.InStr(1, IDLinhaDocOriginal[k], ";") + 1, Strings.Len(IDLinhaDocOriginal[k]))) > 0)
                     {
-                        PriV100Api.BSO.DSO.ExecuteSQL("update LinhasCompras set CDU_IDLinhaOriginalGrupo = '" + Strings.Mid(IDLinhaDocOriginal[k], 1, Strings.InStr(1, IDLinhaDocOriginal[k], ";") - 1) + "' where id = '" + Strings.Mid(IDLinhaDocOriginal[k], Strings.InStr(1, IDLinhaDocOriginal[k], ";") + 1, Strings.Len(IDLinhaDocOriginal[k])) + "' ");
+                        Module1.emp.DSO.ExecuteSQL("update LinhasCompras set CDU_IDLinhaOriginalGrupo = '" + Strings.Mid(IDLinhaDocOriginal[k], 1, Strings.InStr(1, IDLinhaDocOriginal[k], ";") - 1) + "' where id = '" + Strings.Mid(IDLinhaDocOriginal[k], Strings.InStr(1, IDLinhaDocOriginal[k], ";") + 1, Strings.Len(IDLinhaDocOriginal[k])) + "' ");
                     }
                 }
 
@@ -181,7 +181,7 @@ namespace Generico
             if (str_Lote == "")
                 return;
 
-            if (PriV100Api.BSO.Inventario.ArtigosLotes.Existe(str_Artigo, str_Lote) == false)
+            if (Module1.emp.Inventario.ArtigosLotes.Existe(str_Artigo, str_Lote) == false)
             {
                 InvBE100.InvBEArtigoLote ArtigoLote = new InvBE100.InvBEArtigoLote();
 
@@ -205,7 +205,7 @@ namespace Generico
                     // 2017-04-14
                     ArtigoLote.CamposUtil["CDU_TipoQualidade"].Valor = stdBE_ListaLote.Valor("CDU_TipoQualidade");
                     ArtigoLote.CamposUtil["CDU_Parafinado"].Valor = stdBE_ListaLote.Valor("CDU_Parafinado");
-                    PriV100Api.BSO.Inventario.ArtigosLotes.Actualiza(ArtigoLote);
+                    Module1.emp.Inventario.ArtigosLotes.Actualiza(ArtigoLote);
                 }
             }
         }
@@ -254,7 +254,7 @@ namespace Generico
                     // IdLinhasDoc -> Fatura de Fornecedor do Grupo
                     // IdLinhasDocOrigem -> Encomenda de Fornecedor
 
-                    PriV100Api.BSO.DSO.ExecuteSQL(" INSERT INTO LinhasComprasTrans " + " (IdLinhasCompras,IdLinhasComprasOrigem,QuantTrans) " + " VALUES( '" + Lst_StrRastreabilidade.Valor("IdLinhasDocFaturaGrupo") + "','" + Lst_StrRastreabilidade.Valor("IdLinhasDocEncomendaGrupo") + "'," + Strings.Replace(Lst_StrRastreabilidade.Valor("QuantidadeEncomendaGrupo"), ",", ".") + " ) ");
+                    Module1.emp.DSO.ExecuteSQL(" INSERT INTO LinhasComprasTrans " + " (IdLinhasCompras,IdLinhasComprasOrigem,QuantTrans) " + " VALUES( '" + Lst_StrRastreabilidade.Valor("IdLinhasDocFaturaGrupo") + "','" + Lst_StrRastreabilidade.Valor("IdLinhasDocEncomendaGrupo") + "'," + Strings.Replace(Lst_StrRastreabilidade.Valor("QuantidadeEncomendaGrupo"), ",", ".") + " ) ");
 
                     Lst_StrRastreabilidade.Seguinte();
                 }
@@ -269,7 +269,7 @@ namespace Generico
 
         private static void CompletarComentarioRastreabilidade(bool Apagar, CmpBE100.CmpBEDocumentoCompra FaturaFornecedor_AcabadoGerar, string Tipodoc, string Serie, long NumDoc, DateTime Data)
         {
-            FaturaFornecedor_AcabadoGerar = PriV100Api.BSO.Compras.Documentos.Edita(FaturaFornecedor_AcabadoGerar.Filial, FaturaFornecedor_AcabadoGerar.Tipodoc, FaturaFornecedor_AcabadoGerar.Serie, FaturaFornecedor_AcabadoGerar.NumDoc);
+            FaturaFornecedor_AcabadoGerar = Module1.emp.Compras.Documentos.Edita(FaturaFornecedor_AcabadoGerar.Filial, FaturaFornecedor_AcabadoGerar.Tipodoc, FaturaFornecedor_AcabadoGerar.Serie, FaturaFornecedor_AcabadoGerar.NumDoc);
 
             if (Apagar == false)
             {
@@ -290,7 +290,7 @@ namespace Generico
                     FaturaFornecedor_AcabadoGerar.Linhas.Remove(1);
             }
 
-            PriV100Api.BSO.Compras.Documentos.Actualiza(FaturaFornecedor_AcabadoGerar);
+            Module1.emp.Compras.Documentos.Actualiza(FaturaFornecedor_AcabadoGerar);
         }
 
         private static bool Rastreabilidade_EncomendaParaProducao(string Filial_FaturaCliente, string Serie_FaturaCliente, string TipoDoc_FaturaCliente, long NumDoc_FaturaCliente, string BaseDadosDestino, CmpBE100.CmpBEDocumentoCompra FaturaFornecedor_AcabadoGerar)
@@ -318,7 +318,7 @@ namespace Generico
                     // IdLinhasDoc -> Fatura de Fornecedor do Grupo
                     // IdLinhasDocOrigem -> Encomenda de Fornecedor
 
-                    PriV100Api.BSO.DSO.ExecuteSQL(" INSERT INTO LinhasComprasTrans " + " (IdLinhasCompras,IdLinhasComprasOrigem,QuantTrans) " + " VALUES( '" + Lst_StrRastreabilidade.Valor("IdLinhasDocFaturaGrupo") + "','" + Lst_StrRastreabilidade.Valor("IdLinhasDocEncomendaGrupo") + "'," + Strings.Replace(Lst_StrRastreabilidade.Valor("QuantidadeEncomendaGrupo"), ",", ".") + " ) ");
+                    Module1.emp.DSO.ExecuteSQL(" INSERT INTO LinhasComprasTrans " + " (IdLinhasCompras,IdLinhasComprasOrigem,QuantTrans) " + " VALUES( '" + Lst_StrRastreabilidade.Valor("IdLinhasDocFaturaGrupo") + "','" + Lst_StrRastreabilidade.Valor("IdLinhasDocEncomendaGrupo") + "'," + Strings.Replace(Lst_StrRastreabilidade.Valor("QuantidadeEncomendaGrupo"), ",", ".") + " ) ");
 
                     Lst_StrRastreabilidade.Seguinte();
                 }

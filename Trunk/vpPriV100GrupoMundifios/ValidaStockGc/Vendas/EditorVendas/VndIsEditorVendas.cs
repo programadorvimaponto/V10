@@ -29,10 +29,10 @@ namespace ValidaStockGc
                             {
                                 if (this.DocumentoVenda.Linhas.GetEdita(i).Artigo + "" != "")
                                 {
-                                    listStk = BSO.Consulta("select aa.StkActual from ArtigoArmazem aa where aa.StkActual>0 and aa.Artigo='" + this.DocumentoVenda.Linhas.GetEdita(i).Artigo + "' and aa.Lote='" + this.DocumentoVenda.Linhas.GetEdita(i).Lote + "' and aa.Armazem='" + this.DocumentoVenda.Linhas.GetEdita(i).Armazem + "'");
+                                    listStk = BSO.Consulta("select aa.StkActual from V_INV_ArtigoArmazem aa where aa.StkActual>0 and aa.Artigo='" + this.DocumentoVenda.Linhas.GetEdita(i).Artigo + "' and aa.Lote='" + this.DocumentoVenda.Linhas.GetEdita(i).Lote + "' and aa.Armazem='" + this.DocumentoVenda.Linhas.GetEdita(i).Armazem + "'");
                                     if (listStk.Vazia())
                                     {
-                                        listStk = BSO.Consulta("select top 1 aa.Armazem, aa.StkActual from ArtigoArmazem aa where aa.StkActual>0 and aa.Artigo='" + this.DocumentoVenda.Linhas.GetEdita(i).Artigo + "' and aa.Lote='" + this.DocumentoVenda.Linhas.GetEdita(i).Lote + "' order by aa.StkActual desc");
+                                        listStk = BSO.Consulta("select top 1 aa.Armazem, aa.StkActual from V_INV_ArtigoArmazem aa where aa.StkActual>0 and aa.Artigo='" + this.DocumentoVenda.Linhas.GetEdita(i).Artigo + "' and aa.Lote='" + this.DocumentoVenda.Linhas.GetEdita(i).Lote + "' order by aa.StkActual desc");
                                         if (listStk.Vazia())
                                             MessageBox.Show("Atenção Artigo/Lote sem stock: " + this.DocumentoVenda.Linhas.GetEdita(i).Artigo + " - " + this.DocumentoVenda.Linhas.GetEdita(i).Lote, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         else

@@ -29,9 +29,8 @@ namespace InditexFilopa
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInditexFilopaView));
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItemGravar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemCopiarInformacao = new DevExpress.XtraBars.BarButtonItem();
@@ -134,6 +133,7 @@ namespace InditexFilopa
             this.barButtonItemFechar.Id = 2;
             this.barButtonItemFechar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemFechar.ImageOptions.Image")));
             this.barButtonItemFechar.Name = "barButtonItemFechar";
+            this.barButtonItemFechar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFechar_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -222,6 +222,7 @@ namespace InditexFilopa
             this.lookUpEditAprovado.Name = "lookUpEditAprovado";
             this.lookUpEditAprovado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditAprovado.Properties.NullText = "";
             this.lookUpEditAprovado.Size = new System.Drawing.Size(80, 20);
             this.lookUpEditAprovado.TabIndex = 79;
             // 
@@ -232,6 +233,7 @@ namespace InditexFilopa
             this.lookUpEditAuditado.Name = "lookUpEditAuditado";
             this.lookUpEditAuditado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditAuditado.Properties.NullText = "";
             this.lookUpEditAuditado.Size = new System.Drawing.Size(100, 20);
             this.lookUpEditAuditado.TabIndex = 78;
             // 
@@ -242,6 +244,7 @@ namespace InditexFilopa
             this.lookUpEditClassificacao.Name = "lookUpEditClassificacao";
             this.lookUpEditClassificacao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditClassificacao.Properties.NullText = "";
             this.lookUpEditClassificacao.Size = new System.Drawing.Size(112, 20);
             this.lookUpEditClassificacao.TabIndex = 77;
             // 
@@ -252,6 +255,7 @@ namespace InditexFilopa
             this.lookUpEditPreAuditado.Name = "lookUpEditPreAuditado";
             this.lookUpEditPreAuditado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditPreAuditado.Properties.NullText = "";
             this.lookUpEditPreAuditado.Size = new System.Drawing.Size(112, 20);
             this.lookUpEditPreAuditado.TabIndex = 76;
             // 
@@ -262,6 +266,7 @@ namespace InditexFilopa
             this.lookUpEditTipoIdentificacao.Name = "lookUpEditTipoIdentificacao";
             this.lookUpEditTipoIdentificacao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditTipoIdentificacao.Properties.NullText = "";
             this.lookUpEditTipoIdentificacao.Size = new System.Drawing.Size(202, 20);
             this.lookUpEditTipoIdentificacao.TabIndex = 75;
             // 
@@ -370,6 +375,8 @@ namespace InditexFilopa
             this.textEditCodigoCliente.Name = "textEditCodigoCliente";
             this.textEditCodigoCliente.Size = new System.Drawing.Size(112, 20);
             this.textEditCodigoCliente.TabIndex = 89;
+            this.textEditCodigoCliente.EditValueChanged += new System.EventHandler(this.textEditCodigoCliente_EditValueChanged);
+            this.textEditCodigoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEditCodigoCliente_KeyDown);
             // 
             // FrmInditexFilopaView
             // 
@@ -401,9 +408,11 @@ namespace InditexFilopa
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmInditexFilopaView";
             this.Size = new System.Drawing.Size(521, 353);
-            this.Text = "FrmInditexFilopaView";
+            this.Text = "Inditex Filopa";
             this.Load += new System.EventHandler(this.FrmInditexFilopaView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TextEditPais.Properties)).EndInit();

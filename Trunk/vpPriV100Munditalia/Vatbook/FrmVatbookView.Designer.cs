@@ -100,6 +100,7 @@ namespace Vatbook
             this.lookUpEditMese.Properties.Appearance.Options.UseFont = true;
             this.lookUpEditMese.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditMese.Properties.NullText = "";
             this.lookUpEditMese.Size = new System.Drawing.Size(100, 22);
             this.lookUpEditMese.TabIndex = 1;
             // 
@@ -111,6 +112,7 @@ namespace Vatbook
             this.lookUpEditAnno.Properties.Appearance.Options.UseFont = true;
             this.lookUpEditAnno.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditAnno.Properties.NullText = "";
             this.lookUpEditAnno.Size = new System.Drawing.Size(100, 22);
             this.lookUpEditAnno.TabIndex = 0;
             // 
@@ -160,6 +162,8 @@ namespace Vatbook
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmVatbookView";
             this.Size = new System.Drawing.Size(408, 136);
             this.Text = "Vatbook";

@@ -24,7 +24,13 @@ namespace CertificadosOrg
         string SqlStringProgramLabel;
         private void FrmAlteraCertificadoTransacaoView_Load(object sender, EventArgs e)
         {
-                TextEditArtigo.EditValue = Module1.certArtigo;
+            if (FindForm() is Form pai)
+            {
+                pai.MinimumSize = pai.Size;
+                pai.MaximumSize = pai.Size;
+            }
+
+            TextEditArtigo.EditValue = Module1.certArtigo;
                 TextEditArmazem.EditValue = Module1.certArmazem;
                 TextEditlote.EditValue = Module1.certLote;
                 TextEditNumCert.EditValue = Module1.certCertificadoTransacao;

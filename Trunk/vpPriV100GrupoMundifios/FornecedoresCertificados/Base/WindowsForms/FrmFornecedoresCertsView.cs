@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ErpBS100;
 
 namespace FornecedoresCertificados
 {
@@ -24,13 +25,13 @@ namespace FornecedoresCertificados
         private void barButtonItemGravar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-            if (TextEditCodigoCliente.EditValue != string.Empty)
+            if (TextEditCodigoCliente.Text != string.Empty)
                 AlteraCertsClientes();
             else
                 MessageBox.Show("O Fornecedor não está identificado.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             DialogResult = DialogResult.OK;
-                this.Close();
+            this.Close();
 
         }
 
@@ -101,56 +102,56 @@ namespace FornecedoresCertificados
 
             try
             {
-                    StdBECampos Campos = new StdBECampos();
+                StdBECampos Campos = new StdBECampos();
 
-                    Campos = BSO.Base.Fornecedores.DaValorAtributos(this.TextEditCodigoCliente.EditValue.ToString(), "CDU_Oekotex", "CDU_Oekotex2", "CDU_Gots", "CDU_Ocs", "CDU_Bci", "CDU_EgyptCotton", "CDU_Supima", "CDU_SupimaData", "CDU_SupimaNum", "CDU_Grs", "CDU_Rcs", "CDU_Fsc", "CDU_EuropeanFlax", "CDU_Iso9001", "CDU_Iso14001", "CDU_Sa8000", "CDU_Fairtrade", "CDU_OekotexData", "CDU_OekotexData2", "CDU_GotsData", "CDU_OcsData", "CDU_BciData", "CDU_EgyptCottonData", "CDU_GrsData", "CDU_RcsData", "CDU_FscData", "CDU_EuropeanFlaxData", "CDU_Iso9001Data", "CDU_Iso14001Data", "CDU_Sa8000Data", "CDU_FairtradeData", "CDU_OekotexNum", "CDU_OekotexNum2", "CDU_FscNum", "CDU_EuropeanflaxNum", "CDU_OekotexClasse", "CDU_OekotexClasse2");
+                Campos = BSO.Base.Fornecedores.DaValorAtributos(this.TextEditCodigoCliente.EditValue.ToString(), "CDU_Oekotex", "CDU_Oekotex2", "CDU_Gots", "CDU_Ocs", "CDU_Bci", "CDU_EgyptCotton", "CDU_Supima", "CDU_SupimaData", "CDU_SupimaNum", "CDU_Grs", "CDU_Rcs", "CDU_Fsc", "CDU_EuropeanFlax", "CDU_Iso9001", "CDU_Iso14001", "CDU_Sa8000", "CDU_Fairtrade", "CDU_OekotexData", "CDU_OekotexData2", "CDU_GotsData", "CDU_OcsData", "CDU_BciData", "CDU_EgyptCottonData", "CDU_GrsData", "CDU_RcsData", "CDU_FscData", "CDU_EuropeanFlaxData", "CDU_Iso9001Data", "CDU_Iso14001Data", "CDU_Sa8000Data", "CDU_FairtradeData", "CDU_OekotexNum", "CDU_OekotexNum2", "CDU_FscNum", "CDU_EuropeanflaxNum", "CDU_OekotexClasse", "CDU_OekotexClasse2");
 
 
-                    // CheckBoxs
-                    Campos["CDU_Oekotex"].Valor = this.CheckEditOekotex.EditValue;
-                    Campos["CDU_Oekotex2"].Valor = this.CheckEditOekotex2.EditValue;
-                    Campos["CDU_Gots"].Valor = this.CheckEditGots.EditValue;
-                    Campos["CDU_Ocs"].Valor = this.CheckEditOcs.EditValue;
-                    Campos["CDU_Bci"].Valor = this.CheckEditBci.EditValue;
-                    Campos["CDU_EgyptCotton"].Valor = this.CheckEditEgypt.EditValue;
-                    Campos["CDU_Supima"].Valor = this.CheckEditSupima.EditValue;
-                    Campos["CDU_Grs"].Valor = this.CheckEditGrs.EditValue;
-                    Campos["CDU_Rcs"].Valor = this.CheckEditRcs.EditValue;
-                    Campos["CDU_Fsc"].Valor = this.CheckEditFsc.EditValue;
-                    Campos["CDU_EuropeanFlax"].Valor = this.CheckEditFlax.EditValue;
-                    Campos["CDU_Iso9001"].Valor = this.CheckEdit9001.EditValue;
-                    Campos["CDU_Iso14001"].Valor = this.CheckEdit14001.EditValue;
-                    Campos["CDU_Sa8000"].Valor = this.CheckEditSa.EditValue;
-                    Campos["CDU_Fairtrade"].Valor = this.CheckEditFairTrade.EditValue;
+                // CheckBoxs
+                Campos["CDU_Oekotex"].Valor = this.CheckEditOekotex.EditValue;
+                Campos["CDU_Oekotex2"].Valor = this.CheckEditOekotex2.EditValue;
+                Campos["CDU_Gots"].Valor = this.CheckEditGots.EditValue;
+                Campos["CDU_Ocs"].Valor = this.CheckEditOcs.EditValue;
+                Campos["CDU_Bci"].Valor = this.CheckEditBci.EditValue;
+                Campos["CDU_EgyptCotton"].Valor = this.CheckEditEgypt.EditValue;
+                Campos["CDU_Supima"].Valor = this.CheckEditSupima.EditValue;
+                Campos["CDU_Grs"].Valor = this.CheckEditGrs.EditValue;
+                Campos["CDU_Rcs"].Valor = this.CheckEditRcs.EditValue;
+                Campos["CDU_Fsc"].Valor = this.CheckEditFsc.EditValue;
+                Campos["CDU_EuropeanFlax"].Valor = this.CheckEditFlax.EditValue;
+                Campos["CDU_Iso9001"].Valor = this.CheckEdit9001.EditValue;
+                Campos["CDU_Iso14001"].Valor = this.CheckEdit14001.EditValue;
+                Campos["CDU_Sa8000"].Valor = this.CheckEditSa.EditValue;
+                Campos["CDU_Fairtrade"].Valor = this.CheckEditFairTrade.EditValue;
 
-                    // Datas
-                    Campos["CDU_OekotexData"].Valor = Strings.Format(this.DateEditOekotex.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_OekotexData2"].Valor = Strings.Format(this.DateEditOekotex2.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_GotsData"].Valor = Strings.Format(this.DateEditGots.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_OcsData"].Valor = Strings.Format(this.DateEditOcs.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_BciData"].Valor = Strings.Format(this.DateEditBci.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_EgyptCottonData"].Valor = Strings.Format(this.DateEditEgypt.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_SupimaData"].Valor = Strings.Format(this.DateEditSupima.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_GrsData"].Valor = Strings.Format(this.DateEditGrs.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_RcsData"].Valor = Strings.Format(this.DateEditRcs.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_FscData"].Valor = Strings.Format(this.DateEditFsc.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_EuropeanFlaxData"].Valor = Strings.Format(this.DateEditFlax.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_Iso9001Data"].Valor = Strings.Format(this.DateEdit9001.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_Iso14001Data"].Valor = Strings.Format(this.DateEdit14001.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_Sa8000Data"].Valor = Strings.Format(this.DateEditSa.EditValue, "yyyy-MM-dd");
-                    Campos["CDU_FairtradeData"].Valor = Strings.Format(this.DateEditFairTrade.EditValue, "yyyy-MM-dd");
-                        // NumeroCertificados
-                        Campos["CDU_OekotexNum"].Valor = this.TextEditOekotex.EditValue;
-                    Campos["CDU_OekotexNum2"].Valor = this.TextEditOekotex2.EditValue;
-                    Campos["CDU_FscNum"].Valor = this.TextEditFsc.EditValue;
-                    Campos["CDU_EuropeanflaxNum"].Valor = this.TextEditEuropeanFlax.EditValue;
-                    Campos["CDU_SupimaNum"].Valor = this.TextEditSupima.EditValue;
-                    // Classes
-                    Campos["CDU_OekotexClasse"].Valor = this.LookUpEditClasse.EditValue;
-                    Campos["CDU_OekotexClasse2"].Valor = this.LookUpEditClasse2.EditValue;
+                // Datas
+                Campos["CDU_OekotexData"].Valor = Strings.Format(this.DateEditOekotex.EditValue, "yyyy-MM-dd");
+                Campos["CDU_OekotexData2"].Valor = Strings.Format(this.DateEditOekotex2.EditValue, "yyyy-MM-dd");
+                Campos["CDU_GotsData"].Valor = Strings.Format(this.DateEditGots.EditValue, "yyyy-MM-dd");
+                Campos["CDU_OcsData"].Valor = Strings.Format(this.DateEditOcs.EditValue, "yyyy-MM-dd");
+                Campos["CDU_BciData"].Valor = Strings.Format(this.DateEditBci.EditValue, "yyyy-MM-dd");
+                Campos["CDU_EgyptCottonData"].Valor = Strings.Format(this.DateEditEgypt.EditValue, "yyyy-MM-dd");
+                Campos["CDU_SupimaData"].Valor = Strings.Format(this.DateEditSupima.EditValue, "yyyy-MM-dd");
+                Campos["CDU_GrsData"].Valor = Strings.Format(this.DateEditGrs.EditValue, "yyyy-MM-dd");
+                Campos["CDU_RcsData"].Valor = Strings.Format(this.DateEditRcs.EditValue, "yyyy-MM-dd");
+                Campos["CDU_FscData"].Valor = Strings.Format(this.DateEditFsc.EditValue, "yyyy-MM-dd");
+                Campos["CDU_EuropeanFlaxData"].Valor = Strings.Format(this.DateEditFlax.EditValue, "yyyy-MM-dd");
+                Campos["CDU_Iso9001Data"].Valor = Strings.Format(this.DateEdit9001.EditValue, "yyyy-MM-dd");
+                Campos["CDU_Iso14001Data"].Valor = Strings.Format(this.DateEdit14001.EditValue, "yyyy-MM-dd");
+                Campos["CDU_Sa8000Data"].Valor = Strings.Format(this.DateEditSa.EditValue, "yyyy-MM-dd");
+                Campos["CDU_FairtradeData"].Valor = Strings.Format(this.DateEditFairTrade.EditValue, "yyyy-MM-dd");
+                // NumeroCertificados
+                Campos["CDU_OekotexNum"].Valor = this.TextEditOekotex.EditValue;
+                Campos["CDU_OekotexNum2"].Valor = this.TextEditOekotex2.EditValue;
+                Campos["CDU_FscNum"].Valor = this.TextEditFsc.EditValue;
+                Campos["CDU_EuropeanflaxNum"].Valor = this.TextEditEuropeanFlax.EditValue;
+                Campos["CDU_SupimaNum"].Valor = this.TextEditSupima.EditValue;
+                // Classes
+                Campos["CDU_OekotexClasse"].Valor = this.LookUpEditClasse.EditValue;
+                Campos["CDU_OekotexClasse2"].Valor = this.LookUpEditClasse2.EditValue;
 
-                    BSO.Base.Fornecedores.ActualizaValorAtributos(this.TextEditCodigoCliente.EditValue.ToString(), Campos);
-                    CopiaFilopa();
+                BSO.Base.Fornecedores.ActualizaValorAtributos(this.TextEditCodigoCliente.EditValue.ToString(), Campos);
+                CopiaFilopa();
             }
             catch
             {
@@ -169,24 +170,24 @@ namespace FornecedoresCertificados
 
                 if (Module1.AbreEmpresa("FILOPA"))
                 {
+
                     StdBELista Cli = new StdBELista();
-                    Cli = BSO.Consulta("select f.Cliente from Clientes f where f.ClienteAnulado='0' and f.CDU_EntidadeInterna='" + ent + "'");
+                    Cli = Module1.emp.Consulta("select f.Cliente from Clientes f where f.ClienteAnulado='0' and f.CDU_EntidadeInterna='" + ent + "'");
                     Cli.Inicio();
 
-                    if(Cli.Vazia()==false)
-                    {
-                        StdBECampos Campos = new StdBECampos();
-                        Campos = BSO.Base.Fornecedores.DaValorAtributos(this.TextEditCodigoCliente.EditValue.ToString(), "CDU_Oekotex", "CDU_Oekotex2", "CDU_Gots", "CDU_Ocs", "CDU_Bci", "CDU_EgyptCotton", "CDU_Supima", "CDU_SupimaData", "CDU_SupimaNum", "CDU_Grs", "CDU_Rcs", "CDU_Fsc", "CDU_EuropeanFlax", "CDU_Iso9001", "CDU_Iso14001", "CDU_Sa8000", "CDU_Fairtrade", "CDU_OekotexData", "CDU_OekotexData2", "CDU_GotsData", "CDU_OcsData", "CDU_BciData", "CDU_EgyptCottonData", "CDU_GrsData", "CDU_RcsData", "CDU_FscData", "CDU_EuropeanFlaxData", "CDU_Iso9001Data", "CDU_Iso14001Data", "CDU_Sa8000Data", "CDU_FairtradeData", "CDU_OekotexNum", "CDU_OekotexNum2", "CDU_FscNum", "CDU_EuropeanflaxNum", "CDU_OekotexClasse", "CDU_OekotexClasse2");
-                        BSO.Base.Clientes.ActualizaValorAtributos(Cli.Valor("Cliente"), Campos);
-                        MessageBox.Show("Mundifios - Dados gravados com sucesso!" + Strings.Chr(13) + Strings.Chr(13) + "Filopa - Dados gravados com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (Cli.Vazia() == false)
+                {       
+                    StdBECampos Campos = new StdBECampos();
+                    Campos = BSO.Base.Fornecedores.DaValorAtributos(this.TextEditCodigoCliente.EditValue.ToString(), "CDU_Oekotex", "CDU_Oekotex2", "CDU_Gots", "CDU_Ocs", "CDU_Bci", "CDU_EgyptCotton", "CDU_Supima", "CDU_SupimaData", "CDU_SupimaNum", "CDU_Grs", "CDU_Rcs", "CDU_Fsc", "CDU_EuropeanFlax", "CDU_Iso9001", "CDU_Iso14001", "CDU_Sa8000", "CDU_Fairtrade", "CDU_OekotexData", "CDU_OekotexData2", "CDU_GotsData", "CDU_OcsData", "CDU_BciData", "CDU_EgyptCottonData", "CDU_GrsData", "CDU_RcsData", "CDU_FscData", "CDU_EuropeanFlaxData", "CDU_Iso9001Data", "CDU_Iso14001Data", "CDU_Sa8000Data", "CDU_FairtradeData", "CDU_OekotexNum", "CDU_OekotexNum2", "CDU_FscNum", "CDU_EuropeanflaxNum", "CDU_OekotexClasse", "CDU_OekotexClasse2");
+                        Module1.emp.Base.Clientes.ActualizaValorAtributos(Cli.Valor("Cliente"), Campos);
+                    MessageBox.Show("Mundifios - Dados gravados com sucesso!" + Strings.Chr(13) + Strings.Chr(13) + "Filopa - Dados gravados com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Mundifios - Dados gravados com sucesso!" + Strings.Chr(13) + Strings.Chr(13) + "Filopa - Erro:Cliente inexistente(EntidadeInterna " + BSO.Base.Clientes.DaValorAtributo(TextEditCodigoCliente.EditValue.ToString(), "CDU_EntidadeInterna") + ")", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show("Mundifios - Dados gravados com sucesso!" + Strings.Chr(13) + Strings.Chr(13) + "Filopa - Erro:Cliente inexistente(EntidadeInterna " + BSO.Base.Clientes.DaValorAtributo(TextEditCodigoCliente.EditValue.ToString(), "CDU_EntidadeInterna") + ")", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                    }
-
+                }
                     Module1.FechaEmpresa();
 
                 }
@@ -212,17 +213,21 @@ namespace FornecedoresCertificados
         private void TextEditCodigoCliente_KeyDown(object sender, KeyEventArgs e)
         {
 
-            if(e.KeyCode==Keys.F4)
+            if (e.KeyCode == Keys.F4)
             {
-                PSO.AbreLista(0, "Fornecedores", "Fornecedor", this.FindForm(), this.TextEditCodigoCliente, "mnuTabFornecedor",blnModal:true);
+                PSO.AbreLista(0, "Fornecedores", "Fornecedor", this.FindForm(), this.TextEditCodigoCliente, "mnuTabFornecedor", blnModal: true);
 
-            }   
+            }
 
         }
 
         private void FrmFornecedoresCertsView_Load(object sender, EventArgs e)
         {
-
+            if (FindForm() is Form pai)
+            {
+                pai.MinimumSize = pai.Size;
+                pai.MaximumSize = pai.Size;
+            }
             this.TextEditCodigoCliente.EditValue = Module1.certEntidade;
 
 
@@ -230,15 +235,20 @@ namespace FornecedoresCertificados
             dtclasse = BSO.DSO.ConsultaDataTable("SELECT CDU_Classe FROM PRIMundifios.dbo.TDU_ClassesCertificadoOKOTEX");
 
 
-                this.LookUpEditClasse.Properties.DataSource = dtclasse;
+            this.LookUpEditClasse.Properties.DataSource = dtclasse;
             LookUpEditClasse.Properties.DisplayMember = "CDU_Classe";
             LookUpEditClasse.Properties.ValueMember = "CDU_Classe";
 
-                this.LookUpEditClasse2.Properties.DataSource = dtclasse;
-            LookUpEditClasse2.Properties.DisplayMember= "CDU_Classe";
-            LookUpEditClasse2.Properties.ValueMember= "CDU_Classe";
+            LookUpEditClasse2.Properties.DisplayMember = "CDU_Classe";
+            this.LookUpEditClasse2.Properties.DataSource = dtclasse;
+            LookUpEditClasse2.Properties.ValueMember = "CDU_Classe";
 
 
+        }
+
+        private void barButtonItemFechar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

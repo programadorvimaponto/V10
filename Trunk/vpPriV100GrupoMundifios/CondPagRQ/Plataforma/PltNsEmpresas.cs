@@ -14,7 +14,8 @@ namespace CondPagRQ
         {
             base.DepoisDeAbrirEmpresa(e);
 
-            if (Module1.VerificaToken("CondPagRQ") == 1)
+            
+            if (Module1.VerificaToken("CondPagRQ") == 1 && System.Reflection.Assembly.GetExecutingAssembly().GetName().Name != "Plan")
             {
                 StdBELista listadocs;
 

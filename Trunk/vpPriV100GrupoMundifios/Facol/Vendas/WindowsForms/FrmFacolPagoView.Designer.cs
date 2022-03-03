@@ -153,6 +153,8 @@ namespace Facol
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmFacolPagoView";
             this.Size = new System.Drawing.Size(266, 89);
             this.Text = "Facol Pago";
