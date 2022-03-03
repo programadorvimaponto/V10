@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+*.suo
+/Trunk/vpPriV100Filopa/bin/
+/Trunk/vpPriV100Filopa/obj/
+/Trunk/vpPriV100GrupoMundifios/obj/
+/Trunk/vpPriV100GrupoMundifios/bin/
+/Trunk/vpPriV100Inovafil/obj/
+/Trunk/vpPriV100Inovafil/bin/
+/Trunk/vpPriV100Munditalia/bin/
+/Trunk/vpPriV100Munditalia/obj/
